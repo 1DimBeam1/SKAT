@@ -1,0 +1,71 @@
+﻿/* css/AdminPageCSS.css */
+
+/* Общие стили для AdminPage - теперь только для контентной части */
+.admin-main-container { /* Изменено имя */
+    display: flex; /* Если нужен flex для внутреннего расположения, но тут уже нет сайдбара */
+    flex-direction: column; /* Main content теперь единственная колонка */
+    min-height: 100vh;
+    background-color: #f0f0f0; /* Светло-серый фон для основного контента */
+}
+
+/* Стили Основного контента AdminPage */
+.admin-main-content { /* Изменено имя */
+    flex-grow: 1; /* Занимает все доступное пространство */
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Если admin-main-container не flex, то это может быть нужно */
+}
+
+.search-bar {
+    padding: 10px 15px;
+    background-color: #1a1a50; /* Темно-синий фон для поиска */
+    border-bottom: 1px solid #333377;
+}
+
+    .search-bar input {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #5555bb;
+        background-color: #eef;
+        color: #1a1a50;
+        box-sizing: border-box; /* Чтобы padding не увеличивал общую ширину */
+    }
+
+.session-list {
+    flex-grow: 1;
+    overflow-y: auto; /* Добавляем прокрутку, если список длинный */
+    padding: 0 15px; /* Добавим отступы по бокам для элементов списка */
+}
+
+.session-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a50; /* Темно-синий фон для строки */
+    color: white;
+    margin: 10px 0; /* Убрал боковые отступы, т.к. они теперь у .session-list */
+    border: 1px solid black; /* Черная рамка */
+}
+
+.session-name {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.session-action button {
+    padding: 15px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+.btn-results, .btn-continue, .btn-start {
+    background-color: #008000;
+}
+
+    .btn-results:hover, .btn-continue:hover, .btn-start:hover {
+        background-color: #006400;
+    }

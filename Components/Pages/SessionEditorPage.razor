@@ -1,0 +1,157 @@
+﻿@* Componenta/Page/SessionEditorPage.razor *@
+@page "/session-editor"
+
+<link href="css/SessionEditorPage.css" rel="stylesheet" />
+
+<PageTitle>Параметры сессии</PageTitle>
+
+<div class="sep-main-container">
+    <div class="sep-header">Параметры сессии</div>
+
+    <div class="sep-content-area">
+        <!-- Левая колонка -->
+        <div class="sep-left-column">
+            <label class="sep-label">Список заданий включенных в сессию:</label>
+            <div class="sep-task-list-box">
+                @if (selectedTasks.Any())
+                {
+                    @foreach (var task in selectedTasks)
+                    {
+                        <div class="sep-task-item">@task.Name</div>
+                    }
+                }
+                else
+                {
+                    <div class="sep-task-item sep-empty-list">Нет добавленных заданий</div>
+                }
+            </div>
+            <button class="sep-button sep-button-add" @onclick="AddTask">Добавить задание</button>
+        </div>
+
+        <!-- Правая колонка -->
+        <div class="sep-right-column">
+            <div class="sep-form-group">
+                <label class="sep-label">Дата проведения:</label>
+                <div class="sep-date-inputs">
+                    <span>с</span> <input type="date" @bind="SessionStartDate" />
+                    <span>До</span> <input type="date" @bind="SessionEndDate" />
+                </div>
+            </div>
+
+            <div class="sep-form-group">
+                <label class="sep-label">Время на выполнение:</label>
+                <div class="sep-time-inputs">
+                    <input type="number" min="0" placeholder="0" @bind="DurationHours" /> <span>ч.</span>
+                    <input type="number" min="0" max="59" placeholder="0" @bind="DurationMinutes" /> <span>мин.</span>
+                    <input type="number" min="0" max="59" placeholder="0" @bind="DurationSeconds" /> <span>сек.</span>
+                </div>
+            </div>
+
+            <div class="sep-form-group">
+                <label class="sep-label">Группы:</label>
+                <div class="sep-group-list-box">
+                    @if (selectedGroups.Any())
+                    {
+                        @foreach (var group in selectedGroups)
+                        {
+                            <div class="sep-group-item">@group.Name</div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="sep-group-item sep-empty-list">Нет добавленных групп</div>
+                    }
+                </div>
+                <button class="sep-button sep-button-add" @onclick="AddGroup">Добавить группу</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sep-footer-actions">
+        <button class="sep-button sep-button-create" @onclick="CreateSession">Создать сессию</button>
+    </div>
+</div>
+
+@code {
+    // Пример данных для задач
+    public class SessionTask
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    // Пример данных для групп
+    public class SessionGroup
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    private List<SessionTask> availableTasks = new List<SessionTask>(); // Все доступные задачи для выбора
+    private List<SessionTask> selectedTasks = new List<SessionTask>();
+
+    private List<SessionGroup> availableGroups = new List<SessionGroup>(); // Все доступные группы для выбора
+    private List<SessionGroup> selectedGroups = new List<SessionGroup>();
+
+
+    private DateTime? SessionStartDate { get; set; } = DateTime.Today;
+    private DateTime? SessionEndDate { get; set; } = DateTime.Today.AddDays(1);
+
+    private int DurationHours { get; set; }
+    private int DurationMinutes { get; set; }
+    private int DurationSeconds { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Загрузка примеров данных
+        LoadSampleData();
+    }
+
+    private void LoadSampleData()
+    {
+        // Задачи, добавленные в сессию (пример)
+        selectedTasks = new List<SessionTask>
+        {
+            new SessionTask { Id = 1, Name = "Сортировка вставками" },
+            new SessionTask { Id = 2, Name = "Сортировка слиянием" },
+            new SessionTask { Id = 3, Name = "Сортировка пузырьком" }
+        };
+
+        // Группы, добавленные в сессию (пример)
+        selectedGroups = new List<SessionGroup>
+        {
+            new SessionGroup { Id = 1, Name = "Б9121-02.03.03" },
+            // new SessionGroup { Id = 2, Name = "Б9122-02.03.03" }
+        };
+
+        // Здесь можно загрузить и availableTasks/availableGroups, если "Добавить задание/группу"
+        // будет открывать модальное окно для выбора из списка.
+    }
+
+    private void AddTask()
+    {
+        // Логика добавления задания (например, открытие модального окна со списком доступных заданий)
+        Console.WriteLine("Добавить задание");
+        // Для примера добавим еще одну задачу:
+        // selectedTasks.Add(new SessionTask { Id = selectedTasks.Count + 1, Name = $"Новое задание {selectedTasks.Count + 1}" });
+    }
+
+    private void AddGroup()
+    {
+        // Логика добавления группы
+        Console.WriteLine("Добавить группу");
+        // Для примера добавим еще одну группу:
+        // selectedGroups.Add(new SessionGroup { Id = selectedGroups.Count + 1, Name = $"Новая группа {selectedGroups.Count + 1}" });
+    }
+
+    private void CreateSession()
+    {
+        // Логика создания сессии с использованием всех введенных данных
+        Console.WriteLine("Создать сессию:");
+        Console.WriteLine($"Дата с: {SessionStartDate?.ToShortDateString()}, Дата до: {SessionEndDate?.ToShortDateString()}");
+        Console.WriteLine($"Время: {DurationHours}ч {DurationMinutes}м {DurationSeconds}с");
+        Console.WriteLine("Задания: " + string.Join(", ", selectedTasks.Select(t => t.Name)));
+        Console.WriteLine("Группы: " + string.Join(", ", selectedGroups.Select(g => g.Name)));
+        // Здесь может быть вызов API для сохранения сессии
+    }
+}

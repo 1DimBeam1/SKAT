@@ -1,0 +1,143 @@
+﻿@* Components/Layout/NavMenu.razor *@
+@inject NavigationManager NavigationManager
+
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">SKAT_Interface</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <!-- Секция Профиля (остается общей) -->
+        <div class="admin-profile-items">
+            <div class="profile-header-nav">Профиль</div>
+            <div class="profile-photo-nav">
+                <img src="images/favicon.png" alt="Фото профиля" />
+            </div>
+            <div class="profile-info-nav profile-name">@currentUserName</div>
+            <div class="profile-info-nav profile-group">@currentUserGroup</div>
+        </div>
+
+        <div class="sidebar-spacer-nav"></div>
+
+        <!-- Навигационные ссылки (зависят от страницы) -->
+        <div class="nav-links-group">
+            @if (IsUserPage())
+            {
+                <!-- Ссылки для UserPage -->
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="user" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Главная страница
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="user/statistics">
+                        @* Пример пути для статистики пользователя *@
+                        <span class="bi bi-bar-chart-line-fill-nav-menu" aria-hidden="true"></span> Статистика
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="user/settings">
+                        @* Пример пути для настроек пользователя *@
+                        <span class="bi bi-gear-fill-nav-menu" aria-hidden="true"></span> Настройки
+                    </NavLink>
+                </div>
+            }
+            else // По умолчанию или для AdminPage
+            {
+                <!-- Ссылки для AdminPage -->
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Главная страница
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="session-editor">
+                        <span class="bi bi-pencil-square-nav-menu" aria-hidden="true"></span> Редактор сессии
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="task-editor">
+                        <span class="bi bi-card-list-nav-menu" aria-hidden="true"></span> Редактор заданий
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="settings">
+                        @* Общие настройки или админские *@
+                        <span class="bi bi-gear-fill-nav-menu" aria-hidden="true"></span> Настройки
+                    </NavLink>
+                </div>
+            }
+        </div>
+    </nav>
+</div>
+
+@code {
+    private string currentUserName = "Загрузка...";
+    private string currentUserGroup = "Загрузка...";
+    private bool _isUserPageContext = false;
+
+    protected override void OnInitialized()
+    {
+        // Начальная проверка URL
+        UpdatePageContext(NavigationManager.Uri);
+        // Подписка на изменение URL
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        // Здесь можно загрузить реальные данные пользователя
+        // Для примера, если мы на UserPage, можно установить другие ФИО/Группу
+        if (IsUserPage())
+        {
+            currentUserName = "Пользователь Тест";
+            currentUserGroup = "Группа USER-01";
+        }
+        else
+        {
+            currentUserName = "Администратор";
+            currentUserGroup = "Группа ADMIN";
+        }
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        UpdatePageContext(e.Location);
+        // Обновить StateHasChanged, чтобы UI перерисовался с новыми ссылками
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void UpdatePageContext(string uri)
+    {
+        var currentPath = new Uri(uri).AbsolutePath;
+        _isUserPageContext = currentPath.Equals("/user", StringComparison.OrdinalIgnoreCase) ||
+                             currentPath.StartsWith("/user/", StringComparison.OrdinalIgnoreCase);
+
+        // Обновляем ФИО и группу в зависимости от контекста (опционально)
+        if (_isUserPageContext)
+        {
+            currentUserName = "Пользователь Тест";
+            currentUserGroup = "Группа USER-01";
+        }
+        else
+        {
+            currentUserName = "Администратор"; // Или Иванов Иван Иванович, как было
+            currentUserGroup = "Группа ADMIN"; // Или ПИ-01-01
+        }
+    }
+
+    private bool IsUserPage()
+    {
+        // Проверяем текущий URI, чтобы определить, находимся ли мы на UserPage или ее подстраницах
+        // Этот метод будет вызываться при рендеринге, поэтому используем _isUserPageContext,
+        // которое обновляется при изменении локации
+        return _isUserPageContext;
+    }
+
+    // Не забыть отписаться
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}

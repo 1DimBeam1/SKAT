@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SKAT_Interface.props" />
+</Project>

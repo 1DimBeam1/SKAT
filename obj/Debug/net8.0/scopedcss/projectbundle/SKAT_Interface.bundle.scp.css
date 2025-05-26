@@ -1,0 +1,789 @@
+/* _content/SKAT_Interface/Components/Layout/MainLayout.razor.rz.scp.css */
+.page[b-g5ukjpovp4] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-g5ukjpovp4] {
+    flex: 1;
+}
+
+.sidebar[b-g5ukjpovp4] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-g5ukjpovp4] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-g5ukjpovp4]  a, .top-row[b-g5ukjpovp4]  .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row[b-g5ukjpovp4]  a:hover, .top-row[b-g5ukjpovp4]  .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row[b-g5ukjpovp4]  a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row[b-g5ukjpovp4] {
+        justify-content: space-between;
+    }
+
+    .top-row[b-g5ukjpovp4]  a, .top-row[b-g5ukjpovp4]  .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-g5ukjpovp4] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-g5ukjpovp4] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-g5ukjpovp4] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth[b-g5ukjpovp4]  a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row[b-g5ukjpovp4], article[b-g5ukjpovp4] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+#blazor-error-ui[b-g5ukjpovp4] {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss[b-g5ukjpovp4] {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+/* _content/SKAT_Interface/Components/Layout/NavMenu.razor.rz.scp.css */
+/* Components/Layout/NavMenu.razor.css */
+
+.navbar-toggler[b-wjz2irxah8] {
+    appearance: none;
+    cursor: pointer;
+    width: 3.5rem;
+    height: 2.5rem;
+    color: white;
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") no-repeat center/1.75rem rgba(255, 255, 255, 0.1);
+}
+
+    .navbar-toggler:checked[b-wjz2irxah8] {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+.top-row[b-wjz2irxah8] {
+    height: 3.5rem;
+    background-color: #0d0d29;
+    padding-left: 1.5rem !important;
+}
+
+.navbar-brand[b-wjz2irxah8] {
+    font-size: 1.1rem;
+}
+
+.bi[b-wjz2irxah8] {
+    display: inline-block;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    top: -1px;
+    background-size: cover;
+}
+
+.bi-pencil-square-nav-menu[b-wjz2irxah8] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-pencil-square' viewBox='0 0 16 16'%3E%3Cpath d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/%3E%3Cpath fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/%3E%3C/svg%3E");
+}
+
+.bi-card-list-nav-menu[b-wjz2irxah8] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-card-list' viewBox='0 0 16 16'%3E%3Cpath d='M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z'/%3E%3Cpath d='M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3E%3C/svg%3E");
+}
+
+.bi-gear-fill-nav-menu[b-wjz2irxah8] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-gear-fill' viewBox='0 0 16 16'%3E%3Cpath d='M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311a1.464 1.464 0 0 1-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413-1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.858 2.929 2.929 0 0 1 0 5.858z'/%3E%3C/svg%3E");
+}
+
+.bi-house-door-fill-nav-menu[b-wjz2irxah8] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-house-door-fill' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z'/%3E%3C/svg%3E");
+}
+
+.bi-bar-chart-line-fill-nav-menu[b-wjz2irxah8] { /* Иконка для "Статистика" */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-bar-chart-line-fill' viewBox='0 0 16 16'%3E%3Cpath d='M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-4 0V4H2v10h2z'/%3E%3C/svg%3E");
+}
+
+.nav-scrollable[b-wjz2irxah8] {
+    display: none;
+    background-color: #1a1a50;
+    color: white;
+}
+
+    /* Заставляем nav занимать всю высоту .nav-scrollable и быть flex-колонкой */
+    .nav-scrollable > nav.flex-column[b-wjz2irxah8] {
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Очень важно для прижатия элементов к низу */
+    }
+
+.navbar-toggler:checked ~ .nav-scrollable[b-wjz2irxah8] {
+    display: block;
+}
+
+/* Стили для секции Профиля */
+.admin-profile-items[b-wjz2irxah8] {
+    /* Контейнер для элементов профиля */
+}
+
+.profile-header-nav[b-wjz2irxah8] {
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: #0d0d29;
+    text-align: center; /* Текст "Профиль" по центру */
+    border-bottom: 1px solid #333377;
+    color: white;
+}
+
+.profile-photo-nav[b-wjz2irxah8] {
+    width: 120px; /* Ширина зоны для фото */
+    height: 120px; /* Высота зоны для фото */
+    background-color: #333399; /* Фон, если фото не загружено или прозрачное */
+    margin: 20px auto 15px auto; /* Отступы: верх, право/лево авто (для центрирования), низ */
+    border: 1px solid #5555bb;
+    border-radius: 50%; /* Делаем фото круглым */
+    overflow: hidden; /* Обрезаем изображение по кругу */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .profile-photo-nav img[b-wjz2irxah8] {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Масштабирует изображение, чтобы заполнить контейнер, обрезая лишнее */
+    }
+
+.profile-info-nav[b-wjz2irxah8] {
+    background-color: #333399;
+    padding: 8px 15px; /* Уменьшим немного вертикальный padding */
+    margin: 0 15px 5px 15px; /* Уменьшим нижний отступ для более плотного расположения */
+    border: 1px solid #5555bb;
+    text-align: center; /* Текст ФИО и Группы по центру */
+    color: white;
+    border-radius: 4px; /* Небольшое скругление углов */
+}
+
+    .profile-info-nav.profile-name[b-wjz2irxah8] {
+        margin-bottom: 10px; /* Увеличим отступ после ФИО */
+    }
+
+/* Распорка */
+.sidebar-spacer-nav[b-wjz2irxah8] {
+    flex-grow: 1; /* Занимает все доступное пространство, отталкивая ссылки вниз */
+    background-color: #cccccc;
+    margin: 20px 15px; /* Отступы сверху/снизу и по бокам */
+    border: 1px solid #aaaaaa;
+    min-height: 20px; /* Минимальная высота, чтобы был виден */
+}
+
+/* Группа навигационных ссылок */
+.nav-links-group[b-wjz2irxah8] {
+    /* Этот блок будет прижат к низу благодаря .sidebar-spacer-nav */
+}
+
+.nav-item[b-wjz2irxah8] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Убираем отступ у первого nav-item в группе, т.к. отступ теперь у spacer или группы */
+.nav-links-group .nav-item:first-of-type[b-wjz2irxah8] {
+    padding-top: 0;
+}
+
+.nav-links-group .nav-item:last-of-type[b-wjz2irxah8] {
+    padding-bottom: 1rem;
+}
+
+.nav-item[b-wjz2irxah8]  .nav-link {
+    color: #d7d7d7;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+    width: 100%;
+}
+
+.nav-item[b-wjz2irxah8]  a.active {
+    background-color: rgba(255,255,255,0.37);
+    color: white;
+}
+
+.nav-item[b-wjz2irxah8]  .nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-wjz2irxah8] {
+        display: none;
+    }
+
+    .nav-scrollable[b-wjz2irxah8] {
+        display: block;
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+        width: 250px;
+    }
+}
+/* _content/SKAT_Interface/Components/Pages/AlgorithmEditorPage.razor.rz.scp.css */
+/* wwwroot/css/AlgorithmEditorPage.css */
+
+/* Общий контейнер страницы */
+.algo-editor-container[b-14mbek5x49] {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 3.5rem);
+    background-color: #3a5da0; /* Основной синий фон страницы */
+    color: white;
+    font-family: sans-serif; /* Или ваш основной шрифт проекта */
+    box-sizing: border-box;
+    overflow: hidden; /* Предотвращаем случайные выходы за пределы viewport */
+}
+
+/* Верхняя строка с заголовками колонок */
+.algo-header-row[b-14mbek5x49] {
+    display: flex;
+    background-color: #0d0d29; /* Темно-синий фон для заголовков колонок */
+    flex-shrink: 0; /* Заголовки не должны сжиматься */
+}
+
+.algo-header-left[b-14mbek5x49],
+.algo-header-right[b-14mbek5x49] {
+    flex: 1; /* Делят ширину поровну, но можно задать и другие пропорции, если нужно */
+    padding: 10px 15px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #1a1a50;
+}
+
+.algo-header-left[b-14mbek5x49] {
+    border-right: 2px solid #1a1a50;
+}
+
+/* Основная область контента (под заголовками) */
+.algo-main-content[b-14mbek5x49] {
+    display: flex;
+    flex-grow: 1; /* Занимает всё оставшееся ВЕРТИКАЛЬНОЕ пространство */
+    overflow: hidden; /* Важно, чтобы колонки не вылезали и прокрутка была внутри них, если нужно */
+}
+
+/* Левая Колонка: Редактор кода и описание */
+.algo-left-column[b-14mbek5x49] {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #0d0d29;
+    background-color: #2c3e50;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Правая Колонка: Параметры алгоритма */
+.algo-right-column[b-14mbek5x49] {
+    flex: 0 0 40%; /* Правая колонка занимает 40% ширины */
+    /* Или просто flex: 2; */
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto; /* Если параметров много, появится прокрутка */
+}
+
+/* Контейнер для редактора Monaco */
+.algo-code-editor-area[b-14mbek5x49] {
+    flex: 1;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+[b-14mbek5x49] .monaco-editor-container  {
+    height: 100%;
+    width: 100%;
+}
+
+/* Секция описания алгоритма под редактором */
+.algo-description-section[b-14mbek5x49] {
+    /* background-color: #3a5da0;  */ /* Можно оставить этот фон или убрать, чтобы был фон левой колонки */
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #0d0d29;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0; /* Секция описания не должна сжиматься по вертикали */
+    /* Можно задать max-height, если описание может быть слишком большим */
+    /* max-height: 250px; */
+    /* overflow-y: auto; */ /* Если описание может быть большим и нужна прокрутка */
+}
+
+.algo-description-input-row[b-14mbek5x49] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .algo-description-input-row label[b-14mbek5x49] {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .algo-description-input-row input[type="text"][b-14mbek5x49] {
+        flex-grow: 1;
+        padding: 8px;
+        background-color: #eef;
+        border: 1px solid #5555bb;
+        border-radius: 4px;
+        color: #1a1a50;
+        min-width: 0; /* Для правильной работы flex-grow в некоторых случаях */
+    }
+
+.algo-btn[b-14mbek5x49] {
+    padding: 8px 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap; /* Чтобы текст на кнопке не переносился */
+}
+
+.algo-btn-add-desc[b-14mbek5x49],
+.algo-btn-compile[b-14mbek5x49] {
+    background-color: #1a1a50;
+}
+
+.algo-btn-compile[b-14mbek5x49] {
+    align-self: flex-start;
+}
+
+    .algo-btn-add-desc:hover[b-14mbek5x49],
+    .algo-btn-compile:hover[b-14mbek5x49] {
+        background-color: #333399;
+    }
+
+.algo-description-preview[b-14mbek5x49] {
+    background-color: #cccccc;
+    min-height: 100px;
+    /* max-height: 200px; */ /* Если нужно ограничить высоту */
+    flex-grow: 1; /* Если хотите, чтобы область предпросмотра занимала доступное место в секции описания */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+    .algo-description-preview img[b-14mbek5x49] {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+.algo-no-preview[b-14mbek5x49] {
+    color: #555;
+    font-style: italic;
+}
+
+/* Правая колонка - Стили для группы параметров */
+.algo-param-group label[b-14mbek5x49] {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.algo-param-group textarea[b-14mbek5x49],
+.algo-param-group input[type="text"][b-14mbek5x49] {
+    width: 100%;
+    padding: 8px;
+    background-color: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    color: #333;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+.algo-param-group textarea[b-14mbek5x49] {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Кнопка "Добавить алгоритм" в правой колонке */
+.algo-btn-add-algorithm[b-14mbek5x49] {
+    background-color: #008000;
+    padding: 10px 20px;
+    align-self: flex-end; /* Кнопка справа */
+    margin-top: auto; /* Прижимает кнопку к низу правой колонки, если есть свободное место */
+}
+
+    .algo-btn-add-algorithm:hover[b-14mbek5x49] {
+        background-color: #006400;
+    }
+/* _content/SKAT_Interface/Components/Pages/SessionEditorPage.razor.rz.scp.css */
+:host[b-jh7h12h635] { /* Рамка вокруг всего компонента */
+    display: block; /* :host часто требует display: block */
+}
+
+.sep-main-container[b-jh7h12h635] {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 3.5rem); /* 3.5rem - высота top-row в NavMenu, если NavMenu постоянный */
+    /* Если NavMenu нет или другая высота, скорректируйте или используйте 100vh */
+    background-color: #3a5da0; /* Синий фон как на картинке (подберите точнее при необходимости) */
+    color: white; /* Основной цвет текста */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.sep-header[b-jh7h12h635] {
+    background-color: #0d0d29; /* Темно-синий как у других заголовков */
+    color: white;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.sep-content-area[b-jh7h12h635] {
+    display: flex;
+    gap: 20px; /* Пространство между колонками */
+    flex-grow: 1; /* Занимает доступное пространство */
+}
+
+.sep-left-column[b-jh7h12h635],
+.sep-right-column[b-jh7h12h635] {
+    flex: 1; /* Колонки делят пространство поровну */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Пространство между элементами в колонке */
+}
+
+.sep-label[b-jh7h12h635] {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.sep-task-list-box[b-jh7h12h635],
+.sep-group-list-box[b-jh7h12h635] {
+    background-color: #cccccc; /* Светло-серый фон для списков */
+    color: #333; /* Темный текст в списках */
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 150px; /* Минимальная высота списков */
+    max-height: 300px; /* Максимальная высота, чтобы появилась прокрутка */
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    flex-grow: 1; /* Позволяет списку растягиваться */
+}
+
+.sep-task-item[b-jh7h12h635],
+.sep-group-item[b-jh7h12h635] {
+    padding: 5px 0;
+    border-bottom: 1px solid #bbbbbb;
+}
+
+    .sep-task-item:last-child[b-jh7h12h635],
+    .sep-group-item:last-child[b-jh7h12h635] {
+        border-bottom: none;
+    }
+
+.sep-empty-list[b-jh7h12h635] {
+    font-style: italic;
+    color: #777;
+}
+
+
+.sep-button[b-jh7h12h635] {
+    padding: 10px 15px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sep-button-add[b-jh7h12h635] {
+    background-color: #1a1a50; /* Темно-синий для кнопок "Добавить" */
+    align-self: flex-start; /* Кнопка не растягивается на всю ширину */
+}
+
+    .sep-button-add:hover[b-jh7h12h635] {
+        background-color: #333399;
+    }
+
+.sep-form-group[b-jh7h12h635] {
+    /* Контейнер для группы лейбла и инпутов */
+}
+
+.sep-date-inputs[b-jh7h12h635],
+.sep-time-inputs[b-jh7h12h635] {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Пространство между инпутами и лейблами "с", "До", "ч." и т.д. */
+}
+
+    .sep-date-inputs input[type="date"][b-jh7h12h635],
+    .sep-time-inputs input[type="number"][b-jh7h12h635] {
+        background-color: #cccccc;
+        border: 1px solid #aaaaaa;
+        color: #333;
+        padding: 8px;
+        border-radius: 4px;
+        font-family: inherit; /* Наследуем шрифт */
+    }
+
+    .sep-date-inputs input[type="date"][b-jh7h12h635] {
+        flex-grow: 1; /* Поля даты занимают доступное место */
+    }
+
+    .sep-time-inputs input[type="number"][b-jh7h12h635] {
+        width: 60px; /* Фиксированная ширина для полей времени */
+        text-align: center;
+    }
+
+    /* Убираем стрелки у number input для лучшего вида */
+    .sep-time-inputs input[type=number][b-jh7h12h635]::-webkit-outer-spin-button,
+    .sep-time-inputs input[type=number][b-jh7h12h635]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .sep-time-inputs input[type=number][b-jh7h12h635] {
+        -moz-appearance: textfield; /* Firefox */
+    }
+
+
+.sep-footer-actions[b-jh7h12h635] {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end; /* Кнопка "Создать сессию" справа */
+}
+
+.sep-button-create[b-jh7h12h635] {
+    background-color: #008000; /* Зеленый для кнопки "Создать" */
+    padding: 12px 25px;
+}
+
+    .sep-button-create:hover[b-jh7h12h635] {
+        background-color: #006400;
+    }
+
+/* Адаптивность для маленьких экранов (опционально) */
+@media (max-width: 768px) {
+    .sep-content-area[b-jh7h12h635] {
+        flex-direction: column; /* Колонки становятся строками */
+    }
+}
+/* _content/SKAT_Interface/Components/Pages/TaskEditorPage.razor.rz.scp.css */
+/* TaskEditorPage.razor.css */
+:host[b-ta85l6r91n] {
+    display: block; /* :host часто требует display: block */
+}
+
+.task-editor-container[b-ta85l6r91n] {
+    display: flex;
+    height: calc(100vh - 3.5rem); /* Высота минус NavMenu top-row, если он есть */
+    /* Если NavMenu сбоку, то height: 100vh; и эта страница будет основным контентом */
+    /* Для примера, предполагаем, что это основной контент и занимает всю доступную область */
+    background-color: #2c5da3; /* Основной синий фон, как на картинке (подберите точнее, если нужно) */
+    color: white;
+    font-family: sans-serif;
+}
+
+.task-editor-left-column[b-ta85l6r91n],
+.task-editor-right-column[b-ta85l6r91n] {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Заголовки колонок будут иметь свои отступы */
+    box-sizing: border-box;
+}
+
+.task-editor-left-column[b-ta85l6r91n] {
+    flex: 6; /* Левая колонка шире */
+    border-right: 2px solid #0d0d29; /* Темная граница, как в AdminPage */
+}
+
+.task-editor-right-column[b-ta85l6r91n] {
+    flex: 4; /* Правая колонка уже */
+}
+
+.column-header[b-ta85l6r91n] {
+    background-color: #0d0d29; /* Темно-синий/фиолетовый, как заголовки в NavMenu/AdminPage */
+    color: white;
+    font-weight: bold;
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a50; /* Чуть светлее граница снизу */
+    font-size: 1.1em;
+}
+
+.form-section[b-ta85l6r91n] {
+    padding: 20px 25px;
+}
+
+    .form-section label[b-ta85l6r91n] {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 0.95em;
+    }
+
+    .form-section input[type="text"][b-ta85l6r91n],
+    .form-section textarea[b-ta85l6r91n] {
+        width: 100%;
+        padding: 10px 12px;
+        background-color: #e0e0e0; /* Светло-серый фон для полей ввода */
+        border: 1px solid #5555bb; /* Синеватая граница, как у других инпутов */
+        color: #222; /* Темный цвет текста в полях ввода */
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 1em;
+    }
+
+    .form-section textarea[b-ta85l6r91n] {
+        resize: vertical;
+        min-height: 120px; /* Начальная высота для текстового поля */
+        line-height: 1.5;
+    }
+
+.algorithm-section[b-ta85l6r91n] {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между элементами */
+}
+
+    .algorithm-section label[b-ta85l6r91n] {
+        margin-bottom: 0; /* Убираем отступ снизу у метки, т.к. она в строке */
+        flex-shrink: 0; /* Метка не будет сжиматься */
+    }
+
+    .algorithm-section input[type="text"][b-ta85l6r91n] {
+        flex-grow: 1; /* Поле ввода занимает доступное пространство */
+    }
+
+.btn-select-algorithm[b-ta85l6r91n] {
+    background-color: #1a1a50; /* Темно-синий, как кнопки в NavMenu */
+    color: white;
+    border: 1px solid #5555bb;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap; /* Чтобы текст "Выбрать" не переносился */
+    transition: background-color 0.2s ease;
+}
+
+    .btn-select-algorithm:hover[b-ta85l6r91n] {
+        background-color: #333399; /* Немного светлее при наведении */
+    }
+
+/* Стили для правой колонки */
+.task-editor-right-column .form-section[b-ta85l6r91n] {
+    /* Если нужны особые отступы для правой колонки */
+}
+
+.action-buttons-group[b-ta85l6r91n] {
+    display: flex;
+    padding: 25px;
+    margin-top: auto; /* Прижимает группу кнопок к низу правой колонки */
+    gap: 15px;
+    align-items: flex-end; /* Выравнивание по нижнему краю для кнопок разной высоты */
+}
+
+.btn-action[b-ta85l6r91n] {
+    background-color: #008000; /* Зеленый цвет, как у кнопок в AdminPage */
+    color: white;
+    border: 1px solid #005000; /* Темно-зеленая граница */
+    padding: 12px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+    .btn-action:hover[b-ta85l6r91n] {
+        background-color: #006400; /* Темнее при наведении */
+    }
+
+.btn-auto-generate[b-ta85l6r91n] {
+    padding-top: 20px; /* Делаем кнопку "Автоматическая генерация" выше */
+    padding-bottom: 20px;
+    flex-basis: 40%; /* Задаем базовую ширину */
+}
+
+.stacked-buttons[b-ta85l6r91n] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Расстояние между кнопками "Добавить алгоритм" и "Создать задание" */
+    flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+    .stacked-buttons .btn-action[b-ta85l6r91n] {
+        width: 100%; /* Кнопки в стопке занимают всю ширину своего контейнера */
+    }

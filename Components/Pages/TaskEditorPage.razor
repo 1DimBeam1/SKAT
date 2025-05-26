@@ -1,0 +1,79 @@
+﻿@page "/task-editor"
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Редактор Заданий</PageTitle>
+
+<div class="task-editor-container">
+    <!-- Левая Колонка -->
+    <div class="task-editor-left-column">
+        <div class="column-header">Задание</div>
+
+        <div class="form-section">
+            <label for="taskText">Текст задания:</label>
+            <textarea id="taskText" @bind="taskDescription" rows="8"></textarea>
+        </div>
+
+        <div class="form-section algorithm-section">
+            <label for="algorithmName">Алгоритм:</label>
+            <input type="text" id="algorithmName" @bind="selectedAlgorithm" />
+            <button class="btn-select-algorithm" @onclick="SelectAlgorithm">Выбрать</button>
+        </div>
+    </div>
+
+    <!-- Правая Колонка -->
+    <div class="task-editor-right-column">
+        <div class="column-header">Параметры</div>
+
+        <div class="form-section">
+            <label for="inputValues">Входные значения:</label>
+            <input type="text" id="inputValues" @bind="inputData" />
+        </div>
+
+        <div class="form-section">
+            <label for="taskTitle">Название задания:</label>
+            <input type="text" id="taskTitle" @bind="taskName" />
+        </div>
+
+        <div class="action-buttons-group">
+            <button class="btn-action btn-auto-generate" @onclick="AutoGenerateTask">Автоматическая генерация</button>
+            <div class="stacked-buttons">
+                <button class="btn-action btn-add-algorithm" @onclick="CreateAlgorithm">Создать алгоритм</button>
+                <button class="btn-action btn-create-task" @onclick="CreateTask">Создать задание</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string taskDescription = "Необходимо отсортировать данные применив сортировку вставками.\nНа каждом шаге введите значение отслеживаемых переменных.";
+    private string selectedAlgorithm = "Сортировка вставками";
+    private string inputData = "Arr = 1,2,4,6,8,7,5,0,9,3";
+    private string taskName = "Сортировка вставками";
+
+    private void SelectAlgorithm()
+    {
+        Console.WriteLine("Нажата кнопка 'Выбрать алгоритм'");
+        // Здесь будет логика выбора алгоритма, например, открытие модального окна
+    }
+
+    private void AutoGenerateTask()
+    {
+        Console.WriteLine("Нажата кнопка 'Автоматическая генерация'");
+    }
+
+    private void CreateAlgorithm()
+    {
+        Console.WriteLine("Нажата кнопка 'Добавить алгоритм'");
+        NavigationManager.NavigateTo("/algorithm-editor");
+    }
+
+    private void CreateTask()
+    {
+        Console.WriteLine($"Создание задания: {taskName}");
+        Console.WriteLine($"Описание: {taskDescription}");
+        Console.WriteLine($"Алгоритм: {selectedAlgorithm}");
+        Console.WriteLine($"Входные данные: {inputData}");
+        // Здесь будет логика сохранения задания
+    }
+}

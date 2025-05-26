@@ -1,0 +1,149 @@
+﻿/* TaskEditorPage.razor.css */
+:host {
+    display: block; /* :host часто требует display: block */
+}
+
+.task-editor-container {
+    display: flex;
+    height: calc(100vh - 3.5rem); /* Высота минус NavMenu top-row, если он есть */
+    /* Если NavMenu сбоку, то height: 100vh; и эта страница будет основным контентом */
+    /* Для примера, предполагаем, что это основной контент и занимает всю доступную область */
+    background-color: #2c5da3; /* Основной синий фон, как на картинке (подберите точнее, если нужно) */
+    color: white;
+    font-family: sans-serif;
+}
+
+.task-editor-left-column,
+.task-editor-right-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* Заголовки колонок будут иметь свои отступы */
+    box-sizing: border-box;
+}
+
+.task-editor-left-column {
+    flex: 6; /* Левая колонка шире */
+    border-right: 2px solid #0d0d29; /* Темная граница, как в AdminPage */
+}
+
+.task-editor-right-column {
+    flex: 4; /* Правая колонка уже */
+}
+
+.column-header {
+    background-color: #0d0d29; /* Темно-синий/фиолетовый, как заголовки в NavMenu/AdminPage */
+    color: white;
+    font-weight: bold;
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #1a1a50; /* Чуть светлее граница снизу */
+    font-size: 1.1em;
+}
+
+.form-section {
+    padding: 20px 25px;
+}
+
+    .form-section label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        font-size: 0.95em;
+    }
+
+    .form-section input[type="text"],
+    .form-section textarea {
+        width: 100%;
+        padding: 10px 12px;
+        background-color: #e0e0e0; /* Светло-серый фон для полей ввода */
+        border: 1px solid #5555bb; /* Синеватая граница, как у других инпутов */
+        color: #222; /* Темный цвет текста в полях ввода */
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-size: 1em;
+    }
+
+    .form-section textarea {
+        resize: vertical;
+        min-height: 120px; /* Начальная высота для текстового поля */
+        line-height: 1.5;
+    }
+
+.algorithm-section {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Расстояние между элементами */
+}
+
+    .algorithm-section label {
+        margin-bottom: 0; /* Убираем отступ снизу у метки, т.к. она в строке */
+        flex-shrink: 0; /* Метка не будет сжиматься */
+    }
+
+    .algorithm-section input[type="text"] {
+        flex-grow: 1; /* Поле ввода занимает доступное пространство */
+    }
+
+.btn-select-algorithm {
+    background-color: #1a1a50; /* Темно-синий, как кнопки в NavMenu */
+    color: white;
+    border: 1px solid #5555bb;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap; /* Чтобы текст "Выбрать" не переносился */
+    transition: background-color 0.2s ease;
+}
+
+    .btn-select-algorithm:hover {
+        background-color: #333399; /* Немного светлее при наведении */
+    }
+
+/* Стили для правой колонки */
+.task-editor-right-column .form-section {
+    /* Если нужны особые отступы для правой колонки */
+}
+
+.action-buttons-group {
+    display: flex;
+    padding: 25px;
+    margin-top: auto; /* Прижимает группу кнопок к низу правой колонки */
+    gap: 15px;
+    align-items: flex-end; /* Выравнивание по нижнему краю для кнопок разной высоты */
+}
+
+.btn-action {
+    background-color: #008000; /* Зеленый цвет, как у кнопок в AdminPage */
+    color: white;
+    border: 1px solid #005000; /* Темно-зеленая граница */
+    padding: 12px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.95em;
+    transition: background-color 0.2s ease;
+}
+
+    .btn-action:hover {
+        background-color: #006400; /* Темнее при наведении */
+    }
+
+.btn-auto-generate {
+    padding-top: 20px; /* Делаем кнопку "Автоматическая генерация" выше */
+    padding-bottom: 20px;
+    flex-basis: 40%; /* Задаем базовую ширину */
+}
+
+.stacked-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Расстояние между кнопками "Добавить алгоритм" и "Создать задание" */
+    flex-grow: 1; /* Занимает оставшееся пространство */
+}
+
+    .stacked-buttons .btn-action {
+        width: 100%; /* Кнопки в стопке занимают всю ширину своего контейнера */
+    }
