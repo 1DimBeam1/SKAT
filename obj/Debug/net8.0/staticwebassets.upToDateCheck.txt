@@ -4,3 +4,4 @@ wwwroot\bootstrap\bootstrap.min.css.map
 wwwroot\css\AdminPageCSS.css
 wwwroot\css\UserPageCSS.css
 wwwroot\images\favicon.png
+wwwroot\images\InsertSort.PNG

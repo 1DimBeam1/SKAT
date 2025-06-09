@@ -66,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>lth9f3gy3d</Fingerprint>
-      <Integrity>eZ3z5Ek3G5p5ZOZtb7m0hk3gCtI6UtLlg/1ESz4P+rg=</Integrity>
+      <Fingerprint>3kivrx2q0v</Fingerprint>
+      <Integrity>TdFZNGLdXDWvluOMe4wHXw/uvWJmBOVRL6Bx70eg9TQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\AdminPageCSS.css'))</OriginalItemSpec>
@@ -108,23 +108,41 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\favicon.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SKAT_Interface.et5xwv5s6m.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\InsertSort.PNG'))">
       <SourceType>Package</SourceType>
       <SourceId>SKAT_Interface</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/SKAT_Interface</BasePath>
-      <RelativePath>SKAT_Interface.et5xwv5s6m.bundle.scp.css</RelativePath>
+      <RelativePath>images/InsertSort.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>qhwvkvv1dr</Fingerprint>
+      <Integrity>PlaLzIa6V748EQaOjKeH5q/7DWpzF761No4DoHJaMBY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\InsertSort.PNG'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SKAT_Interface.ie7fxpihha.bundle.scp.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>SKAT_Interface</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/SKAT_Interface</BasePath>
+      <RelativePath>SKAT_Interface.ie7fxpihha.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>et5xwv5s6m</Fingerprint>
-      <Integrity>ThhSRDC9tRHLvPylePqkQUFTEwdcBK+DhFo2TfQOQak=</Integrity>
+      <Fingerprint>ie7fxpihha</Fingerprint>
+      <Integrity>OvhMbJMjSxFbM2tzWvokyusuFO+0UargKmOahfoWZ7k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SKAT_Interface.et5xwv5s6m.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\SKAT_Interface.ie7fxpihha.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

@@ -1,83 +1,80 @@
 /* _content/SKAT_Interface/Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-g5ukjpovp4] {
-    position: relative;
     display: flex;
-    flex-direction: column;
-}
-
-main[b-g5ukjpovp4] {
-    flex: 1;
+    flex-direction: row;
+    height: 100vh; /* Важно для полноэкранного режима */
 }
 
 .sidebar[b-g5ukjpovp4] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-color: #1a1a50; /* Фон из вашего NavMenu */
+    width: 250px; /* Ширина из вашего NavMenu */
+    /* Если NavMenu сам управляет своей высотой, то здесь больше ничего не нужно */
+    /* Если он должен скроллиться, то тут может быть height: 100vh; overflow-y: auto; */
+    /* но обычно NavMenu сам это делает */
 }
 
-.top-row[b-g5ukjpovp4] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
+main[b-g5ukjpovp4] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Предотвращаем появление двойных скроллбаров */
+}
+
+.page.full-screen-mode main[b-g5ukjpovp4] {
+    /* В полноэкранном режиме main занимает всю ширину */
+}
+
+
+.top-row-custom-header[b-g5ukjpovp4] {
+    height: 3.5rem; /* или другая фиксированная высота */
+    background-color: #0d0d29; /* Темный фон, как у других хедеров */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem; /* Отступы по бокам */
+    border-bottom: 1px solid #333377;
+    flex-shrink: 0; /* Хедер не должен сжиматься */
+}
+
+.btn-custom-header-home[b-g5ukjpovp4] {
+    background: none;
+    border: none;
+    color: #d7d7d7;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-    .top-row[b-g5ukjpovp4]  a, .top-row[b-g5ukjpovp4]  .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
-
-    .top-row[b-g5ukjpovp4]  a:hover, .top-row[b-g5ukjpovp4]  .btn-link:hover {
+    .btn-custom-header-home:hover[b-g5ukjpovp4] {
+        color: white;
         text-decoration: underline;
     }
 
-    .top-row[b-g5ukjpovp4]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .btn-custom-header-home .bi[b-g5ukjpovp4] {
+        font-size: 1.5rem; /* Размер иконки стрелки */
+        margin-right: 0.5rem;
     }
 
-@media (max-width: 640.98px) {
-    .top-row[b-g5ukjpovp4] {
-        justify-content: space-between;
-    }
 
-    .top-row[b-g5ukjpovp4]  a, .top-row[b-g5ukjpovp4]  .btn-link {
-        margin-left: 0;
-    }
+.content[b-g5ukjpovp4] {
+    flex-grow: 1; /* Контент занимает все оставшееся место в main */
+    overflow-y: auto; /* Скролл для контента, если он не помещается */
+    /* padding: 1.1rem; стандартный, заменен на px-4 или px-0 */
 }
 
-@media (min-width: 641px) {
-    .page[b-g5ukjpovp4] {
-        flex-direction: row;
+    .content.px-0[b-g5ukjpovp4] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        /* Можно убрать и верхний/нижний padding, если ActualTestPage сама их контролирует */
+        /* padding-top: 0 !important; */
+        /* padding-bottom: 0 !important; */
     }
 
-    .sidebar[b-g5ukjpovp4] {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
 
-    .top-row[b-g5ukjpovp4] {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-    }
-
-    .top-row.auth[b-g5ukjpovp4]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
-
-    .top-row[b-g5ukjpovp4], article[b-g5ukjpovp4] {
-        padding-left: 2rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
-
-#blazor-error-ui[b-g5ukjpovp4] {
+/* Стандартный Blazor Error UI, если он вам нужен */
+/* #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
     box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
@@ -89,12 +86,112 @@ main[b-g5ukjpovp4] {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss[b-g5ukjpovp4] {
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    } */
+
+
+
+/*.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.sidebar {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        text-decoration: none;
+    }
+
+    .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
+        text-decoration: underline;
+    }
+
+    .top-row ::deep a:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row {
+        justify-content: space-between;
+    }
+
+    .top-row ::deep a, .top-row ::deep .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row.auth ::deep a:first-child {
+        flex: 1;
+        text-align: right;
+        width: 0;
+    }
+
+    .top-row, article {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
         cursor: pointer;
         position: absolute;
         right: 0.75rem;
         top: 0.5rem;
     }
+*/
 /* _content/SKAT_Interface/Components/Layout/NavMenu.razor.rz.scp.css */
 /* Components/Layout/NavMenu.razor.css */
 
@@ -281,6 +378,420 @@ main[b-g5ukjpovp4] {
         width: 250px;
     }
 }
+/* _content/SKAT_Interface/Components/Pages/ActualTestPage.razor.rz.scp.css */
+/* wwwroot/css/ActualTestPage.css */
+.atp-container[b-oob6u1pje3] {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Если есть NavMenu */
+    /* height: 100vh; */ /* Если это fullscreen страница */
+    background-color: #2c3e50; /* Фоновый цвет страницы, более темный синий */
+    color: white;
+    font-family: sans-serif;
+    box-sizing: border-box;
+     /*overflow: hidden; Предотвратить появление общих скроллов */
+}
+
+.atp-header-row[b-oob6u1pje3] {
+    display: flex;
+    background-color: #0d0d29; /* Очень темно-синий для заголовков колонок */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.atp-header-solution[b-oob6u1pje3],
+.atp-header-task[b-oob6u1pje3],
+.atp-header-info[b-oob6u1pje3] {
+    padding: 10px 15px;
+    border-bottom: 2px solid #1a1a50;
+}
+
+.atp-header-solution[b-oob6u1pje3] {
+    flex: 2.5;
+    border-right: 2px solid #1a1a50;
+}
+/* Решение шире */
+.atp-header-task[b-oob6u1pje3] {
+    flex: 1.5;
+    border-right: 2px solid #1a1a50;
+}
+/* Задание */
+.atp-header-info[b-oob6u1pje3] {
+    flex: 1;
+}
+/* Информация */
+
+
+.atp-main-content[b-oob6u1pje3] {
+    display: flex;
+    flex-grow: 1; /* Занимает все доступное пространство */
+    overflow: hidden; /* Важно, чтобы внутренние колонки не ломали макет */
+}
+
+.atp-solution-column[b-oob6u1pje3] {
+    flex: 2.5; /* Соответствует заголовку */
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-right: 2px solid #0d0d29;
+     /*overflow-y: auto; Прокрутка для этой колонки, если контент превышает высоту */
+}
+
+.atp-task-column[b-oob6u1pje3] {
+    flex: 1.5; /* Соответствует заголовку */
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 20px; /* Пространство между формулировкой и картинкой */
+    border-right: 2px solid #0d0d29;
+    overflow-y: auto;
+}
+
+.atp-info-column[b-oob6u1pje3] {
+    flex: 1; /* Соответствует заголовку */
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px; /* Пространство между инфо-блоками */
+    overflow-y: auto;
+    background-color: #1a1a50; /* Чуть светлее фон для этой колонки */
+}
+
+/* Стили для левой колонки - Решение */
+.atp-current-step-info[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован из предыдущих шагов */
+    display: flex;
+    background-color: #1a1a50;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Отступ до кнопок добавления шагов */
+    border: 1px solid #333399;
+    color: white; /* Убедимся, что текст виден */
+    flex-shrink: 0;
+}
+
+.atp-step-description[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован */
+    flex-grow: 1;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    padding-right: 10px;
+}
+
+.atp-step-scrollbar-mock[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован */
+    width: 10px;
+    background-color: #0d0d29;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.atp-step-scrollbar-thumb-mock[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован */
+    width: 6px;
+    height: 50px;
+    background-color: #5555bb;
+    border-radius: 3px;
+}
+
+
+.atp-step-adder-buttons[b-oob6u1pje3] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.atp-add-step-button[b-oob6u1pje3] {
+    background-color: #5555bb;
+    color: white;
+    border: 1px solid #7777dd;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .atp-add-step-button:hover[b-oob6u1pje3] {
+        background-color: #6666cc;
+    }
+
+/* Область для отображения добавленных экземпляров шагов */
+.atp-displayed-steps-area[b-oob6u1pje3] {
+    flex-grow: 1;
+    overflow-y: auto; /* Прокрутка ТОЛЬКО для этой области */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 5px; /* Небольшой отступ сверху, если нужно */
+}
+
+.atp-no-steps-placeholder[b-oob6u1pje3] {
+    color: #ccc;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Контейнер для одного экземпляра шага (остается как был) */
+.atp-step-instance-container[b-oob6u1pje3] {
+    background-color: #1a1a50;
+    border: 1px solid #333399;
+    border-radius: 4px;
+    padding: 10px;
+    color: white; /* Общий цвет текста для экземпляра */
+}
+
+/* Стили для статусов экземпляра */
+.atp-instance-notchecked[b-oob6u1pje3] {
+    /* По умолчанию фон .atp-step-instance-container */
+}
+
+.atp-instance-pending[b-oob6u1pje3] {
+    border-left: 5px solid #ffc107; /* Желтая полоса для "в процессе проверки" */
+}
+
+.atp-instance-correct[b-oob6u1pje3] {
+    border-left: 5px solid #28a745; /* Зеленая полоса */
+    background-color: rgba(0, 128, 0, 0.15); /* Легкий зеленый фон */
+}
+
+.atp-instance-incorrect[b-oob6u1pje3] {
+    border-left: 5px solid #dc3545; /* Красная полоса */
+    background-color: rgba(255, 0, 0, 0.1); /* Легкий красный фон */
+}
+
+
+.atp-instance-header[b-oob6u1pje3] {
+    display: flex;
+    margin-bottom: 10px;
+    /* Стили как у .atp-current-step-info, но без фона, т.к. фон у родителя */
+}
+
+.atp-instance-description[b-oob6u1pje3] {
+    flex-grow: 1;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    padding-right: 10px;
+    color: white;
+}
+
+.atp-instance-scrollbar-mock[b-oob6u1pje3] { /* Такой же, как atp-step-scrollbar-mock */
+    width: 10px;
+    background-color: #0d0d29;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.atp-instance-scrollbar-thumb-mock[b-oob6u1pje3] { /* Такой же, как atp-step-scrollbar-thumb-mock */
+    width: 6px;
+    height: 40px; /* Чуть меньше, может быть */
+    background-color: #5555bb;
+    border-radius: 3px;
+}
+
+.atp-instance-input-fields[b-oob6u1pje3] {
+    background-color: #3a5da0; /* Синий фон для области ввода, как на картинке */
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #1a1a50;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.atp-input-row[b-oob6u1pje3] {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Промежуток между переменными в одной строке */
+}
+
+.atp-variable-input[b-oob6u1pje3] {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Промежуток между label и input */
+}
+
+    .atp-variable-input label[b-oob6u1pje3] {
+        color: white;
+        font-weight: normal;
+        white-space: nowrap; /* Чтобы "A =", "i =" не переносились */
+    }
+
+    .atp-variable-input input[type="text"][b-oob6u1pje3] {
+        background-color: #cccccc; /* Светло-серый фон поля */
+        border: 1px solid #aaaaaa;
+        border-radius: 3px;
+        padding: 6px 8px;
+        color: #333;
+        font-family: Consolas, Monaco, monospace;
+        font-size: 0.95em;
+    }
+
+    .atp-variable-input input.narrow-input[b-oob6u1pje3] {
+        width: 60px; /* Ширина для i, j */
+    }
+
+    .atp-variable-input input.wide-input[b-oob6u1pje3] {
+        width: 180px; /* Ширина для A */
+    }
+
+.atp-step-correct[b-oob6u1pje3] {
+    background-color: rgba(0, 128, 0, 0.3); /* Полупрозрачный зеленый */
+    border-color: rgba(0, 128, 0, 0.7);
+}
+
+.atp-step-incorrect[b-oob6u1pje3] {
+    background-color: rgba(255, 0, 0, 0.3); /* Полупрозрачный красный */
+    border-color: rgba(255, 0, 0, 0.7);
+}
+
+/* Стили для средней колонки - Задание */
+.atp-block-label[b-oob6u1pje3] { /* Общий стиль для заголовков блоков */
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #a0b0ff; /* Светло-синий для подзаголовков */
+}
+
+.atp-task-formulation[b-oob6u1pje3],
+.atp-task-image[b-oob6u1pje3] {
+    background-color: #1a1a50;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #333399;
+    display: flex;
+    flex-direction: column;
+}
+
+.atp-task-formulation[b-oob6u1pje3] {
+    flex-grow: 1; /* Формулировка занимает больше места, если картинка ниже */
+    min-height: 150px;
+}
+
+    .atp-task-formulation textarea[b-oob6u1pje3] {
+        flex-grow: 1;
+        background-color: #eef;
+        color: #1a1a50;
+        border: 1px solid #5555bb;
+        border-radius: 3px;
+        padding: 10px;
+        resize: none; /* Запрет изменения размера */
+        font-family: inherit;
+        font-size: 0.95em;
+    }
+
+.atp-task-image[b-oob6u1pje3] {
+    min-height: 200px; /* Минимальная высота для блока картинки */
+}
+
+.atp-image-placeholder[b-oob6u1pje3] {
+    flex-grow: 1;
+    background-color: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    font-style: italic;
+}
+
+    .atp-image-placeholder img[b-oob6u1pje3] {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+/* Стили для правой колонки - Информация */
+.atp-info-block[b-oob6u1pje3] {
+    background-color: #0d0d29; /* Очень темный фон для инфо-блоков */
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #333399;
+}
+
+    .atp-info-block .atp-block-label[b-oob6u1pje3] {
+        color: #88aaff; /* Другой цвет для лейблов в инфо-колонке */
+        font-size: 1em;
+    }
+
+.atp-timer-display[b-oob6u1pje3] {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    color: #ffc107; /* Желтоватый для таймера */
+}
+
+.atp-hints textarea[b-oob6u1pje3] {
+    width: 100%;
+    min-height: 80px;
+    background-color: #eef;
+    color: #1a1a50;
+    border: 1px solid #5555bb;
+    border-radius: 3px;
+    padding: 8px;
+    resize: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+.atp-no-hints-placeholder[b-oob6u1pje3] {
+    color: #ccc;
+    font-style: italic;
+    font-size: 0.9em;
+    padding: 10px 0;
+}
+
+.atp-session-tasks-list[b-oob6u1pje3] {
+    /* Контейнер для списка заданий */
+}
+
+.atp-session-task-items[b-oob6u1pje3] {
+    max-height: 150px; /* Ограничиваем высоту, добавляем скролл */
+    overflow-y: auto;
+    padding-top: 5px;
+}
+
+.atp-session-task-item[b-oob6u1pje3] {
+    padding: 5px 0;
+    font-size: 0.9em;
+    color: #ddeeff;
+}
+
+    .atp-session-task-item.current[b-oob6u1pje3] {
+        font-weight: bold;
+        color: #66ff66; /* Зеленый для текущего задания */
+    }
+
+
+.atp-button[b-oob6u1pje3] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%; /* Кнопка на всю ширину инфо-колонки */
+    box-sizing: border-box;
+    margin-top: auto; /* Прижимает кнопку к низу колонки */
+}
+
+.atp-button-next[b-oob6u1pje3] {
+    background-color: #008000; /* Зеленый */
+}
+
+    .atp-button-next:hover[b-oob6u1pje3] {
+        background-color: #006400;
+    }
 /* _content/SKAT_Interface/Components/Pages/AlgorithmEditorPage.razor.rz.scp.css */
 /* wwwroot/css/AlgorithmEditorPage.css */
 
@@ -478,6 +989,239 @@ main[b-g5ukjpovp4] {
 
     .algo-btn-add-algorithm:hover[b-14mbek5x49] {
         background-color: #006400;
+    }
+/* _content/SKAT_Interface/Components/Pages/PreTestPage.razor.rz.scp.css */
+/* wwwroot/css/PreTestPage.css */
+.ptp-container[b-03h87ucj2k] {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 3.5rem);
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.ptp-title-bar[b-03h87ucj2k] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d0d29;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.ptp-session-name[b-03h87ucj2k] {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.ptp-time-info[b-03h87ucj2k] {
+    font-size: 1em;
+}
+
+.ptp-body[b-03h87ucj2k] {
+    display: flex;
+    flex-grow: 1;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.ptp-test-selection-area[b-03h87ucj2k] {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Новый стиль для заголовка списка заданий */
+.ptp-info-label[b-03h87ucj2k] {
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white; /* Убедимся, что текст виден на темном фоне */
+}
+
+.ptp-test-list-wrapper[b-03h87ucj2k] {
+    display: flex;
+    flex-grow: 1; /* Занимает все доступное место в ptp-test-selection-area */
+    overflow: hidden;
+    /* margin-bottom был нужен для кнопки "Назад", теперь можно убрать или уменьшить */
+    margin-bottom: 0;
+    border: 1px solid #333399;
+    border-radius: 3px;
+}
+
+.ptp-test-list[b-03h87ucj2k] {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.ptp-test-item[b-03h87ucj2k] {
+    background-color: #333399;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    /* cursor: pointer; УБРАНО, так как элементы не кликабельны */
+    border: 1px solid #5555bb;
+    text-align: center;
+}
+
+    .ptp-test-item:last-child[b-03h87ucj2k] {
+        margin-bottom: 0;
+    }
+
+/* :hover и .selected больше не нужны для ptp-test-item в этом контексте */
+/* .ptp-test-item:hover {
+        background-color: #5555bb;
+    }
+    .ptp-test-item.selected {
+        background-color: #008000; 
+        border-color: #006400;
+        font-weight:bold;
+    } */
+
+
+.ptp-scrollbar-mock[b-03h87ucj2k] {
+    width: 12px;
+    background-color: #0d0d29;
+    border-radius: 6px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.ptp-scrollbar-thumb-mock[b-03h87ucj2k] {
+    width: 8px;
+    height: 60px;
+    background-color: #5555bb;
+    border-radius: 4px;
+}
+
+.ptp-options-area[b-03h87ucj2k] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+}
+
+.ptp-test-type-container[b-03h87ucj2k] {
+    background-color: #1a1a50;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    min-width: 250px;
+    border: 1px solid #0d0d29;
+}
+
+.ptp-label[b-03h87ucj2k] {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    display: block;
+}
+
+.ptp-radio-option[b-03h87ucj2k] {
+    margin-bottom: 12px;
+}
+
+    .ptp-radio-option:last-child[b-03h87ucj2k] {
+        margin-bottom: 0;
+    }
+
+.ptp-custom-radio-label[b-03h87ucj2k] {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+}
+
+    .ptp-custom-radio-label input[type="radio"][b-03h87ucj2k] {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+
+.ptp-custom-radio-outer[b-03h87ucj2k] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #5555bb;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    background-color: #cccccc;
+}
+
+.ptp-custom-radio-inner[b-03h87ucj2k] {
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.ptp-custom-radio-label input[type="radio"]:checked + .ptp-custom-radio-outer .ptp-custom-radio-inner[b-03h87ucj2k] {
+    background-color: #00a000;
+}
+
+.ptp-custom-radio-label input[type="radio"]:checked + .ptp-custom-radio-outer[b-03h87ucj2k] {
+    border-color: #008000;
+}
+
+
+.ptp-footer-action[b-03h87ucj2k] {
+    display: flex;
+    justify-content: space-between; /* Располагает кнопки по краям */
+    align-items: center; /* Выравнивает кнопки по центру вертикально */
+    margin-top: 20px;
+    gap: 15px; /* Добавляем промежуток между кнопками Назад и Начать */
+}
+
+.ptp-button[b-03h87ucj2k] {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.ptp-button-back[b-03h87ucj2k] {
+    background-color: #5555bb;
+    /* width: 100%; УБРАНО, так как кнопка теперь не одна в своем блоке */
+}
+
+    .ptp-button-back:hover[b-03h87ucj2k] {
+        background-color: #444499;
+    }
+
+.ptp-button-start[b-03h87ucj2k] {
+    background-color: #008000;
+}
+
+    .ptp-button-start:hover[b-03h87ucj2k] {
+        background-color: #006400;
+    }
+
+    .ptp-button-start:disabled[b-03h87ucj2k] {
+        background-color: #555;
+        cursor: not-allowed;
     }
 /* _content/SKAT_Interface/Components/Pages/SessionEditorPage.razor.rz.scp.css */
 :host[b-jh7h12h635] { /* Рамка вокруг всего компонента */

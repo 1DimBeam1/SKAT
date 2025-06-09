@@ -1,4 +1,6 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
 <link href="css/AdminPageCSS.css" rel="stylesheet" />
 
 <PageTitle>Тестовые сессии</PageTitle>
@@ -31,9 +33,6 @@
                                 case SessionStatus.Completed:
                                     <button class="btn-results" @onclick="() => ShowResults(session.Id)">Результаты</button>
                                     break;
-                                case SessionStatus.InProgress:
-                                    <button class="btn-continue" @onclick="() => ContinueSession(session.Id)">Продолжить</button>
-                                    break;
                                 case SessionStatus.NotStarted:
                                     <button class="btn-start" @onclick="() => StartSession(session.Id)">Начать</button>
                                     break;
@@ -51,7 +50,7 @@
     private List<TestSession>? allSessions;
     private List<TestSession>? filteredSessions;
 
-    public enum SessionStatus { NotStarted, InProgress, Completed }
+    public enum SessionStatus { NotStarted, Completed }
 
     public class TestSession
     {
@@ -70,10 +69,9 @@
     {
         allSessions = new List<TestSession>
         {
-            new TestSession { Id = 1, Name = "Сессия0001-группа010203", Status = SessionStatus.Completed },
-            new TestSession { Id = 2, Name = "Сессия0002-группа010203", Status = SessionStatus.InProgress },
-            new TestSession { Id = 3, Name = "Сессия0003-группа010203", Status = SessionStatus.NotStarted },
-            new TestSession { Id = 4, Name = "Другая Сессия-группаXYZ", Status = SessionStatus.NotStarted },
+            new TestSession { Id = 1, Name = "Сессия0001-группа010203", Status = SessionStatus.Completed},
+            new TestSession { Id = 2, Name = "Сессия0002-группа010203", Status = SessionStatus.NotStarted},
+            new TestSession { Id = 3, Name = "Сессия0003-группа010203", Status = SessionStatus.NotStarted},
         };
     }
 
@@ -98,13 +96,9 @@
         Console.WriteLine($"Показать результаты для сессии {sessionId}");
     }
 
-    private void ContinueSession(int sessionId)
-    {
-        Console.WriteLine($"Продолжить сессию {sessionId}");
-    }
-
     private void StartSession(int sessionId)
     {
         Console.WriteLine($"Начать сессию {sessionId}");
+        NavigationManager.NavigateTo($"/pre-test/{sessionId}");
     }
 }

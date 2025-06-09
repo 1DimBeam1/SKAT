@@ -53,6 +53,7 @@
 }
 
 .session-action button {
+    width: 140px;
     padding: 15px 20px;
     border: none;
     color: white;
@@ -60,12 +61,14 @@
     font-weight: bold;
     height: 100%;
     border-left: 1px solid black;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-.btn-results, .btn-continue, .btn-start {
+.btn-results, .btn-start {
     background-color: #008000;
 }
 
-    .btn-results:hover, .btn-continue:hover, .btn-start:hover {
+    .btn-results:hover, .btn-start:hover {
         background-color: #006400;
     }

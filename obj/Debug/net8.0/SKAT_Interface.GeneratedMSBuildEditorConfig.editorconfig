@@ -56,9 +56,17 @@ build_metadata.AdditionalFiles.CssScope = b-g5ukjpovp4
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-wjz2irxah8
 
+[C:/MVS/SKAT_Interface/Components/Pages/ActualTestPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY3R1YWxUZXN0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-oob6u1pje3
+
 [C:/MVS/SKAT_Interface/Components/Pages/AlgorithmEditorPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBbGdvcml0aG1FZGl0b3JQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-14mbek5x49
+
+[C:/MVS/SKAT_Interface/Components/Pages/PreTestPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcmVUZXN0UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-03h87ucj2k
 
 [C:/MVS/SKAT_Interface/Components/Pages/SessionEditorPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZXNzaW9uRWRpdG9yUGFnZS5yYXpvcg==

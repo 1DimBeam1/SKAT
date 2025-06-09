@@ -37,3 +37,6 @@ C:\MVS\SKAT_Interface\obj\Debug\net8.0\refint\SKAT_Interface.dll
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\SKAT_Interface.pdb
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\SKAT_Interface.genruntimeconfig.cache
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\ref\SKAT_Interface.dll
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\SKAT_Interface.sourcelink.json
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\PreTestPage.razor.rz.scp.css
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\ActualTestPage.razor.rz.scp.css
