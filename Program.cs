@@ -1,10 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using SKAT_Interface.Components;
+using SKAT_Interface.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddDbContext<DbTaskContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("TaskDb")));
+
+// Регистрация второго DbContext
+builder.Services.AddDbContext<DbUsersContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("UsersDb")));
 
 var app = builder.Build();
 
