@@ -1,0 +1,30 @@
+﻿@rendermode InteractiveServer
+
+@if (IsVisible)
+{
+    <div class="modal-overlay" @onclick="CloseModal">
+        <div class="modal-content" @onclick:stopPropagation="true">
+            <h4 class="@(IsSuccess ? "modal-title-success" : "modal-title-error")">
+                @ModalTitle
+            </h4>
+            <p>@Message</p>
+            <div class="modal-actions">
+                <button class="modal-btn" @onclick="CloseModal">OK</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public string Message { get; set; } = "Операция выполнена.";
+    [Parameter] public bool IsSuccess { get; set; } = true;
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private string ModalTitle => IsSuccess ? "Успешно" : "Ошибка";
+
+    private async Task CloseModal()
+    {
+        await OnClose.InvokeAsync();
+    }
+}

@@ -1,0 +1,62 @@
+/* SaveConfirmationModal.razor.css */
+.modal-overlay[b-n76jpdaopf] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content[b-n76jpdaopf] {
+    background-color: #fff;
+    color: #333;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+}
+
+    .modal-content h4[b-n76jpdaopf] {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 1.4em;
+    }
+
+.modal-title-success[b-n76jpdaopf] {
+    color: #008000; /* Зеленый для успеха */
+}
+
+.modal-title-error[b-n76jpdaopf] {
+    color: #d9534f; /* Красный для ошибки */
+}
+
+.modal-content p[b-n76jpdaopf] {
+    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.modal-actions[b-n76jpdaopf] {
+    text-align: right;
+}
+
+.modal-btn[b-n76jpdaopf] {
+    background-color: #1a1a50; /* Темно-синий */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .modal-btn:hover[b-n76jpdaopf] {
+        background-color: #333399;
+    }

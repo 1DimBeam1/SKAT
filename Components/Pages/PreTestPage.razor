@@ -1,0 +1,149 @@
+﻿@* Componenta/Page/PreTestPage.razor *@
+@page "/pre-test/{SessionId:int}"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Предварительный просмотр сессии</PageTitle>
+
+<div class="ptp-container">
+    <div class="ptp-title-bar">
+        <div class="ptp-session-name">Сессия тестирования №@SessionId</div>
+        <div class="ptp-time-info">Время на прохождение: @FormattedTimeLimit</div>
+    </div>
+
+    <div class="ptp-body">
+        <div class="ptp-test-selection-area">
+            <div class="ptp-info-label">Задания в сессии:</div> @* Добавлен заголовок для списка *@
+            <div class="ptp-test-list-wrapper">
+                <div class="ptp-test-list">
+                    @if (TasksInSession.Any())
+                    {
+                        @foreach (var task in TasksInSession)
+                        {
+                            @* Убран @onclick и класс selected *@
+                            <div class="ptp-test-item">
+                                @task.Name
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="ptp-test-item">Нет заданий в сессии</div>
+                    }
+                </div>
+                <div class="ptp-scrollbar-mock">
+                    <div class="ptp-scrollbar-thumb-mock"></div>
+                </div>
+            </div>
+            @* Кнопка "Назад" УДАЛЕНА отсюда *@
+        </div>
+
+        <div class="ptp-options-area">
+            <div class="ptp-test-type-container">
+                <div class="ptp-label">Тип тестирования</div>
+                <div class="ptp-radio-option">
+                    <label for="trainingType" class="ptp-custom-radio-label">
+                        <input type="radio" id="trainingType" name="testType"
+                               checked="@(SelectedTestMode == TestMode.Training)"
+                               @onchange="@(() => UpdateTestMode(TestMode.Training))" />
+                        <span class="ptp-custom-radio-outer">
+                            <span class="ptp-custom-radio-inner"></span>
+                        </span>
+                        Обучающее
+                    </label>
+                </div>
+                <div class="ptp-radio-option">
+                    <label for="controlType" class="ptp-custom-radio-label">
+                        <input type="radio" id="controlType" name="testType"
+                               checked="@(SelectedTestMode == TestMode.Control)"
+                               @onchange="@(() => UpdateTestMode(TestMode.Control))" />
+                        <span class="ptp-custom-radio-outer">
+                            <span class="ptp-custom-radio-inner"></span>
+                        </span>
+                        Контрольное
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ptp-footer-action">
+        @* Кнопка "Назад" ПЕРЕМЕЩЕНА сюда *@
+        <button class="ptp-button ptp-button-back" @onclick="GoBack">Назад</button>
+        <button class="ptp-button ptp-button-start" @onclick="StartActualTest"
+                disabled="@(!TasksInSession.Any())">
+            @* Условие disabled изменено *@
+            Начать
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int SessionId { get; set; }
+
+    private string FormattedTimeLimit { get; set; } = "01:30:00";
+
+    // Переименовано для ясности
+    public class SessionTaskItem
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    private List<SessionTaskItem> TasksInSession { get; set; } = new List<SessionTaskItem>();
+    // SelectedTestId больше не нужен
+    // private int? SelectedTestId { get; set; }
+
+    public enum TestMode { Training, Control }
+    private TestMode SelectedTestMode { get; set; } = TestMode.Training;
+
+    protected override void OnInitialized()
+    {
+        LoadMockSessionData();
+    }
+
+    private void LoadMockSessionData()
+    {
+        TasksInSession = new List<SessionTaskItem>
+        {
+            new SessionTaskItem { Id = 1, Name = $"Сортировка вставками" },
+            new SessionTaskItem { Id = 2, Name = $"Сортировка пузырьком" },
+            new SessionTaskItem { Id = 3, Name = $"Бинарный поиск" },
+        };
+    }
+
+    // Метод SelectTest больше не нужен
+    // private void SelectTest(int testId)
+    // {
+    //     SelectedTestId = testId;
+    //     Console.WriteLine($"Выбран тест: {testId}");
+    // }
+
+    private void UpdateTestMode(TestMode mode)
+    {
+        SelectedTestMode = mode;
+        Console.WriteLine($"Выбран режим тестирования: {SelectedTestMode}");
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("/");
+        Console.WriteLine("Нажата кнопка 'Назад'");
+    }
+
+    private void StartActualTest()
+    {
+        if (TasksInSession.Any())
+        {
+            Console.WriteLine($"Нажата кнопка 'Начать' для сессии {SessionId}, режим: {SelectedTestMode}");
+            // Передаем SessionId. TestMode можно передать через query string или другим способом,
+            // если он нужен на странице ActualTestPage для логики (например, отображения подсказок).
+            NavigationManager.NavigateTo($"/actual-test/{SessionId}?mode={SelectedTestMode}");
+        }
+        else
+        {
+            Console.WriteLine("Ошибка: Нет заданий в сессии для начала.");
+        }
+    }
+}

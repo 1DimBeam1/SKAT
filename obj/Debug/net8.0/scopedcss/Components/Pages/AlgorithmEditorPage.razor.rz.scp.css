@@ -192,6 +192,45 @@
     margin-top: auto; /* Прижимает кнопку к низу правой колонки, если есть свободное место */
 }
 
-    .algo-btn-add-algorithm:hover[b-14mbek5x49] {
-        background-color: #006400;
+.algo-btn-add-algorithm:hover[b-14mbek5x49] {
+    background-color: #006400;
+}
+
+/* Стили для кнопки "Назад" и тултипа */
+.algo-editor-header-controls[b-14mbek5x49] {
+    background-color: #0d0d29; /* Тот же фон, что и у заголовков колонок */
+    padding: 8px 15px;
+    display: flex;
+    flex-shrink: 0;
+}
+
+.algo-btn-back[b-14mbek5x49] {
+    background-color: #4a5a6a; /* Нейтральный цвет */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    .algo-btn-back:hover[b-14mbek5x49] {
+        background-color: #5a6a7a;
     }
+
+.help-tooltip[b-14mbek5x49] {
+    display: inline-block;
+    margin-left: 5px;
+    cursor: help;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #5555bb;
+    color: white;
+}
+

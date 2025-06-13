@@ -1,19 +1,80 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@implements IDisposable
 
-<div class="page">
-    <div class="sidebar">
-       <NavMenu />
-     </div>
+<div class="page @(IsActualTestPageActive ? "full-screen-mode" : "")">
+    @if (!IsActualTestPageActive)
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
 
     <main>
-        <article class="content px-4">
+        @if (IsActualTestPageActive)
+        {
+            <div class="top-row-custom-header px-3">
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Главная страница
+                    </NavLink>
+                </div>
+                @* Можно добавить название сессии или теста сюда, если нужно *@
+            </div>
+        }
+        else
+        {
+            @* Если у вас была верхняя панель (top-row) отдельно от NavMenu, она может быть здесь *@
+            @* Например, <div class="top-row px-4"> ... </div> *@
+            @* Но если top-row является частью NavMenu (как в стандартном шаблоне), *@
+            @* то он скроется вместе с NavMenu, и этот блок else не нужен. *@
+        }
+
+        <article class="content @(IsActualTestPageActive ? "px-0" : "px-4")">
             @Body
         </article>
     </main>
 </div>
 
-<div id="blazor-error-ui">
+@* <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
-</div>
+</div> *@
+
+@code {
+    private bool IsActualTestPageActive = false;
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += HandleLocationChanged;
+        UpdateLayoutForCurrentPage(NavigationManager.Uri);
+    }
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        UpdateLayoutForCurrentPage(e.Location);
+    }
+
+    private void UpdateLayoutForCurrentPage(string currentUriAbsolute)
+    {
+        var currentPath = new Uri(currentUriAbsolute).AbsolutePath;
+        bool newState = currentPath.StartsWith("/actual-test/", StringComparison.OrdinalIgnoreCase);
+
+        if (newState != IsActualTestPageActive)
+        {
+            IsActualTestPageActive = newState;
+            InvokeAsync(StateHasChanged); // Обновляем UI, если состояние изменилось
+        }
+    }
+
+    private void NavigateToHome()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= HandleLocationChanged;
+    }
+}

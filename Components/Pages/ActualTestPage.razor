@@ -1,0 +1,301 @@
+﻿@* Componenta/Page/ActualTestPage.razor *@
+@page "/actual-test/{SessionId:int}"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<link href="css/ActualTestPage.css" rel="stylesheet" />
+<PageTitle>Прохождение Тестирования</PageTitle>
+
+@* Кнопка "На главную" теперь рендерится в MainLayout.razor *@
+
+<div class="atp-container">
+    <!-- Верхняя строка с заголовками колонок -->
+    <div class="atp-header-row">
+        <div class="atp-header-solution">Решение</div>
+        <div class="atp-header-task">Задание</div>
+        <div class="atp-header-info"> </div>
+    </div>
+
+    <!-- Основная область контента -->
+    <div class="atp-main-content">
+        <!-- Левая Колонка (Решение) -->
+        <div class="atp-solution-column">
+            @* СТАТИЧНЫЙ БЛОК "ШАГ 0" - ОПИСАНИЕ НАЧАЛЬНЫХ ЗНАЧЕНИЙ *@
+            <div class="atp-current-step-info">
+                <div class="atp-step-description">
+                    @InitialStateDescription
+                </div>
+                <div class="atp-step-scrollbar-mock">
+                    <div class="atp-step-scrollbar-thumb-mock"></div>
+                </div>
+            </div>
+
+            @* КНОПКИ ДЛЯ ДОБАВЛЕНИЯ ИНТЕРАКТИВНЫХ ШАГОВ *@
+            <div class="atp-step-adder-buttons">
+                @foreach (var template in StepTemplates)
+                {
+                    <button class="atp-add-step-button" @onclick="() => AddStepInstance(template.StepNumber)">
+                        @template.Title
+                    </button>
+                }
+            </div>
+
+            @* ОБЛАСТЬ ДЛЯ ОТОБРАЖЕНИЯ ДОБАВЛЕННЫХ ЭКЗЕМПЛЯРОВ ШАГОВ *@
+            <div class="atp-displayed-steps-area">
+                @if (!DisplayedStepInstances.Any())
+                {
+                    <div class="atp-no-steps-placeholder">Нажмите на кнопку "Шаг X", чтобы добавить поля для ввода.</div>
+                }
+                @foreach (var instance in DisplayedStepInstances)
+                {
+                    <div class="atp-step-instance-container @GetInstanceStatusClass(instance.Status)" @key="instance.InstanceId">
+                        <div class="atp-instance-header">
+                            <div class="atp-instance-description">
+                                @instance.Description
+                            </div>
+                            <div class="atp-instance-scrollbar-mock">
+                                <div class="atp-instance-scrollbar-thumb-mock"></div>
+                            </div>
+                        </div>
+                        <div class="atp-instance-input-fields">
+                            @if (instance.OriginalStepNumber == 1)
+                            {
+                                <div class="atp-input-row">
+                                    @foreach (var userInput in instance.UserInputs)
+                                    {
+                                        <div class="atp-variable-input">
+                                            <label>@userInput.Label</label>
+                                            <input type="text" @bind="userInput.CurrentValue"
+                                            class="@(userInput.IsWide ? "wide-input" : "narrow-input")"
+                                            placeholder="@userInput.PlaceholderText" />
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            else if (instance.OriginalStepNumber == 2)
+                            {
+                                var varA = instance.UserInputs.FirstOrDefault(v => v.Name == "A");
+                                var varI = instance.UserInputs.FirstOrDefault(v => v.Name == "i");
+                                var varJ = instance.UserInputs.FirstOrDefault(v => v.Name == "j");
+
+                                @if (varA != null)
+                                {
+                                    <div class="atp-input-row">
+                                        <div class="atp-variable-input">
+                                            <label>@varA.Label</label>
+                                            <input type="text" @bind="varA.CurrentValue"
+                                            class="wide-input"
+                                            placeholder="@varA.PlaceholderText" />
+                                        </div>
+                                    </div>
+                                }
+                                <div class="atp-input-row">
+                                    @if (varI != null)
+                                    {
+                                        <div class="atp-variable-input">
+                                            <label>@varI.Label</label>
+                                            <input type="text" @bind="varI.CurrentValue" class="narrow-input" placeholder="@varI.PlaceholderText" />
+                                        </div>
+                                    }
+                                    @if (varJ != null)
+                                    {
+                                        <div class="atp-variable-input">
+                                            <label>@varJ.Label</label>
+                                            <input type="text" @bind="varJ.CurrentValue" class="narrow-input" placeholder="@varJ.PlaceholderText" />
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            @* else for other steps *@
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Средняя Колонка (Задание) -->
+        <div class="atp-task-column">
+            <div class="atp-task-formulation">
+                <div class="atp-block-label">Задание:</div>
+                <textarea readonly>@CurrentTaskFormulation</textarea>
+            </div>
+            <div class="atp-task-image">
+                <div class="atp-block-label">Описание алгоритма:</div>
+                <div class="atp-image-placeholder">
+                    @if (!string.IsNullOrEmpty(TaskImageUrl))
+                    {
+                        <img src="@TaskImageUrl" alt="Изображение к заданию" />
+                    }
+                    else
+                    {
+                        <span>(Нет изображения)</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая Колонка (Информация) -->
+        <div class="atp-info-column">
+            <div class="atp-info-block atp-time-remaining">
+                <div class="atp-block-label">Времени осталось:</div>
+                <div class="atp-timer-display">@TimeRemaining</div>
+            </div>
+            <div class="atp-info-block atp-hints">
+                <div class="atp-block-label">Подсказки:</div>
+                @if (ShowHints)
+                {
+                    <textarea readonly>@CurrentHint</textarea>
+                }
+                else
+                {
+                    <div class="atp-no-hints-placeholder">(Подсказки не доступны или не требуются)</div>
+                }
+            </div>
+            <div class="atp-info-block atp-session-tasks-list">
+                <div class="atp-block-label">Список заданий в сессии:</div>
+                <div class="atp-session-task-items">
+                    @foreach (var task in SessionTasks)
+                    {
+                        <div class="atp-session-task-item @(task.IsCurrent ? "current" : "")">@task.Name</div>
+                    }
+                </div>
+            </div>
+            <button class="atp-button atp-button-next" @onclick="NextStepOrFinish">@NextButtonText</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int SessionId { get; set; }
+
+    // [Parameter]
+    // [SupplyParameterFromQuery(Name = "mode")]
+    // public PreTestPage.TestMode? Mode { get; set; }
+    // --- Enum, Classes ---
+    public enum StepStatus { Pending, Correct, Incorrect, NotChecked }
+
+    public class VariableTemplate { public string Name { get; set; } = string.Empty; public string Label => $"{Name} ="; public bool IsWide { get; set; } public string PlaceholderText { get; set; } = ""; }
+    public class StepTemplateModel { public int StepNumber { get; set; } public string Title => $"Шаг {StepNumber}."; public List<VariableTemplate> Variables { get; set; } = new List<VariableTemplate>(); public string InitialDescription { get; set; } = string.Empty; }
+    public class ActiveStepInstance : IEquatable<ActiveStepInstance> { public Guid InstanceId { get; } = Guid.NewGuid(); public int OriginalStepNumber { get; set; } public string Description { get; set; } = string.Empty; public List<VariableInputData> UserInputs { get; set; } = new List<VariableInputData>(); public StepStatus Status { get; set; } = StepStatus.NotChecked; public bool Equals(ActiveStepInstance? other) { if (other is null) return false; return InstanceId.Equals(other.InstanceId); } public override bool Equals(object? obj) => Equals(obj as ActiveStepInstance); public override int GetHashCode() => InstanceId.GetHashCode(); }
+    public class VariableInputData { public string Name { get; set; } = string.Empty; public string Label => $"{Name} ="; public string? CurrentValue { get; set; } public bool IsWide { get; set; } public string PlaceholderText { get; set; } = ""; }
+    public class SessionTaskInfo { public int Id { get; set; } public string Name { get; set; } = string.Empty; public bool IsCurrent { get; set; } }
+
+    // --- Свойства ---
+    private string InitialStateDescription { get; set; } = string.Empty;
+    private string CurrentTaskFormulation { get; set; } = "...";
+    private string? TaskImageUrl { get; set; } = "images/InsertSort.PNG";
+    private string TimeRemaining { get; set; } = "01:30:00";
+    private bool ShowHints { get; set; } = true;
+    private string CurrentHint { get; set; } = "...";
+    private string NextButtonText { get; set; } = "Проверить все";
+    private PreTestPage.TestMode CurrentTestMode { get; set; }
+    private List<StepTemplateModel> StepTemplates { get; set; } = new();
+    private List<ActiveStepInstance> DisplayedStepInstances { get; set; } = new();
+    private List<SessionTaskInfo> SessionTasks { get; set; } = new();
+
+    // --- Методы ---
+    protected override void OnInitialized()
+    {
+        // if (Mode.HasValue) { CurrentTestMode = Mode.Value; }
+        // else { CurrentTestMode = PreTestPage.TestMode.Training; }
+        LoadMockStepTemplates();
+        ShowHints = CurrentTestMode == PreTestPage.TestMode.Training;
+        StartTimer();
+    }
+
+    private void LoadMockStepTemplates()
+    {
+        InitialStateDescription = "Шаг 0: инициализация начальных значений\nA = [1,2,4,6,8,7,5,0,9,3]\nj = 0; i = 0; key = 0;";
+        CurrentTaskFormulation = "Отсортируйте предложенный массив, используя алгоритм сортировки вставками. На каждом шаге фиксируйте значения указанных переменных.";
+        TimeRemaining = "01:27:30";
+
+        StepTemplates = new List<StepTemplateModel> {
+            new StepTemplateModel {
+                StepNumber = 1, InitialDescription = "Шаг 1. После увеличения счетчика цикла",
+                Variables = new List<VariableTemplate> { new VariableTemplate { Name = "i" } }
+            },
+            new StepTemplateModel {
+                StepNumber = 2, InitialDescription = "Шаг 2. После того как сделал swap.",
+                Variables = new List<VariableTemplate> {
+                    new VariableTemplate { Name = "A", IsWide = true, PlaceholderText="[...]" },
+                    new VariableTemplate { Name = "i" }, new VariableTemplate { Name = "j" }
+                }
+            }
+        };
+        SessionTasks = new List<SessionTaskInfo> {
+            new SessionTaskInfo { Id = 101, Name = "Сортировка вставками", IsCurrent = true },
+            new SessionTaskInfo { Id = 102, Name = "Сортировка выбором" },
+        };
+    }
+
+    private void AddStepInstance(int stepNumber)
+    {
+        var template = StepTemplates.FirstOrDefault(st => st.StepNumber == stepNumber);
+        if (template == null) return;
+        var newInstance = new ActiveStepInstance
+            {
+                OriginalStepNumber = template.StepNumber,
+                Description = template.InitialDescription,
+            };
+        foreach (var varTemplate in template.Variables)
+        {
+            newInstance.UserInputs.Add(new VariableInputData
+                {
+                    Name = varTemplate.Name,
+                    IsWide = varTemplate.IsWide,
+                    PlaceholderText = varTemplate.PlaceholderText
+                });
+        }
+        DisplayedStepInstances.Add(newInstance);
+    }
+
+    private string GetInstanceStatusClass(StepStatus status) => status switch
+    {
+        StepStatus.Correct => "atp-instance-correct",
+        StepStatus.Incorrect => "atp-instance-incorrect",
+        StepStatus.NotChecked => "atp-instance-notchecked",
+        _ => "atp-instance-pending"
+    };
+
+    private void NextStepOrFinish()
+    {
+        Console.WriteLine("Проверка всех добавленных шагов...");
+        foreach (var instance in DisplayedStepInstances.Where(i => i.Status == StepStatus.NotChecked || i.Status == StepStatus.Incorrect))
+        {
+            var random = new Random(); // Для мока
+            instance.Status = random.Next(0, 2) == 0 ? StepStatus.Correct : StepStatus.Incorrect;
+        }
+    }
+
+    //Для таймера (пример, в реальном приложении сложнее)
+    private System.Threading.Timer _timer;
+    private int _timeSeconds = (1 * 60 * 60) + (30 * 60); // 1 час 30 минут
+
+    private void StartTimer()
+    {
+        _timer = new System.Threading.Timer(TimerTick, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
+    }
+
+    private void TimerTick(object state)
+    {
+        if (_timeSeconds > 0)
+        {
+            _timeSeconds--;
+            TimeSpan ts = TimeSpan.FromSeconds(_timeSeconds);
+            TimeRemaining = $"{ts.Hours:D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
+            InvokeAsync(StateHasChanged); // Обновляем UI из другого потока
+        }
+        else
+        {
+            TimeRemaining = "00:00:00";
+            _timer?.Dispose();
+            // Логика завершения теста по времени
+        }
+    }
+
+    public void Dispose()
+    {
+        _timer?.Dispose();
+    }
+}

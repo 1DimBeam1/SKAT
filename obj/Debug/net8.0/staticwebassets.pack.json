@@ -1,31 +1,35 @@
 {
   "Files": [
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
-      "PackagePath": "staticwebassets\\SKAT_Interface.et5xwv5s6m.bundle.scp.css"
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SKAT_Interface.8a5fc4zcoz.bundle.scp.css"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\app.css",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\css\\AdminPageCSS.css",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\css\\AdminPageCSS.css",
       "PackagePath": "staticwebassets\\css\\AdminPageCSS.css"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\css\\UserPageCSS.css",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\css\\UserPageCSS.css",
       "PackagePath": "staticwebassets\\css\\UserPageCSS.css"
     },
     {
-      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\favicon.png",
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\images\\InsertSort.PNG",
+      "PackagePath": "staticwebassets\\images\\InsertSort.PNG"
+    },
+    {
+      "Id": "C:\\Users\\grats\\Source\\Repos\\SKAT\\wwwroot\\images\\favicon.png",
       "PackagePath": "staticwebassets\\images\\favicon.png"
     },
     {

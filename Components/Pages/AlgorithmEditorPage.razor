@@ -1,12 +1,24 @@
 ﻿@* Componenta/Page/AlgorithmEditorPage.razor *@
 @page "/algorithm-editor"
+@page "/algorithm-editor/{AlgorithmId:int}" // Для редактирования
+@inject NavigationManager NavigationManager
+@inject AlgorithmApiService AlgorithmService
 @rendermode InteractiveServer
 
 @using BlazorMonaco
+@using SKAT_Interface.Services
 
 <PageTitle>Редактор Алгоритма</PageTitle>
 
+<SaveConfirmationModal IsVisible="showSaveConfirmation"
+                       Message="@saveConfirmationMessage"
+                       IsSuccess="isSaveSuccessful"
+                       OnClose="CloseSaveConfirmationModal" />
+
 <div class="algo-editor-container">
+    <div class="algo-editor-header-controls">
+        <button class="algo-btn algo-btn-back" @onclick="NavigateBack">← Назад</button>
+    </div>
     <!-- Верхняя строка с заголовками колонок -->
     <div class="algo-header-row">
         <div class="algo-header-left">Алгоритм</div>
@@ -19,10 +31,10 @@
         <div class="algo-left-column">
             <div class="algo-code-editor-area">
                 <StandaloneCodeEditor @ref="codeEditor"
-                              Id="algoMonacoEditor"
-                              ConstructionOptions="EditorConstructionOptions"
-                              OnDidInit="EditorOnDidInit"/>            
-             </div>
+                                      Id="algoMonacoEditor"
+                                      ConstructionOptions="EditorConstructionOptions"
+                                      OnDidInit="EditorOnDidInit" />
+            </div>
 
             <div class="algo-description-section">
                 <div class="algo-description-input-row">
@@ -47,13 +59,21 @@
         <!-- Правая Колонка: Параметры алгоритма -->
         <div class="algo-right-column">
             <div class="algo-param-group">
-                <label for="trackedVars">Отслеживаемые переменные ():</label>
+                <label for="trackedVars">
+                    Отслеживаемые переменные
+                    <span class="help-tooltip" title="Формат: 'номер строки; имя_переменной_1; имя_переменной_2 ...[;опционально_массив[индекс]]'.
+Пример: '15 j;' или '19 arr i;' или '24 arr key i'">❔</span>
+                </label>
                 <textarea id="trackedVars" @bind="trackedVariables" rows="6"></textarea>
             </div>
 
             <div class="algo-param-group">
-                <label for="inputValues">Входные значения ():</label>
-                <textarea id="inputValues" @bind="inputValues" rows="3"></textarea>
+                <label for="inputValuesAlgo">
+                    Входные значения (для тестов по умолчанию)
+                    <span class="help-tooltip" title="Формат: 'номер_строки_в_коде_для_инициализации имя_переменной'.
+Пример: '12 arr'">❔</span>
+                </label>
+                <textarea id="inputValuesAlgo" @bind="inputValues" rows="3"></textarea>
             </div>
 
             <div class="algo-param-group">
@@ -61,14 +81,29 @@
                 <input type="text" id="algorithmName" @bind="algorithmName" />
             </div>
 
-            <button class="algo-btn algo-btn-add-algorithm" @onclick="SaveAlgorithm">Добавить алгоритм</button>
+            <button class="algo-btn algo-btn-add-algorithm" @onclick="HandleSaveAlgorithm">Сохранить алгоритм</button>
         </div>
     </div>
 </div>
 
 @code {
+    [Parameter] public int? AlgorithmId { get; set; } // Для редактирования
     private StandaloneCodeEditor? codeEditor; // Ссылка на компонент редактора
-    private string initialCodeContent = @"";
+    private string initialCodeContent = @"public static void SortUp(int[] arr)
+{
+    int j = 0,i = 0;
+    for (j = 1; j<arr.Length; j++)
+    {
+        int key = arr[j];
+        i = j - 1;
+        while (i>=0 && arr[i]>key)
+        {
+            arr[i + 1] = arr[i];
+            i--;
+        }
+        arr[i + 1] = key;
+    }
+}";
 
     private string descriptionFilePath = @"C:\Desktop\png1.png";
     private string? descriptionImagePreviewUrl;
@@ -80,6 +115,61 @@
 24 arr key i";
     private string inputValues = "12 arr";
     private string algorithmName = "Сортировка вставками";
+
+    private bool showSaveConfirmation = false;
+    private string saveConfirmationMessage = "";
+    private bool isSaveSuccessful = false;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (AlgorithmId.HasValue)
+        {
+            // Логика загрузки данных алгоритма по AlgorithmId из БД
+            Console.WriteLine($"Загрузка данных для алгоритма ID: {AlgorithmId.Value}");
+            // Например:
+            // var algoData = await AlgorithmService.GetAlgorithmByIdAsync(AlgorithmId.Value);
+            // algorithmName = algoData.Name;
+            // initialCodeContent = algoData.Code;
+            // ... и т.д.
+            // Для примера, просто изменим имя, если редактируем
+            algorithmName = $"Редактируемый алгоритм {AlgorithmId.Value}";
+        }
+        else
+        {
+            // Сброс к значениям по умолчанию для нового алгоритма
+            algorithmName = "Новый алгоритм";
+            // initialCodeContent = "// Введите код здесь";
+            // trackedVariables = "";
+            // inputValues = "";
+        }
+
+        if (codeEditor != null) // Если редактор уже инициализирован, обновим код
+        {
+            await codeEditor.SetValue(initialCodeContent);
+        }
+
+        //протестил что с api может что-то получить
+        Console.WriteLine("AlgorithmEditorPage: Attempting to load algorithm IDs from API...");
+        var ids = await AlgorithmService.GetAlgorithmIdsAsync();
+
+        if (ids != null && ids.Any())
+        {
+            Console.WriteLine("Список ID алгоритмов из БД (через API):");
+            foreach (var id in ids)
+            {
+                Console.WriteLine($" - ID: {id}");
+            }
+        }
+        else if (ids != null && !ids.Any())
+        {
+            Console.WriteLine("Список ID алгоритмов пуст (API вернул пустой список).");
+        }
+        else
+        {
+            Console.WriteLine("Не удалось загрузить список ID алгоритмов (API вернул null или произошла ошибка).");
+        }
+
+    }
 
     // Опции для создания редактора
     private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
@@ -126,22 +216,67 @@
     private void AddDescriptionFile()
     {
         Console.WriteLine($"Выбрано описание: {descriptionFilePath}");
+        // Логика загрузки и отображения превью (если descriptionFilePath - это реальный путь к файлу)
+        // Для веб-приложения, это обычно будет <InputFile> и работа с потоками данных
+        // Пока оставим как есть.
+        /*if (System.IO.File.Exists(descriptionFilePath)) // Осторожно с доступом к файловой системе на сервере!
+        {
+            // Это будет работать только если Blazor Server имеет доступ к этому пути.
+            // Для Blazor WebAssembly или для безопасности лучше использовать InputFile.
+            // В данном примере это скорее всего не сработает корректно без <InputFile>
+            // descriptionImagePreviewUrl = $"data:image/png;base64,{Convert.ToBase64String(System.IO.File.ReadAllBytes(descriptionFilePath))}";
+            descriptionImagePreviewUrl = descriptionFilePath; // Просто для теста, браузер не покажет локальный файл так
+            Console.WriteLine("Пытаюсь установить URL для превью (может не работать для локальных файлов без InputFile).");
+        }
+        else
+        {
+            descriptionImagePreviewUrl = null;
+            Console.WriteLine("Файл описания не найден.");
+        }*/
     }
 
-    private async void CompileAlgorithm()
+    private async Task CompileAlgorithm()
     {
         string currentCode = await GetCodeFromEditor();
         Console.WriteLine("Нажата кнопка 'Собрать'");
         Console.WriteLine("Текущий код в редакторе:");
         Console.WriteLine(currentCode);
+        // Здесь может быть логика отправки кода на сервер для компиляции/проверки
     }
 
-    private async void SaveAlgorithm()
+    private async Task HandleSaveAlgorithm()
     {
         string currentCode = await GetCodeFromEditor();
         Console.WriteLine($"Сохранение алгоритма: {algorithmName}");
-        Console.WriteLine($"Код: {currentCode}");
-        Console.WriteLine($"Отслеживаемые переменные: {trackedVariables}");
-        Console.WriteLine($"Входные значения: {inputValues}");
+        // Здесь логика сохранения в БД
+        // await AlgorithmService.SaveAsync(new Algorithm { ... });
+
+        // Пример:
+        bool success = true; // Предположим, сохранение успешно
+        if (success)
+        {
+            saveConfirmationMessage = $"Алгоритм '{algorithmName}' успешно сохранен!";
+            isSaveSuccessful = true;
+        }
+        else
+        {
+            saveConfirmationMessage = $"Ошибка при сохранении алгоритма '{algorithmName}'.";
+            isSaveSuccessful = false;
+        }
+        showSaveConfirmation = true;
+    }
+
+    private void CloseSaveConfirmationModal()
+    {
+        showSaveConfirmation = false;
+        if (isSaveSuccessful)
+        {
+            NavigateBack(); // Вернуться назад после успешного сохранения и закрытия модального окна
+        }
+    }
+
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/task-management-editor");
     }
 }

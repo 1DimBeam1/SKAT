@@ -1,10 +1,15 @@
 using SKAT_Interface.Components;
+using SKAT_Interface.Services;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<AlgorithmApiService>();
 
 var app = builder.Build();
 
@@ -16,7 +21,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection(); // ≈сли InterpretatorService работает по HTTP, а Blazor по HTTPS,
+                            //могут быть проблемы с mixed content.
+                            // ƒл€ локальной разработки с HTTP API можно временно закомментировать
+                            // или настроить API на HTTPS.
+                            // ѕока что, если API на HTTP, а Blazor пытаетс€ на HTTPS, будут проблемы.
+                            // ≈сли оба на HTTP локально, эту строку можно закомментировать дл€ простоты.
 
 app.UseStaticFiles();
 app.UseAntiforgery();

@@ -1,0 +1,147 @@
+﻿@page "/task-management-editor"
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Список заданий и алгоритмов</PageTitle>
+
+<div class="task-mgmt-container">
+    <div class="task-mgmt-column">
+        <div class="task-mgmt-header">
+            Список алгоритмов
+            <button class="btn btn-add-new" @onclick="NavigateToAddAlgorithm">Добавить алгоритм</button>
+        </div>
+        <div class="task-mgmt-search-bar">
+            <input type="text" placeholder="Поиск алгоритма..." @bind="algorithmSearchTerm" />
+        </div>
+        <div class="task-mgmt-list">
+            @if (FilteredAlgorithms.Any())
+            {
+                foreach (var algo in FilteredAlgorithms)
+                {
+                    <div class="task-mgmt-list-item">
+                        <span class="icon-delete" @onclick="() => DeleteAlgorithm(algo.Id)">❌</span>
+                        <span class="item-name">@algo.Name</span>
+                        <span class="icon-edit" @onclick="() => EditAlgorithm(algo.Id)">✏️</span>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="task-mgmt-list-item-empty">Нет добавленных алгоритмов.</div>
+            }
+        </div>
+    </div>
+
+    <div class="task-mgmt-column">
+        <div class="task-mgmt-header">
+            Список тестов (заданий)
+            <button class="btn btn-add-new" @onclick="NavigateToAddTask">Добавить тест</button>
+        </div>
+        <div class="task-mgmt-search-bar">
+            <input type="text" placeholder="Поиск теста..." @bind="taskSearchTerm" />
+        </div>
+        <div class="task-mgmt-list">
+            @if (FilteredTasks.Any())
+            {
+                foreach (var task in FilteredTasks)
+                {
+                    <div class="task-mgmt-list-item">
+                        <span class="icon-delete" @onclick="() => DeleteTask(task.Id)">❌</span>
+                        <span class="item-name">@task.Name</span>
+                        <span class="icon-edit" @onclick="() => EditTask(task.Id)">✏️</span>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="task-mgmt-list-item-empty">Нет добавленных тестов.</div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private string algorithmSearchTerm = "";
+    private string taskSearchTerm = "";
+
+    // Заглушки данных - в будущем будут из БД
+    private List<AlgorithmViewModel> AllAlgorithms { get; set; } = new();
+    private List<TaskViewModel> AllTasks { get; set; } = new();
+
+    private IEnumerable<AlgorithmViewModel> FilteredAlgorithms =>
+        AllAlgorithms.Where(a => string.IsNullOrWhiteSpace(algorithmSearchTerm) || a.Name.Contains(algorithmSearchTerm, StringComparison.OrdinalIgnoreCase));
+
+    private IEnumerable<TaskViewModel> FilteredTasks =>
+        AllTasks.Where(t => string.IsNullOrWhiteSpace(taskSearchTerm) || t.Name.Contains(taskSearchTerm, StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Загрузка данных из БД в будущем
+        // Пока что добавим примеры:
+        AllAlgorithms.Add(new AlgorithmViewModel { Id = 1, Name = "Сортировка пузырьком" });
+        AllAlgorithms.Add(new AlgorithmViewModel { Id = 2, Name = "Сортировка вставками" });
+        AllAlgorithms.Add(new AlgorithmViewModel { Id = 3, Name = "Быстрая сортировка" });
+
+        AllTasks.Add(new TaskViewModel { Id = 101, Name = "Тест для пузырька (малый массив)" });
+        AllTasks.Add(new TaskViewModel { Id = 102, Name = "Тест для вставок (обратный порядок)" });
+        await base.OnInitializedAsync();
+    }
+
+    private void NavigateToAddAlgorithm()
+    {
+        NavigationManager.NavigateTo("/algorithm-editor");
+    }
+
+    private void NavigateToAddTask()
+    {
+        NavigationManager.NavigateTo("/task-editor");
+    }
+
+    private void EditAlgorithm(int id)
+    {
+        // В будущем будет передавать ID для загрузки данных
+        Console.WriteLine($"Редактировать алгоритм ID: {id}");
+        NavigationManager.NavigateTo($"/algorithm-editor/{id}"); // Пример маршрута для редактирования
+    }
+
+    private void DeleteAlgorithm(int id)
+    {
+        Console.WriteLine($"Удалить алгоритм ID: {id}");
+        var algoToRemove = AllAlgorithms.FirstOrDefault(a => a.Id == id);
+        if (algoToRemove != null)
+        {
+            AllAlgorithms.Remove(algoToRemove);
+            // Тут должна быть логика удаления из БД
+        }
+    }
+
+    private void EditTask(int id)
+    {
+        Console.WriteLine($"Редактировать тест ID: {id}");
+        NavigationManager.NavigateTo($"/task-editor/{id}"); // Пример маршрута для редактирования
+    }
+
+    private void DeleteTask(int id)
+    {
+        Console.WriteLine($"Удалить тест ID: {id}");
+        var taskToRemove = AllTasks.FirstOrDefault(t => t.Id == id);
+        if (taskToRemove != null)
+        {
+            AllTasks.Remove(taskToRemove);
+            // Тут должна быть логика удаления из БД
+        }
+    }
+
+    // ViewModel классы для простоты
+    public class AlgorithmViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class TaskViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+}
