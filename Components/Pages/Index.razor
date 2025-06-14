@@ -1,0 +1,35 @@
+﻿@* Pages/Index.razor (или HomePage.razor) *@
+@page "/"
+@using SKAT_Interface.Components.Layout
+@layout EmptyLayout
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>Добро пожаловать</PageTitle>
+
+<h3>Система Тестирования SKAT</h3>
+<p>Пожалуйста, войдите в систему.</p>
+<p><a href="login" class="btn btn-primary">Войти</a></p>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity != null && user.Identity.IsAuthenticated)
+        {
+            // Если пользователь уже аутентифицирован, перенаправляем его
+            // на соответствующую страницу на основе роли
+            if (user.IsInRole("Преподаватель"))
+            {
+                NavigationManager.NavigateTo("/admin-dashboard"); // Новая страница для админа
+            }
+            else if (user.IsInRole("Обучающийся"))
+            {
+                NavigationManager.NavigateTo("/user");
+            }
+        }
+        // Если не аутентифицирован, остаемся на этой странице, чтобы показать ссылку на логин
+    }
+}   

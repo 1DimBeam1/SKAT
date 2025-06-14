@@ -1381,6 +1381,78 @@ main {
         flex-direction: column; /* Колонки становятся строками */
     }
 }
+/* _content/SKAT_Interface/Components/Pages/SessionsPage.razor.rz.scp.css */
+/* wwwroot/css/SessionsPage.css - на основе AdminPageCSS.css */
+.sessions-main-container[b-zdq4v0g5w9] {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 3.5rem); /* Если есть NavMenu */
+    background-color: #f0f0f0;
+}
+
+.sessions-main-content[b-zdq4v0g5w9] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; - убрал, т.к. flex-grow уже есть */
+}
+
+/* Оставляем .content-header, если он будет использоваться (в примере его нет) */
+/* .content-header { ... } */
+
+.search-bar[b-zdq4v0g5w9] {
+    padding: 10px 15px;
+    background-color: #1a1a50;
+    border-bottom: 1px solid #333377;
+}
+
+    .search-bar input[b-zdq4v0g5w9] {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #5555bb;
+        background-color: #eef;
+        color: #1a1a50;
+        box-sizing: border-box;
+    }
+
+.session-list[b-zdq4v0g5w9] {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 15px;
+}
+
+.session-item[b-zdq4v0g5w9] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a50;
+    color: white;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+
+.session-name[b-zdq4v0g5w9] {
+    padding: 15px;
+    flex-grow: 1;
+}
+
+.session-action button[b-zdq4v0g5w9] {
+    padding: 15px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    height: 100%;
+    border-left: 1px solid black;
+}
+
+.btn-results[b-zdq4v0g5w9], .btn-continue[b-zdq4v0g5w9], .btn-start[b-zdq4v0g5w9] {
+    background-color: #008000;
+}
+
+    .btn-results:hover[b-zdq4v0g5w9], .btn-continue:hover[b-zdq4v0g5w9], .btn-start:hover[b-zdq4v0g5w9] {
+        background-color: #006400;
+    }
 /* _content/SKAT_Interface/Components/Pages/TaskEditorPage.razor.rz.scp.css */
 /* TaskEditorPage.razor.css */
 :host[b-ta85l6r91n] {

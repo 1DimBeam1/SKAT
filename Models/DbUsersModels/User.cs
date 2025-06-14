@@ -21,7 +21,7 @@ public partial class User
 
     public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
 
-    public virtual Group Group { get; set; } = null!;
+    public virtual Group? Group { get; set; }
 
     public virtual ICollection<SolutionsByUser> SolutionsByUsers { get; set; } = new List<SolutionsByUser>();
 }
