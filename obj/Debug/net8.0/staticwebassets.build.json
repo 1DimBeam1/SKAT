@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uNydrmMeeCotiYlBZ/iCAzdVozyVe0Wg3InF3CFo5tY=",
+  "Hash": "qJHGZNi9rjJR5fS4RbrhgspKSP3XgMBODL95v+nNkTo=",
   "Source": "SKAT_Interface",
   "BasePath": "_content/SKAT_Interface",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "mwtvn562d4",
-      "Integrity": "JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=",
+      "Fingerprint": "g8tpkawen7",
+      "Integrity": "QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SKAT_Interface.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "mwtvn562d4",
-      "Integrity": "JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=",
+      "Fingerprint": "g8tpkawen7",
+      "Integrity": "QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css"
@@ -22937,7 +22937,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52811"
+          "Value": "63404"
         },
         {
           "Name": "Content-Type",
@@ -22945,11 +22945,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=\""
+          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 08:41:51 GMT"
+          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22959,12 +22959,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg="
+          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
         }
       ]
     },
     {
-      "Route": "SKAT_Interface.mwtvn562d4.bundle.scp.css",
+      "Route": "SKAT_Interface.g8tpkawen7.bundle.scp.css",
       "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -22974,7 +22974,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52811"
+          "Value": "63404"
         },
         {
           "Name": "Content-Type",
@@ -22982,11 +22982,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=\""
+          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 08:41:51 GMT"
+          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22996,7 +22996,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mwtvn562d4"
+          "Value": "g8tpkawen7"
         },
         {
           "Name": "label",
@@ -23004,12 +23004,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg="
+          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
         }
       ]
     },
     {
-      "Route": "SKAT_Interface.mwtvn562d4.styles.css",
+      "Route": "SKAT_Interface.g8tpkawen7.styles.css",
       "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SKAT_Interface.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -23019,7 +23019,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52811"
+          "Value": "63404"
         },
         {
           "Name": "Content-Type",
@@ -23027,11 +23027,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=\""
+          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 08:41:51 GMT"
+          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23041,7 +23041,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "mwtvn562d4"
+          "Value": "g8tpkawen7"
         },
         {
           "Name": "label",
@@ -23049,7 +23049,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg="
+          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
         }
       ]
     },
@@ -23064,7 +23064,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52811"
+          "Value": "63404"
         },
         {
           "Name": "Content-Type",
@@ -23072,11 +23072,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg=\""
+          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 08:41:51 GMT"
+          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23086,7 +23086,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JjQN1ZIcb3ciYscc3XUQF1pY/Bw1OtEPrnb4XJ5ycUg="
+          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
         }
       ]
     }

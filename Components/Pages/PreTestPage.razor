@@ -1,88 +1,99 @@
 ﻿@* Componenta/Page/PreTestPage.razor *@
 @page "/pre-test/{SessionId:int}"
+@using Microsoft.EntityFrameworkCore
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
+@inject SKAT_Interface.Data.DbUsersContext DbUsersContext
+@inject SKAT_Interface.Data.DbTaskContext DbTaskContext 
 
 <PageTitle>Предварительный просмотр сессии</PageTitle>
 
 <div class="ptp-container">
-    <div class="ptp-title-bar">
-        <div class="ptp-session-name">Сессия тестирования №@SessionId</div>
-        <div class="ptp-time-info">Время на прохождение: @FormattedTimeLimit</div>
-    </div>
+    @if (isLoading)
+    {
+        <div class="ptp-loading-indicator">
+            <p>Загрузка данных сессии...</p>
+            @* Здесь можно добавить спиннер или другую анимацию загрузки *@
+        </div>
+    }
+    else
+    {
+        <div class="ptp-title-bar">
+            <div class="ptp-session-name">@SessionDisplayName</div> @* Используем новое свойство *@
+            <div class="ptp-time-info">Время на прохождение: @FormattedTimeLimit</div>
+        </div>
 
-    <div class="ptp-body">
-        <div class="ptp-test-selection-area">
-            <div class="ptp-info-label">Задания в сессии:</div> @* Добавлен заголовок для списка *@
-            <div class="ptp-test-list-wrapper">
-                <div class="ptp-test-list">
-                    @if (TasksInSession.Any())
-                    {
-                        @foreach (var task in TasksInSession)
+        <div class="ptp-body">
+            <div class="ptp-test-selection-area">
+                <div class="ptp-info-label">Задания в сессии:</div>
+                <div class="ptp-test-list-wrapper">
+                    <div class="ptp-test-list">
+                        @if (TasksInSession.Any())
                         {
-                            @* Убран @onclick и класс selected *@
-                            <div class="ptp-test-item">
-                                @task.Name
-                            </div>
+                            @foreach (var task in TasksInSession)
+                            {
+                                <div class="ptp-test-item">
+                                    @task.Name
+                                </div>
+                            }
                         }
-                    }
-                    else
-                    {
-                        <div class="ptp-test-item">Нет заданий в сессии</div>
-                    }
-                </div>
-                <div class="ptp-scrollbar-mock">
-                    <div class="ptp-scrollbar-thumb-mock"></div>
-                </div>
-            </div>
-            @* Кнопка "Назад" УДАЛЕНА отсюда *@
-        </div>
-
-        <div class="ptp-options-area">
-            <div class="ptp-test-type-container">
-                <div class="ptp-label">Тип тестирования</div>
-                <div class="ptp-radio-option">
-                    <label for="trainingType" class="ptp-custom-radio-label">
-                        <input type="radio" id="trainingType" name="testType"
-                               checked="@(SelectedTestMode == TestMode.Training)"
-                               @onchange="@(() => UpdateTestMode(TestMode.Training))" />
-                        <span class="ptp-custom-radio-outer">
-                            <span class="ptp-custom-radio-inner"></span>
-                        </span>
-                        Обучающее
-                    </label>
-                </div>
-                <div class="ptp-radio-option">
-                    <label for="controlType" class="ptp-custom-radio-label">
-                        <input type="radio" id="controlType" name="testType"
-                               checked="@(SelectedTestMode == TestMode.Control)"
-                               @onchange="@(() => UpdateTestMode(TestMode.Control))" />
-                        <span class="ptp-custom-radio-outer">
-                            <span class="ptp-custom-radio-inner"></span>
-                        </span>
-                        Контрольное
-                    </label>
+                        else
+                        {
+                            <div class="ptp-test-item">Нет заданий в этой сессии</div>
+                        }
+                    </div>
+                    <div class="ptp-scrollbar-mock">
+                        <div class="ptp-scrollbar-thumb-mock"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="ptp-footer-action">
-        @* Кнопка "Назад" ПЕРЕМЕЩЕНА сюда *@
-        <button class="ptp-button ptp-button-back" @onclick="GoBack">Назад</button>
-        <button class="ptp-button ptp-button-start" @onclick="StartActualTest"
-                disabled="@(!TasksInSession.Any())">
-            @* Условие disabled изменено *@
-            Начать
-        </button>
-    </div>
+            <div class="ptp-options-area">
+                <div class="ptp-test-type-container">
+                    <div class="ptp-label">Тип тестирования</div>
+                    <div class="ptp-radio-option">
+                        <label for="trainingType" class="ptp-custom-radio-label">
+                            <input type="radio" id="trainingType" name="testType"
+                            checked="@(SelectedTestMode == TestMode.Training)"
+                            @onchange="@(() => UpdateTestMode(TestMode.Training))" />
+                            <span class="ptp-custom-radio-outer">
+                                <span class="ptp-custom-radio-inner"></span>
+                            </span>
+                            Обучающее
+                        </label>
+                    </div>
+                    <div class="ptp-radio-option">
+                        <label for="controlType" class="ptp-custom-radio-label">
+                            <input type="radio" id="controlType" name="testType"
+                            checked="@(SelectedTestMode == TestMode.Control)"
+                            @onchange="@(() => UpdateTestMode(TestMode.Control))" />
+                            <span class="ptp-custom-radio-outer">
+                                <span class="ptp-custom-radio-inner"></span>
+                            </span>
+                            Контрольное
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ptp-footer-action">
+            <button class="ptp-button ptp-button-back" @onclick="GoBack">Назад</button>
+            <button class="ptp-button ptp-button-start" @onclick="StartActualTest"
+            disabled="@(!TasksInSession.Any())">
+                Начать
+            </button>
+        </div>
+    }
 </div>
 
 @code {
     [Parameter]
     public int SessionId { get; set; }
 
-    private string FormattedTimeLimit { get; set; } = "01:30:00";
+    private string SessionDisplayName { get; set; } = string.Empty; // Для отображения имени/ID сессии
+    private string FormattedTimeLimit { get; set; } = "Не установлено"; // Время на прохождение
+    private bool isLoading = true;
 
     // Переименовано для ясности
     public class SessionTaskItem
@@ -98,27 +109,69 @@
     public enum TestMode { Training, Control }
     private TestMode SelectedTestMode { get; set; } = TestMode.Training;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        LoadMockSessionData();
+        isLoading = true;
+        await LoadSessionDetailsAsync();
+        isLoading = false;
     }
 
-    private void LoadMockSessionData()
+    private async Task LoadSessionDetailsAsync()
     {
-        TasksInSession = new List<SessionTaskItem>
+        try
         {
-            new SessionTaskItem { Id = 1, Name = $"Сортировка вставками" },
-            new SessionTaskItem { Id = 2, Name = $"Сортировка пузырьком" },
-            new SessionTaskItem { Id = 3, Name = $"Бинарный поиск" },
-        };
+            // 1. Загружаем информацию о сессии из DbUsersContext
+            var session = await DbUsersContext.Sessions
+                                    .FirstOrDefaultAsync(s => s.SessionId == SessionId);
+
+            if (session == null)
+            {
+                SessionDisplayName = $"Сессия с ID {SessionId} не найдена.";
+                TasksInSession = new List<SessionTaskItem>(); // Пустой список
+                // Можно добавить навигацию на страницу ошибки или назад
+                return;
+            }
+
+            SessionDisplayName = $"Сессия тестирования: {session.SessionType ?? "N/A"} (ID: {session.SessionId})"; // Пример имени
+
+            // Форматируем время. Предположим, у Session есть свойство TimeLimit в секундах или TimeSpan
+            // Если у вас TimeLimit - это строка типа "01:30:00", то просто присваиваем
+            // Если это int (секунды):
+            TimeSpan timeSpan = session.Time;
+            FormattedTimeLimit = $"{timeSpan.Hours:D2}:{timeSpan.Minutes:D2}:{timeSpan.Seconds:D2}";
+
+
+            // 2. Загружаем ID тестов, связанных с этой сессией, из DbUsersContext
+            var testIdsInSession = await DbUsersContext.SessionTests
+                                        .Where(st => st.SessionId == SessionId)
+                                        .Select(st => st.TestId)
+                                        .ToListAsync();
+
+            if (!testIdsInSession.Any())
+            {
+                TasksInSession = new List<SessionTaskItem>();
+                // Сообщение о том, что нет заданий, уже есть в разметке
+                return;
+            }
+
+            // 3. Загружаем детали этих тестов (названия) из DbTaskContext
+            var testsDetails = await DbTaskContext.Tests // У вас DbSet называется Tests
+                                        .Where(t => testIdsInSession.Contains(t.TestId))
+                                        .Select(t => new SessionTaskItem { Id = t.TestId, Name = t.TestName })
+                                        .ToListAsync();
+
+            TasksInSession = testsDetails;
+        }
+        catch (Exception ex)
+        {
+            // Обработка ошибок загрузки данных
+            Console.WriteLine($"Ошибка при загрузке деталей сессии: {ex.Message}");
+            SessionDisplayName = "Ошибка загрузки данных сессии";
+            TasksInSession = new List<SessionTaskItem>();
+            // Можно установить FormattedTimeLimit в "Ошибка" или оставить как есть
+        }
     }
 
-    // Метод SelectTest больше не нужен
-    // private void SelectTest(int testId)
-    // {
-    //     SelectedTestId = testId;
-    //     Console.WriteLine($"Выбран тест: {testId}");
-    // }
 
     private void UpdateTestMode(TestMode mode)
     {
@@ -128,7 +181,7 @@
 
     private void GoBack()
     {
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/sessions");
         Console.WriteLine("Нажата кнопка 'Назад'");
     }
 
@@ -137,8 +190,6 @@
         if (TasksInSession.Any())
         {
             Console.WriteLine($"Нажата кнопка 'Начать' для сессии {SessionId}, режим: {SelectedTestMode}");
-            // Передаем SessionId. TestMode можно передать через query string или другим способом,
-            // если он нужен на странице ActualTestPage для логики (например, отображения подсказок).
             NavigationManager.NavigateTo($"/actual-test/{SessionId}?mode={SelectedTestMode}");
         }
         else

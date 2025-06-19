@@ -411,3 +411,38 @@
     .atp-button-next:hover {
         background-color: #006400;
     }
+
+.atp-algorithm-steps-hint { /* или .atp-hints, если вы переименовали */
+    /* background-color: #0d0d29; уже есть от atp-info-block */
+    /* padding: 10px 15px; уже есть */
+    /* border-radius: 4px; уже есть */
+    /* border: 1px solid #333399; уже есть */
+    flex-grow: 1; /* Чтобы занимал доступное место, если подсказок много */
+    display: flex;
+    flex-direction: column;
+}
+
+.atp-algorithm-step-list {
+    max-height: 200px; /* Ограничение высоты, чтобы не растягивался сильно */
+    overflow-y: auto;
+    padding-top: 5px;
+    border: 1px solid #335599; /* Рамка вокруг списка шагов */
+    border-radius: 3px;
+    background-color: #112244; /* Немного другой фон для списка */
+}
+
+.atp-algorithm-step-item {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    color: #ddeeff;
+    border-bottom: 1px solid #224477;
+    cursor: default; /* или pointer, если хотите добавить интерактивность */
+}
+
+    .atp-algorithm-step-item:last-child {
+        border-bottom: none;
+    }
+
+    .atp-algorithm-step-item:hover {
+        background-color: #2a4a85; /* Подсветка при наведении */
+    }

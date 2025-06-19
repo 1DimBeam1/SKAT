@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SKAT_Interface")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8516b81b95d7abe6e29c7efb67789e8efb1b8cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5eb9e4bd3d9dc0e0eb48c0580dd251b482338fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("SKAT_Interface")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SKAT_Interface")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

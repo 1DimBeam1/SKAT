@@ -792,6 +792,41 @@ main {
     .atp-button-next:hover[b-oob6u1pje3] {
         background-color: #006400;
     }
+
+.atp-algorithm-steps-hint[b-oob6u1pje3] { /* или .atp-hints, если вы переименовали */
+    /* background-color: #0d0d29; уже есть от atp-info-block */
+    /* padding: 10px 15px; уже есть */
+    /* border-radius: 4px; уже есть */
+    /* border: 1px solid #333399; уже есть */
+    flex-grow: 1; /* Чтобы занимал доступное место, если подсказок много */
+    display: flex;
+    flex-direction: column;
+}
+
+.atp-algorithm-step-list[b-oob6u1pje3] {
+    max-height: 200px; /* Ограничение высоты, чтобы не растягивался сильно */
+    overflow-y: auto;
+    padding-top: 5px;
+    border: 1px solid #335599; /* Рамка вокруг списка шагов */
+    border-radius: 3px;
+    background-color: #112244; /* Немного другой фон для списка */
+}
+
+.atp-algorithm-step-item[b-oob6u1pje3] {
+    padding: 6px 10px;
+    font-size: 0.9em;
+    color: #ddeeff;
+    border-bottom: 1px solid #224477;
+    cursor: default; /* или pointer, если хотите добавить интерактивность */
+}
+
+    .atp-algorithm-step-item:last-child[b-oob6u1pje3] {
+        border-bottom: none;
+    }
+
+    .atp-algorithm-step-item:hover[b-oob6u1pje3] {
+        background-color: #2a4a85; /* Подсветка при наведении */
+    }
 /* _content/SKAT_Interface/Components/Pages/AlgorithmEditorPage.razor.rz.scp.css */
 /* wwwroot/css/AlgorithmEditorPage.css */
 
@@ -1602,4 +1637,326 @@ main {
 
     .stacked-buttons .btn-action[b-ta85l6r91n] {
         width: 100%; /* Кнопки в стопке занимают всю ширину своего контейнера */
+    }
+/* _content/SKAT_Interface/Components/Pages/TeacherStatisticsPage.razor.rz.scp.css */
+/* wwwroot/css/TeacherStatisticsPage.css */
+.teacher-stats-container[b-pdsotmoszz] {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    color: #333;
+}
+
+    .teacher-stats-container h3[b-pdsotmoszz], .teacher-stats-container h4[b-pdsotmoszz] {
+        color: #0d0d29;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .teacher-stats-container h3[b-pdsotmoszz] {
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .teacher-stats-container h4[b-pdsotmoszz] {
+        font-size: 1.3em;
+        margin-top: 25px;
+    }
+
+.view-selector[b-pdsotmoszz], .group-filter[b-pdsotmoszz], .student-filter[b-pdsotmoszz] {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Пространство между элементами фильтра */
+    flex-wrap: wrap;
+}
+
+    .view-selector label[b-pdsotmoszz], .group-filter label[b-pdsotmoszz], .student-filter label[b-pdsotmoszz] {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .view-selector select[b-pdsotmoszz], .group-filter select[b-pdsotmoszz], .student-filter select[b-pdsotmoszz], .student-filter input[type="text"][b-pdsotmoszz] {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+        min-width: 150px; /* Минимальная ширина для селектов */
+    }
+
+    .student-filter input[type="text"][b-pdsotmoszz] {
+        flex-grow: 1; /* Поле поиска занимает доступное место */
+    }
+
+
+.stats-table[b-pdsotmoszz] {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+    .stats-table th[b-pdsotmoszz],
+    .stats-table td[b-pdsotmoszz] {
+        border: 1px solid #ddd;
+        padding: 10px 12px;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    .stats-table th[b-pdsotmoszz] {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+.btn-sm[b-pdsotmoszz] { /* Для кнопок "Подробнее" */
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+.btn-info[b-pdsotmoszz] {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+    .btn-info:hover[b-pdsotmoszz] {
+        background-color: #138496;
+        border-color: #117a8b;
+    }
+/* _content/SKAT_Interface/Components/Pages/UserSettingsPage.razor.rz.scp.css */
+/* wwwroot/css/UserSettingsPage.css */
+.settings-container[b-87fjhmug2m] {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #f8f9fa; /* Светлый фон */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #212529; /* Темный текст */
+}
+
+    .settings-container h3[b-87fjhmug2m] {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #0d0d29; /* Темно-синий заголовок, как в вашем проекте */
+    }
+
+.form-group[b-87fjhmug2m] {
+    margin-bottom: 1.25rem;
+}
+
+    .form-group label[b-87fjhmug2m] {
+        display: block;
+        margin-bottom: .5rem;
+        font-weight: 500;
+    }
+
+.form-control[b-87fjhmug2m] { /* Стиль для input, textarea, select из Bootstrap, но можно определить свои */
+    display: block;
+    width: 100%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+    .form-control:focus[b-87fjhmug2m] {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+    }
+
+.settings-container hr[b-87fjhmug2m] {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.settings-container h4[b-87fjhmug2m] {
+    margin-bottom: 1rem;
+    color: #1a1a50; /* Синий для подзаголовков */
+}
+
+.btn-primary[b-87fjhmug2m] {
+    color: #fff;
+    background-color: #1a1a50; /* Синяя кнопка */
+    border-color: #1a1a50;
+}
+
+    .btn-primary:hover[b-87fjhmug2m] {
+        background-color: #0d0d29;
+        border-color: #0a0a23;
+    }
+
+.alert[b-87fjhmug2m] {
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-success[b-87fjhmug2m] {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger[b-87fjhmug2m] {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+/* _content/SKAT_Interface/Components/Pages/UserStatisticsPage.razor.rz.scp.css */
+/* wwwroot/css/UserStatisticsPage.css */
+.stats-container[b-xwm12jzcqj] {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Белый фон для контента */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    color: #333; /* Темный текст */
+}
+
+    .stats-container h3[b-xwm12jzcqj], .stats-container h4[b-xwm12jzcqj] {
+        color: #0d0d29; /* Темно-синий для заголовков, как в вашем проекте */
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .stats-container h3[b-xwm12jzcqj] {
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .stats-container h4[b-xwm12jzcqj] {
+        font-size: 1.3em;
+        margin-top: 25px;
+    }
+
+
+.stats-summary[b-xwm12jzcqj] {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Для адаптивности */
+}
+
+.stats-card[b-xwm12jzcqj] {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    flex: 1; /* Карточки занимают равное доступное место */
+    min-width: 200px; /* Минимальная ширина карточки */
+}
+
+    .stats-card h4[b-xwm12jzcqj] {
+        font-size: 1em;
+        color: #495057;
+        margin-top: 0;
+        margin-bottom: 10px;
+        border-bottom: none; /* Убираем нижнюю границу для заголовков карточек */
+    }
+
+.stats-value[b-xwm12jzcqj] {
+    font-size: 2em;
+    font-weight: bold;
+    color: #1a1a50; /* Синий для значений */
+}
+
+.topic-progress-list[b-xwm12jzcqj] {
+    list-style: none;
+    padding: 0;
+}
+
+    .topic-progress-list li[b-xwm12jzcqj] {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+.topic-name[b-xwm12jzcqj] {
+    width: 180px; /* Ширина для названия темы */
+    padding-right: 10px;
+    font-weight: 500;
+}
+
+.progress-bar-container[b-xwm12jzcqj] {
+    flex-grow: 1;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 22px; /* Высота прогресс-бара */
+    overflow: hidden; /* Чтобы внутренний бар не вылезал */
+}
+
+.progress-bar[b-xwm12jzcqj] {
+    background-color: #007bff; /* Синий для прогресса */
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 22px; /* Вертикальное выравнивание текста */
+    font-size: 0.9em;
+    border-radius: 5px 0 0 5px; /* Скругление только с одной стороны, если не 100% */
+    transition: width 0.5s ease-in-out;
+}
+
+.recent-sessions-table[b-xwm12jzcqj] {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+    .recent-sessions-table th[b-xwm12jzcqj],
+    .recent-sessions-table td[b-xwm12jzcqj] {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .recent-sessions-table th[b-xwm12jzcqj] {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+.stats-footer[b-xwm12jzcqj] {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-secondary[b-xwm12jzcqj] { /* Стиль для кнопки "Назад" Bootstrap */
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+    .btn-secondary:hover[b-xwm12jzcqj] {
+        background-color: #5a6268;
+        border-color: #545b62;
     }

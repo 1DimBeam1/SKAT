@@ -107,3 +107,15 @@ build_metadata.AdditionalFiles.CssScope = b-zdq4v0g5w9
 [C:/MVS/SKAT_Interface/Components/Pages/TaskEditorPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUYXNrRWRpdG9yUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ta85l6r91n
+
+[C:/MVS/SKAT_Interface/Components/Pages/TeacherStatisticsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUZWFjaGVyU3RhdGlzdGljc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-pdsotmoszz
+
+[C:/MVS/SKAT_Interface/Components/Pages/UserSettingsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyU2V0dGluZ3NQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-87fjhmug2m
+
+[C:/MVS/SKAT_Interface/Components/Pages/UserStatisticsPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyU3RhdGlzdGljc1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xwm12jzcqj

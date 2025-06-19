@@ -1,0 +1,297 @@
+﻿@* Components/Pages/TeacherStatisticsPage.razor *@
+@page "/teacher/statistics"
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
+
+@inject NavigationManager NavigationManager
+
+<PageTitle>Статистика успеваемости</PageTitle>
+
+<div class="teacher-stats-container">
+    <h3>Статистика успеваемости (Преподаватель)</h3>
+
+    @if (isLoading)
+    {
+        <p><em>Загрузка статистики...</em></p>
+    }
+    else
+    {
+        <div class="view-selector">
+            <label>Просмотр по:</label>
+            <select @bind="SelectedViewMode" @bind:event="onchange">
+                <option value="@ViewMode.ByGroup">Группам</option>
+                <option value="@ViewMode.ByStudent">Обучающимся</option>
+            </select>
+        </div>
+
+        @if (SelectedViewMode == ViewMode.ByGroup)
+        {
+            <div class="group-filter">
+                <label for="groupSelect">Выберите группу:</label>
+                <select id="groupSelect" @bind="SelectedGroupId" @bind:event="onchange">
+                    <option value="0">-- Все группы --</option>
+                    @foreach (var group in AllGroups)
+                    {
+                        <option value="@group.GroupId">@group.GroupName</option>
+                    }
+                </select>
+            </div>
+
+            <h4>Статистика по группам</h4>
+            @if (DisplayGroupStatistics.Any())
+            {
+                <table class="table stats-table">
+                    <thead>
+                        <tr>
+                            <th>Группа</th>
+                            <th>Средний балл</th>
+                            <th>Завершено сессий (в среднем на студента)</th>
+                            <th>% Справившихся с последней контрольной</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var groupStat in DisplayGroupStatistics)
+                        {
+                            <tr>
+                                <td>@groupStat.GroupName</td>
+                                <td>@groupStat.AverageScore.ToString("F1")</td>
+                                <td>@groupStat.AvgCompletedSessionsPerStudent.ToString("F1")</td>
+                                <td>@groupStat.LastControlWorkPassRate.ToString("P0")</td> @* P0 для процентов без дробной части *@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><em>Нет данных для отображения по выбранным группам.</em></p>
+            }
+        }
+        else if (SelectedViewMode == ViewMode.ByStudent)
+        {
+            <div class="student-filter">
+                <label for="studentGroupSelect">Группа:</label>
+                <select id="studentGroupSelect" @bind="SelectedStudentGroupIdForFilter" @bind:event="onchange">
+                    <option value="0">-- Все группы --</option>
+                    @foreach (var group in AllGroups)
+                    {
+                        <option value="@group.GroupId">@group.GroupName</option>
+                    }
+                </select>
+                <label for="studentSearch">Поиск студента (ФИО):</label>
+                <input type="text" id="studentSearch" @bind="StudentSearchTerm" @bind:event="oninput" placeholder="Введите ФИО..." />
+            </div>
+
+            <h4>Статистика по обучающимся</h4>
+            @if (DisplayStudentStatistics.Any())
+            {
+                <table class="table stats-table">
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Группа</th>
+                            <th>Средний балл</th>
+                            <th>Завершено сессий</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var studentStat in DisplayStudentStatistics)
+                        {
+                            <tr>
+                                <td>@studentStat.StudentFullName</td>
+                                <td>@studentStat.GroupName</td>
+                                <td>@studentStat.AverageScore.ToString("F1")</td>
+                                <td>@studentStat.CompletedSessions</td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" @onclick="() => ViewStudentDetails(studentStat.StudentId)">Подробнее</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p><em>Нет данных для отображения по выбранным фильтрам.</em></p>
+            }
+        }
+    }
+</div>
+
+@code {
+    private bool isLoading = true;
+
+    // --- Модели для статистики ---
+    public class GroupInfoViewModel
+    {
+        public int GroupId { get; set; }
+        public string GroupName { get; set; } = string.Empty;
+    }
+
+    public class GroupStatisticViewModel : GroupInfoViewModel
+    {
+        public double AverageScore { get; set; }
+        public double AvgCompletedSessionsPerStudent { get; set; }
+        public double LastControlWorkPassRate { get; set; } // от 0.0 до 1.0
+    }
+
+    public class StudentStatisticViewModel
+    {
+        public int StudentId { get; set; }
+        public string StudentFullName { get; set; } = string.Empty;
+        public int GroupId { get; set; }
+        public string GroupName { get; set; } = string.Empty;
+        public double AverageScore { get; set; }
+        public int CompletedSessions { get; set; }
+    }
+
+    // --- Данные и состояние UI ---
+    public enum ViewMode { ByGroup, ByStudent }
+    private ViewMode _selectedViewMode = ViewMode.ByGroup;
+    public ViewMode SelectedViewMode
+    {
+        get => _selectedViewMode;
+        set
+        {
+            if (_selectedViewMode != value)
+            {
+                _selectedViewMode = value;
+                // Сбрасываем фильтры при смене режима
+                SelectedGroupId = 0;
+                SelectedStudentGroupIdForFilter = 0;
+                StudentSearchTerm = string.Empty;
+                FilterAndDisplayData();
+            }
+        }
+    }
+
+
+    private List<GroupInfoViewModel> AllGroups { get; set; } = new List<GroupInfoViewModel>();
+    private List<GroupStatisticViewModel> AllGroupStatistics { get; set; } = new List<GroupStatisticViewModel>();
+    private List<StudentStatisticViewModel> AllStudentStatistics { get; set; } = new List<StudentStatisticViewModel>();
+
+    private List<GroupStatisticViewModel> DisplayGroupStatistics { get; set; } = new List<GroupStatisticViewModel>();
+    private List<StudentStatisticViewModel> DisplayStudentStatistics { get; set; } = new List<StudentStatisticViewModel>();
+
+    // Фильтры
+    private int _selectedGroupId = 0; // 0 означает "Все группы"
+    public int SelectedGroupId
+    {
+        get => _selectedGroupId;
+        set
+        {
+            if (_selectedGroupId != value)
+            {
+                _selectedGroupId = value;
+                FilterAndDisplayData();
+            }
+        }
+    }
+
+    private int _selectedStudentGroupIdForFilter = 0; // 0 означает "Все группы" для фильтра студентов
+    public int SelectedStudentGroupIdForFilter
+    {
+        get => _selectedStudentGroupIdForFilter;
+        set
+        {
+            if (_selectedStudentGroupIdForFilter != value)
+            {
+                _selectedStudentGroupIdForFilter = value;
+                FilterAndDisplayData();
+            }
+        }
+    }
+
+    private string _studentSearchTerm = string.Empty;
+    public string StudentSearchTerm
+    {
+        get => _studentSearchTerm;
+        set
+        {
+            if (_studentSearchTerm != value)
+            {
+                _studentSearchTerm = value;
+                FilterAndDisplayData(); // Фильтруем при каждом изменении
+            }
+        }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = true;
+        await LoadMockDataAsync();
+        FilterAndDisplayData();
+        isLoading = false;
+    }
+
+    private async Task LoadMockDataAsync()
+    {
+        // Имитация задержки сети
+        await Task.Delay(500);
+
+        AllGroups = new List<GroupInfoViewModel>
+        {
+            new GroupInfoViewModel { GroupId = 1, GroupName = "Б9121-02.03.03" },
+            new GroupInfoViewModel { GroupId = 2, GroupName = "Б9122-01.01.01" },
+            new GroupInfoViewModel { GroupId = 3, GroupName = "М1234-05.06.07" }
+        };
+
+        AllGroupStatistics = new List<GroupStatisticViewModel>
+        {
+            new GroupStatisticViewModel { GroupId = 1, GroupName = "Б9121-02.03.03", AverageScore = 78.5, AvgCompletedSessionsPerStudent = 4.2, LastControlWorkPassRate = 0.65 },
+            new GroupStatisticViewModel { GroupId = 2, GroupName = "Б9122-01.01.01", AverageScore = 85.1, AvgCompletedSessionsPerStudent = 5.0, LastControlWorkPassRate = 0.80 },
+            new GroupStatisticViewModel { GroupId = 3, GroupName = "М1234-05.06.07", AverageScore = 90.3, AvgCompletedSessionsPerStudent = 3.5, LastControlWorkPassRate = 0.95 }
+        };
+
+        AllStudentStatistics = new List<StudentStatisticViewModel>
+        {
+            new StudentStatisticViewModel { StudentId = 101, StudentFullName = "Иванов Иван Иванович", GroupId = 1, GroupName = "Б9121-02.03.03", AverageScore = 80.0, CompletedSessions = 5 },
+            new StudentStatisticViewModel { StudentId = 102, StudentFullName = "Петров Петр Петрович", GroupId = 1, GroupName = "Б9121-02.03.03", AverageScore = 75.0, CompletedSessions = 3 },
+            new StudentStatisticViewModel { StudentId = 103, StudentFullName = "Сидорова Алиса Игоревна", GroupId = 1, GroupName = "Б9121-02.03.03", AverageScore = 82.0, CompletedSessions = 5 },
+            new StudentStatisticViewModel { StudentId = 201, StudentFullName = "Кузнецова Мария Олеговна", GroupId = 2, GroupName = "Б9122-01.01.01", AverageScore = 90.5, CompletedSessions = 6 },
+            new StudentStatisticViewModel { StudentId = 202, StudentFullName = "Смирнов Алексей Викторович", GroupId = 2, GroupName = "Б9122-01.01.01", AverageScore = 80.0, CompletedSessions = 4 },
+            new StudentStatisticViewModel { StudentId = 301, StudentFullName = "Волков Дмитрий Андреевич", GroupId = 3, GroupName = "М1234-05.06.07", AverageScore = 92.0, CompletedSessions = 4 },
+        };
+    }
+
+    private void FilterAndDisplayData()
+    {
+        if (SelectedViewMode == ViewMode.ByGroup)
+        {
+            if (SelectedGroupId == 0) // Все группы
+            {
+                DisplayGroupStatistics = AllGroupStatistics;
+            }
+            else
+            {
+                DisplayGroupStatistics = AllGroupStatistics.Where(g => g.GroupId == SelectedGroupId).ToList();
+            }
+            DisplayStudentStatistics.Clear(); // Очищаем список студентов, т.к. выбран вид по группам
+        }
+        else if (SelectedViewMode == ViewMode.ByStudent)
+        {
+            var query = AllStudentStatistics.AsQueryable();
+
+            if (SelectedStudentGroupIdForFilter != 0)
+            {
+                query = query.Where(s => s.GroupId == SelectedStudentGroupIdForFilter);
+            }
+
+            if (!string.IsNullOrWhiteSpace(StudentSearchTerm))
+            {
+                query = query.Where(s => s.StudentFullName.Contains(StudentSearchTerm, StringComparison.OrdinalIgnoreCase));
+            }
+            DisplayStudentStatistics = query.ToList();
+            DisplayGroupStatistics.Clear(); // Очищаем список групп
+        }
+        //StateHasChanged(); // Вызывать StateHasChanged здесь не обязательно, если свойства имеют сеттеры с логикой
+    }
+
+    private void ViewStudentDetails(int studentId)
+    {
+        // Переход на страницу детальной статистики студента (пока заглушка)
+        Console.WriteLine($"Просмотр деталей для студента ID: {studentId}");
+        // NavigationManager.NavigateTo($"/teacher/student-details/{studentId}");
+    }
+}

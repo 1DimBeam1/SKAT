@@ -143,3 +143,6 @@ C:\MVS\SKAT_Interface\obj\Debug\net8.0\SKAT_Interface.pdb
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\SKAT_Interface.genruntimeconfig.cache
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\ref\SKAT_Interface.dll
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\SessionsPage.razor.rz.scp.css
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\UserSettingsPage.razor.rz.scp.css
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\UserStatisticsPage.razor.rz.scp.css
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\TeacherStatisticsPage.razor.rz.scp.css
