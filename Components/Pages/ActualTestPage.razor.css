@@ -98,21 +98,6 @@
     padding-right: 10px;
 }
 
-.atp-step-scrollbar-mock { /* Этот класс уже должен быть стилизован */
-    width: 10px;
-    background-color: #0d0d29;
-    border-radius: 5px;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-}
-
-.atp-step-scrollbar-thumb-mock { /* Этот класс уже должен быть стилизован */
-    width: 6px;
-    height: 50px;
-    background-color: #5555bb;
-    border-radius: 3px;
-}
 
 
 .atp-step-adder-buttons {
@@ -198,21 +183,6 @@
     color: white;
 }
 
-.atp-instance-scrollbar-mock { /* Такой же, как atp-step-scrollbar-mock */
-    width: 10px;
-    background-color: #0d0d29;
-    border-radius: 5px;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-}
-
-.atp-instance-scrollbar-thumb-mock { /* Такой же, как atp-step-scrollbar-thumb-mock */
-    width: 6px;
-    height: 40px; /* Чуть меньше, может быть */
-    background-color: #5555bb;
-    border-radius: 3px;
-}
 
 .atp-instance-input-fields {
     background-color: #3a5da0; /* Синий фон для области ввода, как на картинке */
@@ -445,4 +415,303 @@
 
     .atp-algorithm-step-item:hover {
         background-color: #2a4a85; /* Подсветка при наведении */
+    }
+
+.atp-current-step-info {
+    display: flex;
+    flex-direction: column; /* Чтобы поля ввода были под описанием */
+    background-color: #1a1a50;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px solid #333399;
+    color: white;
+    flex-shrink: 0;
+}
+
+.atp-step-description {
+    flex-grow: 1;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap; /* Сохраняем переносы строк из InitialStateDescription */
+    padding-right: 10px; /* Если был скроллбар, может понадобиться */
+    margin-bottom: 10px; /* Отступ до полей ввода, если они есть */
+}
+
+.atp-step0-input-fields {
+    margin-top: 10px; /* Отступ от основного описания */
+    padding: 10px;
+    background-color: #2c3e50; /* Немного другой фон для выделения */
+    border-radius: 4px;
+    border: 1px dashed #5577bb; /* Пунктирная рамка для обозначения зоны ввода */
+}
+
+.atp-block-label-inline {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #a0b0ff;
+}
+
+.atp-variable-input-container {
+    display: flex;
+    align-items: center; /* Выравнивание метки и поля/полей */
+    gap: 10px;
+    margin-bottom: 8px; /* Отступ между разными переменными */
+}
+
+.atp-variable-label {
+    color: white;
+    font-weight: normal;
+    white-space: nowrap;
+    min-width: 60px; /* Чтобы метки были примерно одной ширины */
+    text-align: right;
+}
+
+.atp-array-input-cells {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет ячейкам переноситься, если не влезают */
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #5577bb; /* Рамка вокруг ячеек массива */
+    padding: 5px;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.1); /* Легкий фон для группы ячеек */
+}
+
+.atp-array-cell {
+    width: 45px; /* Ширина одной ячейки массива */
+    padding: 6px 4px;
+    text-align: center;
+    background-color: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    color: #333;
+    font-family: Consolas, Monaco, monospace;
+}
+
+.atp-single-value-input {
+    /* Стили для обычного поля ввода, если они отличаются от .atp-array-cell */
+    padding: 6px 8px;
+    background-color: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    color: #333;
+    font-family: Consolas, Monaco, monospace;
+    width: 100px; /* Пример ширины */
+}
+
+    .atp-single-value-input.wide-input { /* Если вам все еще нужно широкое поле для не-массивов */
+        width: 180px;
+    }
+
+
+.atp-array-size-btn {
+    background-color: #4CAF50; /* Зеленый */
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+    .atp-array-size-btn:last-of-type { /* Для кнопки "-" */
+        background-color: #f44336; /* Красный */
+    }
+
+    .atp-array-size-btn:hover {
+        opacity: 0.8;
+    }
+
+.atp-instance-header {
+    display: flex;
+    /* justify-content: space-between; уже есть */
+    align-items: flex-start; /* Изменено на flex-start для лучшего выравнивания, если описание длинное */
+    gap: 10px; /* Пространство между элементами заголовка */
+    margin-bottom: 10px;
+}
+
+.atp-instance-title {
+    font-weight: bold;
+    color: #ffc107; /* Желтоватый для выделения номера шага */
+    white-space: nowrap; /* Чтобы "Шаг X:" не переносился */
+    flex-shrink: 0;
+}
+
+.atp-instance-description {
+    flex-grow: 1; /* Описание занимает оставшееся место */
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    /* padding-right: 10px; убрано, т.к. есть gap */
+    color: white;
+}
+
+    .atp-instance-description span.original-step-note { /* Стиль для " (Ориг. Шаг X)" */
+        font-size: 0.85em;
+        color: #a0b0ff;
+        margin-left: 5px;
+    }
+
+.atp-remove-step-button {
+    background-color: transparent;
+    color: #ffc107; /* Желтоватый, чтобы выделялся, но не был агрессивным */
+    border: 1px solid #ffc107;
+    padding: 2px 7px; /* Маленькая кнопка */
+    border-radius: 50%; /* Круглая кнопка */
+    cursor: pointer;
+    font-size: 1.1em; /* Размер крестика */
+    line-height: 1; /* Чтобы крестик был по центру */
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+    flex-shrink: 0; /* Чтобы кнопка не сжималась */
+    align-self: flex-start;
+}
+
+    .atp-remove-step-button:hover {
+        background-color: #ffc107;
+        color: #2c3e50; /* Темный цвет фона страницы */
+    }
+
+.atp-instance-submitted {
+    border-left: 5px solid #6c757d; /* Серый цвет (Bootstrap secondary) */
+    background-color: rgba(108, 117, 125, 0.1); /* Легкий серый фон */
+}
+
+.atp-action-buttons-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    /* flex-wrap: wrap; */ /* Убираем, если хотим всегда в одну строку */
+}
+
+.atp-button { /* Общие стили для кнопок, если они еще не полностью определены */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em; /* Немного уменьшил для двух кнопок */
+    text-align: center;
+    flex-grow: 1; /* Можно оставить, если всегда 2 кнопки и они должны делить место */
+    flex-basis: 0; /* Чтобы flex-grow работал корректно */
+    text-overflow: ellipsis; /* Добавить многоточие, если текст не влезает */
+    overflow: hidden; /* Обрезать текст, который не влезает */
+    white-space: nowrap;
+}
+
+@media (max-width: 400px) { /* Подберите значение max-width под ваш дизайн */
+    .atp-info-column {
+        padding: 10px; /* Уменьшаем внутренние отступы колонки */
+    }
+
+    .atp-button {
+        font-size: 0.9em; /* Уменьшаем шрифт на кнопках */
+        padding: 8px 10px; /* Уменьшаем паддинг кнопок */
+    }
+
+    .atp-action-buttons-footer {
+        gap: 5px; /* Уменьшаем зазор между кнопками */
+    }
+}
+
+.atp-button-check {
+    background-color: #ffc107; /* Желтый (Bootstrap warning) */
+    color: #212529; /* Темный текст для желтой кнопки */
+}
+
+    .atp-button-check:hover {
+        background-color: #e0a800;
+    }
+
+    .atp-button-check:disabled {
+        background-color: #ffe083;
+        cursor: not-allowed;
+    }
+
+
+.atp-button-next {
+    background-color: #007bff; /* Синий (Bootstrap primary) или ваш зеленый */
+}
+
+    .atp-button-next:hover {
+        background-color: #0069d9;
+    }
+
+    .atp-button-next:disabled {
+        background-color: #7fade9;
+        cursor: not-allowed;
+    }
+
+/* Спиннер внутри кнопки */
+.atp-button .spinner-border-sm {
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+.atp-instance-header {
+    display: flex;
+    align-items: center; /* Выравниваем все элементы в заголовке по центру вертикально */
+    margin-bottom: 10px;
+}
+
+.atp-instance-title {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.atp-instance-description {
+    flex-grow: 1;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    white-space: pre-wrap;
+    padding-right: 10px;
+    color: white;
+}
+
+.atp-instance-status-icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Прижимает иконки и кнопку удаления вправо */
+    padding-left: 10px; /* Отступ от описания */
+}
+
+.atp-status-icon {
+    font-size: 1.2em; /* Размер иконок-эмодзи */
+    margin-right: 8px; /* Отступ от кнопки удаления */
+    cursor: help; /* Показывает, что можно навести для подсказки */
+}
+
+    .atp-status-icon.error-icon {
+        color: #ffcc00; /* Желтый для информации об ошибке, чтобы не конфликтовать с красной рамкой всего блока */
+    }
+
+    .atp-status-icon.correct-icon {
+        color: #28a745; /* Зеленый */
+    }
+
+    .atp-status-icon.pending-icon {
+        color: #0dcaf0; /* Голубой (Bootstrap info) */
+    }
+
+
+.atp-remove-step-button {
+    background: none;
+    border: none;
+    color: #ff6b6b; /* Красный для кнопки удаления */
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+    .atp-remove-step-button:hover {
+        color: #e03131;
     }

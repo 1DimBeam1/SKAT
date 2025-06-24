@@ -1,157 +1,451 @@
-﻿:host { /* Рамка вокруг всего компонента */
-    display: block; /* :host часто требует display: block */
-}
-
-.sep-main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 3.5rem); /* 3.5rem - высота top-row в NavMenu, если NavMenu постоянный */
-    /* Если NavMenu нет или другая высота, скорректируйте или используйте 100vh */
-    background-color: #3a5da0; /* Синий фон как на картинке (подберите точнее при необходимости) */
-    color: white; /* Основной цвет текста */
-    padding: 15px;
-    box-sizing: border-box;
-}
-
-.sep-header {
-    background-color: #0d0d29; /* Темно-синий как у других заголовков */
-    color: white;
-    padding: 10px 15px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
-
-.sep-content-area {
-    display: flex;
-    gap: 20px; /* Пространство между колонками */
-    flex-grow: 1; /* Занимает доступное пространство */
-}
-
-.sep-left-column,
-.sep-right-column {
-    flex: 1; /* Колонки делят пространство поровну */
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Пространство между элементами в колонке */
-}
-
-.sep-label {
-    font-weight: bold;
-    margin-bottom: 5px;
+﻿/* wwwroot/css/NewSessionEditorPage.css */
+:host {
     display: block;
 }
 
-.sep-task-list-box,
-.sep-group-list-box {
-    background-color: #cccccc; /* Светло-серый фон для списков */
-    color: #333; /* Темный текст в списках */
-    border: 1px solid #aaaaaa;
-    border-radius: 4px;
-    padding: 10px;
-    min-height: 150px; /* Минимальная высота списков */
-    max-height: 300px; /* Максимальная высота, чтобы появилась прокрутка */
-    overflow-y: auto; /* Включаем вертикальную прокрутку */
-    flex-grow: 1; /* Позволяет списку растягиваться */
+/* Общие правила для предотвращения горизонтального скролла */
+/* Убрал body, html { overflow-x: hidden; } отсюда, лучше применять на уровне app.css, если это глобальное решение */
+* {
+    box-sizing: border-box; /* Все элементы включают padding и border в свою ширину/высоту */
 }
 
-.sep-task-item,
-.sep-group-item {
-    padding: 5px 0;
-    border-bottom: 1px solid #bbbbbb;
-}
-
-    .sep-task-item:last-child,
-    .sep-group-item:last-child {
-        border-bottom: none;
-    }
-
-.sep-empty-list {
-    font-style: italic;
-    color: #777;
-}
-
-
-.sep-button {
-    padding: 10px 15px;
+.nse-main-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #3a5da0; /* Основной синий фон страницы */
+    border-radius: 8px;
     color: white;
-    border: none;
+    font-family: sans-serif;
+}
+
+.nse-session-name-input-row { /* Этот класс больше не используется, но оставлю на случай, если вы его вернете */
+    margin-bottom: 25px;
+}
+
+.nse-session-name-input { /* Этот класс больше не используется */
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1.2em;
+    border: 1px solid #5577bb;
     border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
+    box-sizing: border-box;
+    background-color: #eef;
+    color: #0d0d29;
 }
 
-.sep-button-add {
-    background-color: #1a1a50; /* Темно-синий для кнопок "Добавить" */
-    align-self: flex-start; /* Кнопка не растягивается на всю ширину */
-}
-
-    .sep-button-add:hover {
-        background-color: #333399;
+    .nse-session-name-input::placeholder {
+        color: #5577bb;
+        font-style: italic;
     }
 
-.sep-form-group {
-    /* Контейнер для группы лейбла и инпутов */
+    .nse-session-name-input:focus {
+        border-color: #88aaff;
+        box-shadow: 0 0 0 0.2rem rgba(136, 170, 255, 0.25);
+    }
+
+.nse-content-area {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap; /* Позволит правой колонке уйти вниз на очень узких экранах */
 }
 
-.sep-date-inputs,
-.sep-time-inputs {
+.nse-left-column {
+    flex: 2 1 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 300px;
+}
+
+.nse-right-column {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 280px;
+}
+
+.nse-section {
+    background-color: #1a1a50;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #0d0d29;
+    display: flex;
+    flex-direction: column;
+}
+
+.nse-section-label, .nse-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: #ddeeff;
+    border-bottom: 1px solid #3a5da0;
+    padding-bottom: 8px;
+}
+
+.nse-label {
+    font-size: 1em;
+}
+
+/* Список алгоритмов */
+.nse-algorithm-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.nse-algorithm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px solid #3a5da0;
+    border-radius: 4px;
+    background-color: #2c3e50;
+    overflow: hidden; /* Для text-overflow: ellipsis на дочернем элементе */
+}
+
+.nse-algorithm-name {
+    flex-grow: 1;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer; /* Добавлено, так как клик по имени тоже должен работать */
+}
+
+.nse-test-count-selector {
     display: flex;
     align-items: center;
-    gap: 10px; /* Пространство между инпутами и лейблами "с", "До", "ч." и т.д. */
+    flex-shrink: 0;
 }
 
-    .sep-date-inputs input[type="date"],
-    .sep-time-inputs input[type="number"] {
-        background-color: #cccccc;
-        border: 1px solid #aaaaaa;
-        color: #333;
-        padding: 8px;
-        border-radius: 4px;
-        font-family: inherit; /* Наследуем шрифт */
+.nse-count-btn {
+    background-color: #3a5da0;
+    border: 1px solid #5577bb;
+    color: white;
+    font-weight: bold;
+    width: 26px;
+    height: 26px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0; /* Убираем лишний padding, т.к. line-height и размеры заданы */
+}
+
+    .nse-count-btn:hover:not(:disabled) {
+        background-color: #5577bb;
     }
 
-    .sep-date-inputs input[type="date"] {
-        flex-grow: 1; /* Поля даты занимают доступное место */
+    .nse-count-btn:disabled {
+        background-color: #2c3e50;
+        opacity: 0.6;
+        cursor: not-allowed;
     }
 
-    .sep-time-inputs input[type="number"] {
-        width: 60px; /* Фиксированная ширина для полей времени */
-        text-align: center;
-    }
+.nse-test-count-input {
+    width: 35px;
+    text-align: center;
+    margin: 0 5px;
+    padding: 4px;
+    border: 1px solid #5577bb;
+    border-radius: 3px;
+    background-color: #eef;
+    color: #0d0d29;
+    -moz-appearance: textfield; /* Firefox - убрать стрелки */
+}
 
-    /* Убираем стрелки у number input для лучшего вида */
-    .sep-time-inputs input[type=number]::-webkit-outer-spin-button,
-    .sep-time-inputs input[type=number]::-webkit-inner-spin-button {
+    .nse-test-count-input::-webkit-outer-spin-button,
+    .nse-test-count-input::-webkit-inner-spin-button { /* Chrome, Safari, Edge, Opera - убрать стрелки */
         -webkit-appearance: none;
         margin: 0;
     }
 
-    .sep-time-inputs input[type=number] {
-        -moz-appearance: textfield; /* Firefox */
+
+/* Список тестов для алгоритма */
+.nse-test-selection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    flex-grow: 1;
+}
+
+.nse-test-selection-item {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Чекбокс + Название */
+    gap: 8px 10px;
+    align-items: start;
+    padding: 10px;
+    border: 1px solid #3a5da0;
+    border-radius: 4px;
+    background-color: #2c3e50;
+}
+
+    .nse-test-selection-item .nse-test-name {
+        grid-column: 2 / 3;
+    }
+
+    .nse-test-selection-item .nse-test-inclusion-options { /* Изменено с pool-options */
+        grid-column: 1 / -1;
+        margin-top: 5px;
+        padding-top: 8px;
+        border-top: 1px dashed #3a5da0;
+        display: flex;
+        gap: 15px; /* Отступы между радио-кнопками "Резерв" и "Гарант" */
+        align-items: center;
+        font-size: 0.9em;
+        color: #c0d0ff;
+    }
+
+.nse-custom-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #66ff66;
+    margin-top: 2px;
+}
+
+.nse-test-name {
+    cursor: pointer;
+    color: #ddeeff;
+}
+
+/* Стили для .nse-radio-inline, .nse-radio-option, input[type="radio"] */
+.nse-test-inclusion-options .nse-radio-inline,
+.nse-radio-option { /* Объединяем, если стили похожи */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Уменьшил для компактности */
+}
+
+    .nse-test-inclusion-options label,
+    .nse-radio-option label {
+        font-weight: normal;
+        margin-bottom: 0;
+        cursor: pointer;
+        color: #c0d0ff; /* Цвет текста для лейблов радио/чекбоксов */
+    }
+
+    .nse-test-inclusion-options input[type="radio"],
+    .nse-radio-option input[type="radio"] { /* Для типа сессии */
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        accent-color: #66ff66;
+    }
+
+.nse-checkbox-option input[type="checkbox"] { /* Для типа сессии, если они чекбоксы */
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #66ff66;
+}
+
+/* Правая колонка */
+.nse-form-group { /* Используется для Дата, Тип, Время */
+    /* Можно добавить padding или margin, если нужно */
+}
+
+.nse-checkbox-group-column { /* Для типа сессии, если чекбоксы */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nse-date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nse-date-input {
+    flex-grow: 1;
+    padding: 8px 10px;
+    border: 1px solid #5577bb;
+    border-radius: 4px;
+    background-color: #eef;
+    color: #0d0d29;
+    font-family: inherit;
+}
+
+.nse-date-inputs span { /* Для тире между датами */
+    color: #ddeeff;
+}
+
+
+.nse-time-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #ddeeff;
+}
+
+.nse-time-input {
+    width: 50px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #5577bb;
+    border-radius: 4px;
+    background-color: #eef;
+    color: #0d0d29;
+    -moz-appearance: textfield;
+}
+
+    .nse-time-input::-webkit-outer-spin-button,
+    .nse-time-input::-webkit-inner-spin-button {
+        width: 50px;
+        -webkit-appearance: none;
+        margin: 0;
     }
 
 
-.sep-footer-actions {
-    margin-top: 20px;
+/* Список групп */
+.nse-group-selection-list {
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1px solid #0d0d29;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #2c3e50;
+}
+
+.nse-group-selection-item {
     display: flex;
-    justify-content: flex-end; /* Кнопка "Создать сессию" справа */
+    align-items: center;
+    gap: 8px;
+    padding: 5px 0;
 }
 
-.sep-button-create {
-    background-color: #008000; /* Зеленый для кнопки "Создать" */
-    padding: 12px 25px;
+    .nse-group-selection-item label {
+        font-weight: normal;
+        margin-bottom: 0;
+        cursor: pointer;
+        color: #ddeeff;
+    }
+
+/* Футер с кнопками */
+.nse-footer-actions {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* На случай очень узких экранов */
+    gap: 10px; /* Если кнопки перенесутся */
 }
 
-    .sep-button-create:hover {
+.nse-button {
+    padding: 10px 20px;
+    font-size: 1.05em;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: center;
+    flex-grow: 1; /* Позволяем кнопкам делить пространство */
+    flex-basis: 120px; /* Чтобы не становились слишком узкими перед переносом */
+}
+/* Если всего одна кнопка в ряду после переноса, она растянется. Если 2, поделят место. */
+
+
+.nse-button-back {
+    background-color: #5577bb;
+    border-color: #5577bb;
+    color: white;
+    /* flex-grow: 0; */ /* Если не хотим, чтобы кнопка Назад растягивалась */
+}
+
+    .nse-button-back:hover {
+        background-color: #4466aa;
+    }
+
+.nse-button-create {
+    background-color: #008000;
+    border-color: #008000;
+    color: white;
+}
+
+    .nse-button-create:hover {
         background-color: #006400;
     }
 
-/* Адаптивность для маленьких экранов (опционально) */
+    .nse-button-create:disabled {
+        background-color: #004d00;
+        border-color: #004d00;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+.nse-button .spinner-border-sm {
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+/* Сообщения */
+.alert {
+    padding: .75rem 1.25rem;
+    /* margin-bottom: 1rem; */ /* Убрал, т.к. есть margin-top */
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    grid-column: 1 / -1; /* Если футер с кнопками тоже грид или флекс с переносом */
+}
+
+.alert-success {
+    color: #d4edda;
+    background-color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #f8d7da;
+    background-color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) { /* Точка, когда правая колонка может начать сжиматься сильно */
+    .nse-left-column {
+        flex-basis: 550px; /* Немного уменьшаем базовую ширину */
+    }
+
+    .nse-right-column {
+        flex-basis: 280px;
+    }
+}
+
 @media (max-width: 768px) {
-    .sep-content-area {
-        flex-direction: column; /* Колонки становятся строками */
+    .nse-content-area {
+        flex-direction: column;
+    }
+
+    .nse-left-column, .nse-right-column {
+        flex-basis: auto; /* Сброс flex-basis для стека */
+        min-width: 100%; /* Занимают всю ширину */
+    }
+
+    .nse-footer-actions {
+        justify-content: center; /* Центрируем кнопки, если они перенеслись */
+    }
+
+    .nse-button {
+        flex-grow: 0; /* Чтобы кнопки не растягивались на всю ширину, когда одна под другой */
     }
 }

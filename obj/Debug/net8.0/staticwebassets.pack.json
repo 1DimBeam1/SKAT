@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
-      "PackagePath": "staticwebassets\\SKAT_Interface.g8tpkawen7.bundle.scp.css"
+      "PackagePath": "staticwebassets\\SKAT_Interface.7uxr8tagyv.bundle.scp.css"
     },
     {
       "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\app.css",
@@ -27,6 +27,10 @@
     {
       "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\InsertSort.PNG",
       "PackagePath": "staticwebassets\\images\\InsertSort.PNG"
+    },
+    {
+      "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\Users.png",
+      "PackagePath": "staticwebassets\\images\\Users.png"
     },
     {
       "Id": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\favicon.png",

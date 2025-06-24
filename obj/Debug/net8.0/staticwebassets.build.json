@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qJHGZNi9rjJR5fS4RbrhgspKSP3XgMBODL95v+nNkTo=",
+  "Hash": "D2oqjfmznuH+WgJ0wm7Y2x+ytowH1d3tImYqJMxwPRo=",
   "Source": "SKAT_Interface",
   "BasePath": "_content/SKAT_Interface",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "g8tpkawen7",
-      "Integrity": "QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=",
+      "Fingerprint": "7uxr8tagyv",
+      "Integrity": "DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SKAT_Interface.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "g8tpkawen7",
-      "Integrity": "QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=",
+      "Fingerprint": "7uxr8tagyv",
+      "Integrity": "DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css"
@@ -73,8 +73,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nqw2eji33p",
-      "Integrity": "P+wTKIC5AMcjHEx8A59Pv3GOPdxYzNTvjSDS5U2ssak=",
+      "Fingerprint": "ie7v8jty4y",
+      "Integrity": "OruibN+ECnxG4JC2PhEtaoZoS5kdU3atLRQYbnsDQHw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -206,6 +206,27 @@
       "OriginalItemSpec": "wwwroot\\images\\InsertSort.PNG"
     },
     {
+      "Identity": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\Users.png",
+      "SourceId": "SKAT_Interface",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\MVS\\SKAT_Interface\\wwwroot\\",
+      "BasePath": "_content/SKAT_Interface",
+      "RelativePath": "images/Users#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5s1kfyvhck",
+      "Integrity": "+1K2lh44X7uy7yCm5OxqGkL4WiHEEX+Et+Z+OU0s7mk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Users.png"
+    },
+    {
       "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\jsInterop.js",
       "SourceId": "BlazorMonaco",
       "SourceType": "Package",
@@ -225,6 +246,258 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\jsInterop.js"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.de.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "r7u13baby9",
+      "Integrity": "N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.es.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n8admztzko",
+      "Integrity": "F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.fr.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h11vl6s6or",
+      "Integrity": "+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.it.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2svcwtbe3g",
+      "Integrity": "HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ja.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wcv88iq0hc",
+      "Integrity": "QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ko.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "15jkd8gm6n",
+      "Integrity": "G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ru.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "8i3i2y1m4j",
+      "Integrity": "QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3b2j6xf0xe",
+      "Integrity": "b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rd9y4i6p7h",
+      "Integrity": "AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "xtjf9uju4j",
+      "Integrity": "21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/vs/editor/editor.main.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "yenwneek9o",
+      "Integrity": "io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
+      "SourceId": "BlazorMonaco",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
+      "BasePath": "_content/BlazorMonaco",
+      "RelativePath": "lib/monaco-editor/min-maps/vs/loader.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5x4vuve4x9",
+      "Integrity": "qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map"
     },
     {
       "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min\\vs\\base\\browser\\ui\\codicons\\codicon\\codicon.ttf",
@@ -4467,258 +4740,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min\\vs\\nls.messages.zh-tw.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.de.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "r7u13baby9",
-      "Integrity": "N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.es.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "n8admztzko",
-      "Integrity": "F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.fr.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "h11vl6s6or",
-      "Integrity": "+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.it.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "2svcwtbe3g",
-      "Integrity": "HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ja.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "wcv88iq0hc",
-      "Integrity": "QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ko.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "15jkd8gm6n",
-      "Integrity": "G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.ru.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "8i3i2y1m4j",
-      "Integrity": "QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "3b2j6xf0xe",
-      "Integrity": "b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "rd9y4i6p7h",
-      "Integrity": "AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "xtjf9uju4j",
-      "Integrity": "21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/vs/editor/editor.main.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "yenwneek9o",
-      "Integrity": "io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map"
-    },
-    {
-      "Identity": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
-      "SourceId": "BlazorMonaco",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\",
-      "BasePath": "_content/BlazorMonaco",
-      "RelativePath": "lib/monaco-editor/min-maps/vs/loader.js.map",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "5x4vuve4x9",
-      "Integrity": "qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map"
     }
   ],
   "Endpoints": [
@@ -4801,6 +4822,990 @@
         {
           "Name": "integrity",
           "Value": "sha256-1CPZ9X4csRVM0ymz7VwAf29h7QWaK5lV6yXnhmcGBE8="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "133918"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.r7u13baby9.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "133918"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "r7u13baby9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134416"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.n8admztzko.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "134416"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n8admztzko"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.h11vl6s6or.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "141264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h11vl6s6or"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "141264"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.2svcwtbe3g.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "137734"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2svcwtbe3g"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "137734"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "150909"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.wcv88iq0hc.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "150909"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wcv88iq0hc"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.15jkd8gm6n.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132224"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "15jkd8gm6n"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132224"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.8i3i2y1m4j.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "213977"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8i3i2y1m4j"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "213977"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.3b2j6xf0xe.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100695"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3b2j6xf0xe"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100695"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "102750"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.rd9y4i6p7h.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "102750"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rd9y4i6p7h"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1465478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.xtjf9uju4j.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1465478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xtjf9uju4j"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13276062"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE="
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.yenwneek9o.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13276062"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "yenwneek9o"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.5x4vuve4x9.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "112947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5x4vuve4x9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.map",
+      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "112947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0="
         }
       ]
     },
@@ -21369,990 +22374,6 @@
       ]
     },
     {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "133918"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.r7u13baby9.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.de.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "133918"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "r7u13baby9"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-N57so4eR2ON4Z4OgTGGEL3JwJm/ZPSFkQxLxIHl/WO4="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.de.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "134416"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.n8admztzko.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.es.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "134416"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "n8admztzko"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-F0etq8o3gIM7TJnqu+gdbC6LXeV5vl6yfFf0gRjq0n4="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.es.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.h11vl6s6or.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "141264"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "h11vl6s6or"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.fr.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.fr.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "141264"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-+5uQ8HXNhoHBVo1pwr4zsepGfRCZ9z/YC0uH1aj6Rb8="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.2svcwtbe3g.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "137734"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "2svcwtbe3g"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.it.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.it.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "137734"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-HvDNo7ptoKOoU0/muKxnB2C6mypiNder81Heb5mZr7Y="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "150909"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.wcv88iq0hc.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ja.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "150909"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "wcv88iq0hc"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-QH/EaYnaFrr2BT0dSxH3WACz4pEO8g4MRaamq+6s3Ys="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ja.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.15jkd8gm6n.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "132224"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "15jkd8gm6n"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ko.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ko.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "132224"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-G5UCB1oGeZXTbPl70TBc5s3oRISvsiXOpBnpejxQvd8="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.8i3i2y1m4j.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "213977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8i3i2y1m4j"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.ru.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.ru.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "213977"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-QHxyd3T2B3kV52k/b91eTzQLojEKMaK3XNH71ysOOVI="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.3b2j6xf0xe.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "100695"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3b2j6xf0xe"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-cn.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-cn.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "100695"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-b2zxg8Zo7zwgyrwhP+kEl6uoM1WwnunXx6HQ3uU1hoA="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102750"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.rd9y4i6p7h.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\nls.messages.zh-tw.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "102750"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "rd9y4i6p7h"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-AfAnqSgE/SPVK/QR52g+OlnO/sl4zQJe3mHftUrEtKk="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/nls.messages.zh-tw.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1465478"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.xtjf9uju4j.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\base\\worker\\workerMain.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1465478"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xtjf9uju4j"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-21wV7Vl3z5u/Q0LUYroow8XgB2n9i/QHHYyU0K1/eqo="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/base/worker/workerMain.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "13276062"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE="
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.yenwneek9o.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\editor\\editor.main.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "13276062"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yenwneek9o"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-io2Co8JfWSpxhL28KTw8S1yYFlfBc5B6YvJlcpl1pzE="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/editor/editor.main.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.5x4vuve4x9.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "112947"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "5x4vuve4x9"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0="
-        },
-        {
-          "Name": "label",
-          "Value": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.map"
-        }
-      ]
-    },
-    {
-      "Route": "_content/BlazorMonaco/lib/monaco-editor/min-maps/vs/loader.js.map",
-      "AssetFile": "C:\\Users\\Дмитрий\\.nuget\\packages\\blazormonaco\\3.3.0\\staticwebassets\\lib\\monaco-editor\\min-maps\\vs\\loader.js.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "112947"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 23 Dec 2024 20:52:07 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qcThK6rzrMl6ieDk9qrJDw/9xlqZmYEdRFjRQjNDcY0="
-        }
-      ]
-    },
-    {
       "Route": "app.css",
       "AssetFile": "C:\\MVS\\SKAT_Interface\\wwwroot\\app.css",
       "Selectors": [],
@@ -22363,7 +22384,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2805"
+          "Value": "2880"
         },
         {
           "Name": "Content-Type",
@@ -22371,11 +22392,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"P+wTKIC5AMcjHEx8A59Pv3GOPdxYzNTvjSDS5U2ssak=\""
+          "Value": "\"OruibN+ECnxG4JC2PhEtaoZoS5kdU3atLRQYbnsDQHw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Jun 2025 05:15:39 GMT"
+          "Value": "Sat, 21 Jun 2025 10:57:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22385,12 +22406,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-P+wTKIC5AMcjHEx8A59Pv3GOPdxYzNTvjSDS5U2ssak="
+          "Value": "sha256-OruibN+ECnxG4JC2PhEtaoZoS5kdU3atLRQYbnsDQHw="
         }
       ]
     },
     {
-      "Route": "app.nqw2eji33p.css",
+      "Route": "app.ie7v8jty4y.css",
       "AssetFile": "C:\\MVS\\SKAT_Interface\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -22400,7 +22421,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2805"
+          "Value": "2880"
         },
         {
           "Name": "Content-Type",
@@ -22408,11 +22429,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"P+wTKIC5AMcjHEx8A59Pv3GOPdxYzNTvjSDS5U2ssak=\""
+          "Value": "\"OruibN+ECnxG4JC2PhEtaoZoS5kdU3atLRQYbnsDQHw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 13 Jun 2025 05:15:39 GMT"
+          "Value": "Sat, 21 Jun 2025 10:57:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22422,7 +22443,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "nqw2eji33p"
+          "Value": "ie7v8jty4y"
         },
         {
           "Name": "label",
@@ -22430,7 +22451,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-P+wTKIC5AMcjHEx8A59Pv3GOPdxYzNTvjSDS5U2ssak="
+          "Value": "sha256-OruibN+ECnxG4JC2PhEtaoZoS5kdU3atLRQYbnsDQHw="
         }
       ]
     },
@@ -22927,6 +22948,178 @@
       ]
     },
     {
+      "Route": "images/Users.5s1kfyvhck.png",
+      "AssetFile": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\Users.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51204"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+1K2lh44X7uy7yCm5OxqGkL4WiHEEX+Et+Z+OU0s7mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 13:57:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5s1kfyvhck"
+        },
+        {
+          "Name": "label",
+          "Value": "images/Users.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+1K2lh44X7uy7yCm5OxqGkL4WiHEEX+Et+Z+OU0s7mk="
+        }
+      ]
+    },
+    {
+      "Route": "images/Users.png",
+      "AssetFile": "C:\\MVS\\SKAT_Interface\\wwwroot\\images\\Users.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51204"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+1K2lh44X7uy7yCm5OxqGkL4WiHEEX+Et+Z+OU0s7mk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 13:57:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+1K2lh44X7uy7yCm5OxqGkL4WiHEEX+Et+Z+OU0s7mk="
+        }
+      ]
+    },
+    {
+      "Route": "SKAT_Interface.7uxr8tagyv.bundle.scp.css",
+      "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "82792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7uxr8tagyv"
+        },
+        {
+          "Name": "label",
+          "Value": "SKAT_Interface.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
+        }
+      ]
+    },
+    {
+      "Route": "SKAT_Interface.7uxr8tagyv.styles.css",
+      "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SKAT_Interface.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "82792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7uxr8tagyv"
+        },
+        {
+          "Name": "label",
+          "Value": "SKAT_Interface.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
+        }
+      ]
+    },
+    {
       "Route": "SKAT_Interface.bundle.scp.css",
       "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
       "Selectors": [],
@@ -22937,7 +23130,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "63404"
+          "Value": "82792"
         },
         {
           "Name": "Content-Type",
@@ -22945,11 +23138,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
+          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
+          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -22959,97 +23152,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
-        }
-      ]
-    },
-    {
-      "Route": "SKAT_Interface.g8tpkawen7.bundle.scp.css",
-      "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SKAT_Interface.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "63404"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g8tpkawen7"
-        },
-        {
-          "Name": "label",
-          "Value": "SKAT_Interface.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
-        }
-      ]
-    },
-    {
-      "Route": "SKAT_Interface.g8tpkawen7.styles.css",
-      "AssetFile": "C:\\MVS\\SKAT_Interface\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SKAT_Interface.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "63404"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g8tpkawen7"
-        },
-        {
-          "Name": "label",
-          "Value": "SKAT_Interface.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
+          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
         }
       ]
     },
@@ -23064,7 +23167,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "63404"
+          "Value": "82792"
         },
         {
           "Name": "Content-Type",
@@ -23072,11 +23175,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA=\""
+          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 19 Jun 2025 12:58:08 GMT"
+          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -23086,7 +23189,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-QNwZJE37FrJ8tRL7PHYwQhQZz5lNiF5Dw/EX03MyDGA="
+          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
         }
       ]
     }

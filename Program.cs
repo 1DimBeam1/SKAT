@@ -29,6 +29,17 @@ builder.Services.AddScoped<SessionService>();
 builder.Services.AddServerSideBlazor()
     .AddCircuitOptions(options => { options.DetailedErrors = true; });
 
+builder.Services.AddHttpClient("EvaluationApiClient", client =>
+{
+    // Базовый URL вашего сервиса оценивания
+    // Это значение лучше вынести в appsettings.json
+    client.BaseAddress = new Uri(builder.Configuration["EvaluationService:BaseUrl"]);
+    // Можно добавить заголовки по умолчанию, если нужны (например, Content-Type)
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+});
+
+builder.Services.AddScoped<EvaluationApiService>();
+
 builder.Services.AddAuthorizationCore(options =>
 {
     options.AddPolicy("ТребуетсяПреподаватель", policy => policy.RequireRole("Преподаватель"));
@@ -48,7 +59,22 @@ builder.Services.AddAuthorizationCore(options =>
 });
 
 var app = builder.Build();
+app.UseRouting(); // Убедитесь, что UseRouting есть перед UseEndpoints/MapGet
 
+// Добавьте это перед app.MapRazorComponents<App>()
+app.Use(async (context, next) =>
+{
+    // Перенаправляем только для корневого пути и если пользователь не аутентифицирован
+    // Проверка аутентификации здесь может быть сложной, так как ClaimsPrincipal еще может быть не установлен
+    // до того, как отработает Blazor. Проще всего перенаправлять всегда с корня на /login,
+    // а /login уже сам решит, нужно ли перенаправлять аутентифицированного пользователя дальше.
+    if (context.Request.Path == "/")
+    {
+        context.Response.Redirect("/login", permanent: false); // false для временного редиректа
+        return; // Важно завершить обработку запроса здесь
+    }
+    await next();
+});
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
