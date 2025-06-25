@@ -3,7 +3,7 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "SKAT_Interface.7uxr8tagyv.styles.css",
+      "Route": "SKAT_Interface.he8liz96yy.styles.css",
       "AssetFile": "SKAT_Interface.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "82792"
+          "Value": "73210"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
+          "Value": "\"yesHBLfWAdRM0VmyECFE2MYZOPvOWQYEPAcBcb9rmfM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
+          "Value": "Wed, 25 Jun 2025 14:08:36 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "7uxr8tagyv"
+          "Value": "he8liz96yy"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
+          "Value": "sha256-yesHBLfWAdRM0VmyECFE2MYZOPvOWQYEPAcBcb9rmfM="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "82792"
+          "Value": "73210"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA=\""
+          "Value": "\"yesHBLfWAdRM0VmyECFE2MYZOPvOWQYEPAcBcb9rmfM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 24 Jun 2025 13:44:05 GMT"
+          "Value": "Wed, 25 Jun 2025 14:08:36 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-DyDuLdC4my0S+3AK5HI063Beo5y7IS9n+mVeHfo1XKA="
+          "Value": "sha256-yesHBLfWAdRM0VmyECFE2MYZOPvOWQYEPAcBcb9rmfM="
         }
       ]
     },

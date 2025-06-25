@@ -146,3 +146,4 @@ C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\UserSettingsPa
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\UserStatisticsPage.razor.rz.scp.css
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\TeacherStatisticsPage.razor.rz.scp.css
 C:\MVS\SKAT_Interface\obj\Debug\net8.0\scopedcss\Components\Pages\SessionResultsPage.razor.rz.scp.css
+C:\MVS\SKAT_Interface\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

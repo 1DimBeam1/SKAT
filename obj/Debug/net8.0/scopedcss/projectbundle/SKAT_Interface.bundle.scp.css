@@ -68,8 +68,8 @@ main[b-g5ukjpovp4] {
         padding-left: 0 !important;
         padding-right: 0 !important;
         /* Можно убрать и верхний/нижний padding, если ActualTestPage сама их контролирует */
-        /* padding-top: 0 !important; */
-        /* padding-bottom: 0 !important; */
+        padding-top: 0 !important; 
+        padding-bottom: 0 !important;
     }
 
 
@@ -380,454 +380,207 @@ main {
 }
 /* _content/SKAT_Interface/Components/Pages/ActualTestPage.razor.rz.scp.css */
 /* wwwroot/css/ActualTestPage.css */
-.atp-container[b-oob6u1pje3] {
+/* wwwroot/css/NewActualTestPage.css */
+:host[b-oob6u1pje3] {
+    display: block;
+}
+
+*[b-oob6u1pje3] {
+    box-sizing: border-box;
+}
+
+.natp-container[b-oob6u1pje3] {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Если есть NavMenu */
-    /* height: 100vh; */ /* Если это fullscreen страница */
-    background-color: #2c3e50; /* Фоновый цвет страницы, более темный синий */
+    height:100vh;/*calc(100vh - 3.5rem);  Предполагая, что 3.5rem это высота вашего MainLayout top-row */
+    background-color: #2c3e50; /* Темно-синий фон */
     color: white;
     font-family: sans-serif;
-    box-sizing: border-box;
-     /*overflow: hidden; Предотвратить появление общих скроллов */
 }
 
-.atp-header-row[b-oob6u1pje3] {
-    display: flex;
-    background-color: #0d0d29; /* Очень темно-синий для заголовков колонок */
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.atp-header-solution[b-oob6u1pje3],
-.atp-header-task[b-oob6u1pje3],
-.atp-header-info[b-oob6u1pje3] {
-    padding: 10px 15px;
-    border-bottom: 2px solid #1a1a50;
-}
-
-.atp-header-solution[b-oob6u1pje3] {
-    flex: 2.5;
-    border-right: 2px solid #1a1a50;
-}
-/* Решение шире */
-.atp-header-task[b-oob6u1pje3] {
-    flex: 1.5;
-    border-right: 2px solid #1a1a50;
-}
-/* Задание */
-.atp-header-info[b-oob6u1pje3] {
-    flex: 1;
-}
-/* Информация */
-
-
-.atp-main-content[b-oob6u1pje3] {
-    display: flex;
-    flex-grow: 1; /* Занимает все доступное пространство */
-    overflow: hidden; /* Важно, чтобы внутренние колонки не ломали макет */
-}
-
-.atp-solution-column[b-oob6u1pje3] {
-    flex: 2.5; /* Соответствует заголовку */
+.natp-loading-indicator[b-oob6u1pje3], .natp-error-indicator[b-oob6u1pje3] {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    border-right: 2px solid #0d0d29;
-     /*overflow-y: auto; Прокрутка для этой колонки, если контент превышает высоту */
-}
-
-.atp-task-column[b-oob6u1pje3] {
-    flex: 1.5; /* Соответствует заголовку */
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    gap: 20px; /* Пространство между формулировкой и картинкой */
-    border-right: 2px solid #0d0d29;
-    overflow-y: auto;
-}
-
-.atp-info-column[b-oob6u1pje3] {
-    flex: 1; /* Соответствует заголовку */
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    gap: 15px; /* Пространство между инфо-блоками */
-    overflow-y: auto;
-    background-color: #1a1a50; /* Чуть светлее фон для этой колонки */
-}
-
-/* Стили для левой колонки - Решение */
-.atp-current-step-info[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован из предыдущих шагов */
-    display: flex;
-    background-color: #1a1a50;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px; /* Отступ до кнопок добавления шагов */
-    border: 1px solid #333399;
-    color: white; /* Убедимся, что текст виден */
-    flex-shrink: 0;
-}
-
-.atp-step-description[b-oob6u1pje3] { /* Этот класс уже должен быть стилизован */
-    flex-grow: 1;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    padding-right: 10px;
-}
-
-
-
-.atp-step-adder-buttons[b-oob6u1pje3] {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-}
-
-.atp-add-step-button[b-oob6u1pje3] {
-    background-color: #5555bb;
-    color: white;
-    border: 1px solid #7777dd;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-    .atp-add-step-button:hover[b-oob6u1pje3] {
-        background-color: #6666cc;
-    }
-
-/* Область для отображения добавленных экземпляров шагов */
-.atp-displayed-steps-area[b-oob6u1pje3] {
-    flex-grow: 1;
-    overflow-y: auto; /* Прокрутка ТОЛЬКО для этой области */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 5px; /* Небольшой отступ сверху, если нужно */
-}
-
-.atp-no-steps-placeholder[b-oob6u1pje3] {
-    color: #ccc;
-    font-style: italic;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Контейнер для одного экземпляра шага (остается как был) */
-.atp-step-instance-container[b-oob6u1pje3] {
-    background-color: #1a1a50;
-    border: 1px solid #333399;
-    border-radius: 4px;
-    padding: 10px;
-    color: white; /* Общий цвет текста для экземпляра */
-}
-
-/* Стили для статусов экземпляра */
-.atp-instance-notchecked[b-oob6u1pje3] {
-    /* По умолчанию фон .atp-step-instance-container */
-}
-
-.atp-instance-pending[b-oob6u1pje3] {
-    border-left: 5px solid #ffc107; /* Желтая полоса для "в процессе проверки" */
-}
-
-.atp-instance-correct[b-oob6u1pje3] {
-    border-left: 5px solid #28a745; /* Зеленая полоса */
-    background-color: rgba(0, 128, 0, 0.15); /* Легкий зеленый фон */
-}
-
-.atp-instance-incorrect[b-oob6u1pje3] {
-    border-left: 5px solid #dc3545; /* Красная полоса */
-    background-color: rgba(255, 0, 0, 0.1); /* Легкий красный фон */
-}
-
-
-.atp-instance-header[b-oob6u1pje3] {
-    display: flex;
-    margin-bottom: 10px;
-    /* Стили как у .atp-current-step-info, но без фона, т.к. фон у родителя */
-}
-
-.atp-instance-description[b-oob6u1pje3] {
-    flex-grow: 1;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    padding-right: 10px;
-    color: white;
-}
-
-
-.atp-instance-input-fields[b-oob6u1pje3] {
-    background-color: #3a5da0; /* Синий фон для области ввода, как на картинке */
-    padding: 15px;
-    border-radius: 4px;
-    border: 1px solid #1a1a50;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.atp-input-row[b-oob6u1pje3] {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Промежуток между переменными в одной строке */
-}
-
-.atp-variable-input[b-oob6u1pje3] {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Промежуток между label и input */
-}
-
-    .atp-variable-input label[b-oob6u1pje3] {
-        color: white;
-        font-weight: normal;
-        white-space: nowrap; /* Чтобы "A =", "i =" не переносились */
-    }
-
-    .atp-variable-input input[type="text"][b-oob6u1pje3] {
-        background-color: #cccccc; /* Светло-серый фон поля */
-        border: 1px solid #aaaaaa;
-        border-radius: 3px;
-        padding: 6px 8px;
-        color: #333;
-        font-family: Consolas, Monaco, monospace;
-        font-size: 0.95em;
-    }
-
-    .atp-variable-input input.narrow-input[b-oob6u1pje3] {
-        width: 60px; /* Ширина для i, j */
-    }
-
-    .atp-variable-input input.wide-input[b-oob6u1pje3] {
-        width: 180px; /* Ширина для A */
-    }
-
-.atp-step-correct[b-oob6u1pje3] {
-    background-color: rgba(0, 128, 0, 0.3); /* Полупрозрачный зеленый */
-    border-color: rgba(0, 128, 0, 0.7);
-}
-
-.atp-step-incorrect[b-oob6u1pje3] {
-    background-color: rgba(255, 0, 0, 0.3); /* Полупрозрачный красный */
-    border-color: rgba(255, 0, 0, 0.7);
-}
-
-/* Стили для средней колонки - Задание */
-.atp-block-label[b-oob6u1pje3] { /* Общий стиль для заголовков блоков */
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    color: #a0b0ff; /* Светло-синий для подзаголовков */
-}
-
-.atp-task-formulation[b-oob6u1pje3],
-.atp-task-image[b-oob6u1pje3] {
-    background-color: #1a1a50;
-    padding: 15px;
-    border-radius: 4px;
-    border: 1px solid #333399;
-    display: flex;
-    flex-direction: column;
-}
-
-.atp-task-formulation[b-oob6u1pje3] {
-    flex-grow: 1; /* Формулировка занимает больше места, если картинка ниже */
-    min-height: 150px;
-}
-
-    .atp-task-formulation textarea[b-oob6u1pje3] {
-        flex-grow: 1;
-        background-color: #eef;
-        color: #1a1a50;
-        border: 1px solid #5555bb;
-        border-radius: 3px;
-        padding: 10px;
-        resize: none; /* Запрет изменения размера */
-        font-family: inherit;
-        font-size: 0.95em;
-    }
-
-.atp-task-image[b-oob6u1pje3] {
-    min-height: 200px; /* Минимальная высота для блока картинки */
-}
-
-.atp-image-placeholder[b-oob6u1pje3] {
-    flex-grow: 1;
-    background-color: #cccccc;
-    border: 1px solid #aaaaaa;
-    border-radius: 3px;
-    display: flex;
     align-items: center;
     justify-content: center;
-    color: #555;
-    font-style: italic;
+    height: 100%;
+    font-size: 1.2em;
 }
 
-    .atp-image-placeholder img[b-oob6u1pje3] {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+    .natp-error-indicator .text-danger[b-oob6u1pje3] {
+        color: #ffcdd2;
     }
 
-/* Стили для правой колонки - Информация */
-.atp-info-block[b-oob6u1pje3] {
-    background-color: #0d0d29; /* Очень темный фон для инфо-блоков */
+    .natp-error-indicator .natp-button[b-oob6u1pje3] {
+        margin-top: 20px;
+    }
+
+
+/* Верхняя панель */
+.natp-top-bar[b-oob6u1pje3] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a50; /* Темнее фон для табов */
+    padding: 0 15px;
+    border-bottom: 2px solid #0d0d29;
+    flex-shrink: 0; /* Не сжимается */
+}
+
+.natp-tabs[b-oob6u1pje3] {
+    display: flex;
+    overflow-x: auto; /* Если табов много */
+}
+
+.natp-tab-button[b-oob6u1pje3] {
     padding: 10px 15px;
-    border-radius: 4px;
-    border: 1px solid #333399;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent; /* Для индикации активного таба */
+    color: #a0b0ff;
+    cursor: pointer;
+    font-size: 0.95em;
+    white-space: nowrap;
 }
 
-    .atp-info-block .atp-block-label[b-oob6u1pje3] {
-        color: #88aaff; /* Другой цвет для лейблов в инфо-колонке */
-        font-size: 1em;
+    .natp-tab-button:hover[b-oob6u1pje3] {
+        background-color: rgba(255,255,255,0.1);
+        color: white;
     }
 
-.atp-timer-display[b-oob6u1pje3] {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    padding: 5px 0;
-    color: #ffc107; /* Желтоватый для таймера */
-}
+    .natp-tab-button.active[b-oob6u1pje3] {
+        color: white;
+        font-weight: bold;
+        border-bottom-color: #66ff66; /* Зеленый индикатор */
+    }
 
-.atp-hints textarea[b-oob6u1pje3] {
-    width: 100%;
-    min-height: 80px;
-    background-color: #eef;
-    color: #1a1a50;
-    border: 1px solid #5555bb;
-    border-radius: 3px;
-    padding: 8px;
-    resize: none;
-    box-sizing: border-box;
-    font-family: inherit;
-    font-size: 0.9em;
-}
-
-.atp-no-hints-placeholder[b-oob6u1pje3] {
-    color: #ccc;
-    font-style: italic;
-    font-size: 0.9em;
-    padding: 10px 0;
-}
-
-.atp-session-tasks-list[b-oob6u1pje3] {
-    /* Контейнер для списка заданий */
-}
-
-.atp-session-task-items[b-oob6u1pje3] {
-    max-height: 150px; /* Ограничиваем высоту, добавляем скролл */
-    overflow-y: auto;
-    padding-top: 5px;
-}
-
-.atp-session-task-item[b-oob6u1pje3] {
-    padding: 5px 0;
-    font-size: 0.9em;
+.natp-time-remaining-display[b-oob6u1pje3] {
+    font-size: 0.95em;
     color: #ddeeff;
 }
 
-    .atp-session-task-item.current[b-oob6u1pje3] {
+    .natp-time-remaining-display span[b-oob6u1pje3] {
         font-weight: bold;
-        color: #66ff66; /* Зеленый для текущего задания */
+        color: #ffc107; /* Желтый для времени */
+        margin-left: 5px;
     }
 
-
-.atp-button[b-oob6u1pje3] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 100%; /* Кнопка на всю ширину инфо-колонки */
-    box-sizing: border-box;
-    margin-top: auto; /* Прижимает кнопку к низу колонки */
+/* Основной контент */
+.natp-main-content-wrapper[b-oob6u1pje3] {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden; /* Важно для предотвращения двойных скроллов */
+    background-color: #3a5da0; /* Основной синий фон рабочей области */
 }
 
-.atp-button-next[b-oob6u1pje3] {
-    background-color: #008000; /* Зеленый */
-}
-
-    .atp-button-next:hover[b-oob6u1pje3] {
-        background-color: #006400;
-    }
-
-.atp-algorithm-steps-hint[b-oob6u1pje3] { /* или .atp-hints, если вы переименовали */
-    /* background-color: #0d0d29; уже есть от atp-info-block */
-    /* padding: 10px 15px; уже есть */
-    /* border-radius: 4px; уже есть */
-    /* border: 1px solid #333399; уже есть */
-    flex-grow: 1; /* Чтобы занимал доступное место, если подсказок много */
+/* Центральная панель */
+.natp-center-panel[b-oob6u1pje3] {
+    flex: 2.5; /* Пропорции как в вашем макете */
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    overflow-y: auto; /* Скролл для этой панели */
+    border-right: 2px solid #1a1a50;
 }
 
-.atp-algorithm-step-list[b-oob6u1pje3] {
-    max-height: 200px; /* Ограничение высоты, чтобы не растягивался сильно */
-    overflow-y: auto;
-    padding-top: 5px;
-    border: 1px solid #335599; /* Рамка вокруг списка шагов */
-    border-radius: 3px;
-    background-color: #112244; /* Немного другой фон для списка */
+.natp-task-description-header[b-oob6u1pje3] {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #5577bb;
+    font-size: 0.95em;
+    line-height: 1.5;
 }
 
-.atp-algorithm-step-item[b-oob6u1pje3] {
-    padding: 6px 10px;
+    .natp-task-description-header p[b-oob6u1pje3] {
+        margin-bottom: 5px;
+    }
+
+    .natp-task-description-header strong[b-oob6u1pje3] {
+        color: #a0b0ff;
+    }
+
+.natp-solution-steps-area[b-oob6u1pje3] {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Уменьшим немного расстояние между шагами */
+    overflow-y: auto; /* Важно для прокрутки именно этой области */
+}
+
+.natp-step-entry[b-oob6u1pje3] {
+    background-color: #2c3e50;
+    border: 1px solid #1a1a50;
+    border-radius: 4px;
+    padding: 8px 10px; /* Уменьшим padding */
+    display: flex; /* ИЗМЕНЕНО с grid на flex */
+    align-items: center; /* Выравниваем все элементы по центру вертикально */
+    gap: 10px; /* Отступ между элементами внутри шага */
+    min-height: 40px; /* Минимальная высота строки шага */
+}
+    /* Стили для статусов .natp-step-entry.atp-instance-correct и т.д. остаются */
+    .natp-step-entry.atp-instance-correct[b-oob6u1pje3] {
+        border-left: 4px solid #28a745;
+        background-color: rgba(40,167,69,0.1);
+    }
+
+    .natp-step-entry.atp-instance-incorrect[b-oob6u1pje3] {
+        border-left: 4px solid #dc3545;
+        background-color: rgba(220,53,69,0.1);
+    }
+
+    .natp-step-entry.atp-instance-pending[b-oob6u1pje3] {
+        border-left: 4px solid #ffc107;
+    }
+
+    .natp-step-entry.atp-instance-submitted[b-oob6u1pje3] {
+        border-left: 4px solid #6c757d;
+    }
+
+.natp-step-text-wrapper[b-oob6u1pje3] { /* Новый контейнер для текста и иконки ошибки */
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Занимает основное место */
+    overflow: hidden; /* Чтобы text-overflow работал */
+    min-width: 150px; /* Минимальная ширина для текста */
+}
+
+.natp-step-text[b-oob6u1pje3] {
+    /* grid-area: text; - больше не нужен */
     font-size: 0.9em;
     color: #ddeeff;
-    border-bottom: 1px solid #224477;
-    cursor: default; /* или pointer, если хотите добавить интерактивность */
+    white-space: nowrap; /* Текст в одну строку */
+    overflow: hidden; /* Обрезать лишнее */
+    text-overflow: ellipsis; /* Многоточие */
+    margin-right: 5px; /* Небольшой отступ от иконки ошибки */
 }
 
-    .atp-algorithm-step-item:last-child[b-oob6u1pje3] {
-        border-bottom: none;
-    }
+.natp-step-error-indicator[b-oob6u1pje3] { /* Стили для иконки ошибки остаются */
+    color: #ff7f7f;
+    font-weight: bold;
+    cursor: help;
+    flex-shrink: 0; /* Чтобы иконка не сжималась */
+}
 
-    .atp-algorithm-step-item:hover[b-oob6u1pje3] {
-        background-color: #2a4a85; /* Подсветка при наведении */
-    }
+.natp-step-inputs[b-oob6u1pje3] {
+    /* grid-area: inputs; - больше не нужен */
+    display: flex; /* Поля ввода теперь тоже в строку */
+    flex-wrap: nowrap; /* Запрещаем перенос полей ввода, если их много */
+    gap: 8px; /* Отступ между полями ввода */
+    align-items: center;
+    /* overflow-x: auto; */ /* Можно добавить, если полей ОЧЕНЬ много, но лучше избегать */
+    flex-shrink: 2; /* Позволяем этому блоку сжиматься больше, чем тексту */
+    min-width: 100px; /* Минимальная ширина для блока инпутов */
+}
 
-.atp-current-step-info[b-oob6u1pje3] {
-    display: flex;
-    flex-direction: column; /* Чтобы поля ввода были под описанием */
-    background-color: #1a1a50;
+.atp-step0-input-fields[b-oob6u1pje3] { /* Переименовать в natp-step0-input-fields в HTML и здесь */
+    margin-top: 10px;
     padding: 10px;
+    background-color: #3a5da0; /* Отличается от фона шага */
     border-radius: 4px;
-    margin-bottom: 15px;
-    border: 1px solid #333399;
-    color: white;
-    flex-shrink: 0;
+    border: 1px dashed #5577bb;
 }
 
-.atp-step-description[b-oob6u1pje3] {
-    flex-grow: 1;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap; /* Сохраняем переносы строк из InitialStateDescription */
-    padding-right: 10px; /* Если был скроллбар, может понадобиться */
-    margin-bottom: 10px; /* Отступ до полей ввода, если они есть */
-}
-
-.atp-step0-input-fields[b-oob6u1pje3] {
-    margin-top: 10px; /* Отступ от основного описания */
-    padding: 10px;
-    background-color: #2c3e50; /* Немного другой фон для выделения */
-    border-radius: 4px;
-    border: 1px dashed #5577bb; /* Пунктирная рамка для обозначения зоны ввода */
-}
-
-.atp-block-label-inline[b-oob6u1pje3] {
+.atp-block-label-inline[b-oob6u1pje3] { /* Переименовать в natp-block-label-inline */
     font-weight: bold;
     margin-bottom: 8px;
     font-size: 0.95em;
@@ -837,16 +590,8 @@ main {
 .atp-variable-input-container[b-oob6u1pje3] {
     display: flex;
     align-items: center; /* Выравнивание метки и поля/полей */
-    gap: 10px;
-    margin-bottom: 8px; /* Отступ между разными переменными */
-}
-
-.atp-variable-label[b-oob6u1pje3] {
-    color: white;
-    font-weight: normal;
-    white-space: nowrap;
-    min-width: 60px; /* Чтобы метки были примерно одной ширины */
-    text-align: right;
+    gap: 4px;
+    margin-bottom: 0px; /* Отступ между разными переменными */
 }
 
 .atp-array-input-cells[b-oob6u1pje3] {
@@ -861,241 +606,234 @@ main {
 }
 
 .atp-array-cell[b-oob6u1pje3] {
-    width: 45px; /* Ширина одной ячейки массива */
-    padding: 6px 4px;
+    width: 30px; /* Ширина одной ячейки массива */
+    padding: 4px 6px;
     text-align: center;
     background-color: #cccccc;
     border: 1px solid #aaaaaa;
     border-radius: 3px;
     color: #333;
     font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
 }
 
 .atp-single-value-input[b-oob6u1pje3] {
     /* Стили для обычного поля ввода, если они отличаются от .atp-array-cell */
-    padding: 6px 8px;
+    padding: 4px 6px;
     background-color: #cccccc;
     border: 1px solid #aaaaaa;
     border-radius: 3px;
     color: #333;
     font-family: Consolas, Monaco, monospace;
-    width: 100px; /* Пример ширины */
+    width: 60px; /* Пример ширины */
+    font-size: 0.9em;
 }
 
-    .atp-single-value-input.wide-input[b-oob6u1pje3] { /* Если вам все еще нужно широкое поле для не-массивов */
-        width: 180px;
+.atp-variable-label[b-oob6u1pje3] {
+    font-size: 0.85em; /* Можно чуть уменьшить шрифт метки */
+    min-width: auto; /* Убираем min-width, если нужно компактнее */
+}
+
+.natp-step-actions[b-oob6u1pje3] {
+    /* grid-area: actions; - больше не нужен */
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0; /* Не сжимается */
+}
+/* Стили для .natp-step-remove и .natp-step-type-button остаются, можно чуть уменьшить размеры/паддинги */
+.natp-step-remove[b-oob6u1pje3] {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    font-size: 1em;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+    .natp-step-remove:hover[b-oob6u1pje3] {
+        background-color: #c82333;
     }
 
-
-.atp-array-size-btn[b-oob6u1pje3] {
-    background-color: #4CAF50; /* Зеленый */
-    border: none;
+.natp-step-type-button[b-oob6u1pje3] {
+    background-color: #3a5da0;
     color: white;
-    padding: 4px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
+    border: 1px solid #5577bb;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    font-size: 0.7em;
     border-radius: 3px;
     cursor: pointer;
-    margin-left: 5px;
+    padding: 0;
 }
 
-    .atp-array-size-btn:last-of-type[b-oob6u1pje3] { /* Для кнопки "-" */
-        background-color: #f44336; /* Красный */
+    .natp-step-type-button:hover[b-oob6u1pje3] {
+        background-color: #5577bb;
     }
 
-    .atp-array-size-btn:hover[b-oob6u1pje3] {
-        opacity: 0.8;
-    }
-
-.atp-instance-header[b-oob6u1pje3] {
-    display: flex;
-    /* justify-content: space-between; уже есть */
-    align-items: flex-start; /* Изменено на flex-start для лучшего выравнивания, если описание длинное */
-    gap: 10px; /* Пространство между элементами заголовка */
-    margin-bottom: 10px;
-}
-
-.atp-instance-title[b-oob6u1pje3] {
-    font-weight: bold;
-    color: #ffc107; /* Желтоватый для выделения номера шага */
-    white-space: nowrap; /* Чтобы "Шаг X:" не переносился */
-    flex-shrink: 0;
-}
-
-.atp-instance-description[b-oob6u1pje3] {
-    flex-grow: 1; /* Описание занимает оставшееся место */
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    /* padding-right: 10px; убрано, т.к. есть gap */
-    color: white;
-}
-
-    .atp-instance-description span.original-step-note[b-oob6u1pje3] { /* Стиль для " (Ориг. Шаг X)" */
-        font-size: 0.85em;
-        color: #a0b0ff;
-        margin-left: 5px;
-    }
-
-.atp-remove-step-button[b-oob6u1pje3] {
-    background-color: transparent;
-    color: #ffc107; /* Желтоватый, чтобы выделялся, но не был агрессивным */
-    border: 1px solid #ffc107;
-    padding: 2px 7px; /* Маленькая кнопка */
-    border-radius: 50%; /* Круглая кнопка */
-    cursor: pointer;
-    font-size: 1.1em; /* Размер крестика */
-    line-height: 1; /* Чтобы крестик был по центру */
-    font-weight: bold;
-    transition: background-color 0.2s, color 0.2s;
-    flex-shrink: 0; /* Чтобы кнопка не сжималась */
-    align-self: flex-start;
-}
-
-    .atp-remove-step-button:hover[b-oob6u1pje3] {
-        background-color: #ffc107;
-        color: #2c3e50; /* Темный цвет фона страницы */
-    }
-
-.atp-instance-submitted[b-oob6u1pje3] {
-    border-left: 5px solid #6c757d; /* Серый цвет (Bootstrap secondary) */
-    background-color: rgba(108, 117, 125, 0.1); /* Легкий серый фон */
-}
-
-.atp-action-buttons-footer[b-oob6u1pje3] {
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-    /* flex-wrap: wrap; */ /* Убираем, если хотим всегда в одну строку */
-}
-
-.atp-button[b-oob6u1pje3] { /* Общие стили для кнопок, если они еще не полностью определены */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1em; /* Немного уменьшил для двух кнопок */
+.natp-add-first-step-prompt[b-oob6u1pje3] {
+    margin-top: 15px;
+    padding: 10px;
     text-align: center;
-    flex-grow: 1; /* Можно оставить, если всегда 2 кнопки и они должны делить место */
-    flex-basis: 0; /* Чтобы flex-grow работал корректно */
-    text-overflow: ellipsis; /* Добавить многоточие, если текст не влезает */
-    overflow: hidden; /* Обрезать текст, который не влезает */
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+    .natp-add-first-step-prompt span[b-oob6u1pje3] {
+        margin-right: 10px;
+    }
+
+    .natp-add-first-step-prompt .natp-step-type-button[b-oob6u1pje3] {
+        margin: 0 3px;
+    }
+
+/* Правая панель */
+.natp-right-panel[b-oob6u1pje3] {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    background-color: #1a1a50; /* Фон для правой панели */
+}
+
+.natp-image-container[b-oob6u1pje3], .natp-algorithm-steps-description[b-oob6u1pje3], .natp-action-buttons-panel[b-oob6u1pje3] {
+    background-color: #2c3e50; /* Фон для блоков внутри правой панели */
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #0d0d29;
+}
+
+.natp-image-container[b-oob6u1pje3] {
+    min-height: 300px; /* Как на макете */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .natp-image-container img[b-oob6u1pje3] {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .natp-image-container span[b-oob6u1pje3] {
+        color: #a0b0ff;
+        font-style: italic;
+    }
+
+.natp-panel-title[b-oob6u1pje3] {
+    font-weight: bold;
+    color: #ddeeff;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #3a5da0;
+}
+
+.natp-steps-list-content[b-oob6u1pje3] {
+    max-height: 200px; /* Ограничиваем высоту списка шагов */
+    overflow-y: auto;
+}
+
+.natp-algo-step-item[b-oob6u1pje3] {
+    padding: 4px 0;
+    font-size: 0.9em;
+    color: #c0d0ff;
+    cursor: help; /* Чтобы title с описанием был более очевиден */
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-@media (max-width: 400px) { /* Подберите значение max-width под ваш дизайн */
-    .atp-info-column[b-oob6u1pje3] {
-        padding: 10px; /* Уменьшаем внутренние отступы колонки */
+    .natp-algo-step-item:hover[b-oob6u1pje3] {
+        background-color: rgba(255,255,255,0.05);
     }
 
-    .atp-button[b-oob6u1pje3] {
-        font-size: 0.9em; /* Уменьшаем шрифт на кнопках */
-        padding: 8px 10px; /* Уменьшаем паддинг кнопок */
-    }
-
-    .atp-action-buttons-footer[b-oob6u1pje3] {
-        gap: 5px; /* Уменьшаем зазор между кнопками */
-    }
+.natp-action-buttons-panel[b-oob6u1pje3] {
+    margin-top: auto; /* Прижимает кнопки к низу */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.atp-button-check[b-oob6u1pje3] {
-    background-color: #ffc107; /* Желтый (Bootstrap warning) */
-    color: #212529; /* Темный текст для желтой кнопки */
+.natp-button[b-oob6u1pje3] { /* Общий стиль для кнопок Проверить/Далее */
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-    .atp-button-check:hover[b-oob6u1pje3] {
+.natp-check-button[b-oob6u1pje3] {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+    .natp-check-button:hover:not(:disabled)[b-oob6u1pje3] {
         background-color: #e0a800;
     }
 
-    .atp-button-check:disabled[b-oob6u1pje3] {
-        background-color: #ffe083;
-        cursor: not-allowed;
-    }
-
-
-.atp-button-next[b-oob6u1pje3] {
-    background-color: #007bff; /* Синий (Bootstrap primary) или ваш зеленый */
+.natp-next-button[b-oob6u1pje3] {
+    background-color: #007bff;
 }
-
-    .atp-button-next:hover[b-oob6u1pje3] {
+    /* Или ваш зеленый */
+    .natp-next-button:hover:not(:disabled)[b-oob6u1pje3] {
         background-color: #0069d9;
     }
 
-    .atp-button-next:disabled[b-oob6u1pje3] {
-        background-color: #7fade9;
-        cursor: not-allowed;
-    }
+.natp-button:disabled[b-oob6u1pje3] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
-/* Спиннер внутри кнопки */
-.atp-button .spinner-border-sm[b-oob6u1pje3] {
+.natp-button .spinner-border-sm[b-oob6u1pje3] {
     margin-right: 5px;
-    vertical-align: text-bottom;
 }
 
-.atp-instance-header[b-oob6u1pje3] {
-    display: flex;
-    align-items: center; /* Выравниваем все элементы в заголовке по центру вертикально */
-    margin-bottom: 10px;
-}
-
-.atp-instance-title[b-oob6u1pje3] {
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.atp-instance-description[b-oob6u1pje3] {
-    flex-grow: 1;
-    font-family: Consolas, Monaco, monospace;
-    font-size: 0.9em;
-    white-space: pre-wrap;
-    padding-right: 10px;
-    color: white;
-}
-
-.atp-instance-status-icons[b-oob6u1pje3] {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Прижимает иконки и кнопку удаления вправо */
-    padding-left: 10px; /* Отступ от описания */
-}
 
 .atp-status-icon[b-oob6u1pje3] {
-    font-size: 1.2em; /* Размер иконок-эмодзи */
-    margin-right: 8px; /* Отступ от кнопки удаления */
-    cursor: help; /* Показывает, что можно навести для подсказки */
+    margin-left: 5px;
 }
 
-    .atp-status-icon.error-icon[b-oob6u1pje3] {
-        color: #ffcc00; /* Желтый для информации об ошибке, чтобы не конфликтовать с красной рамкой всего блока */
-    }
-
-    .atp-status-icon.correct-icon[b-oob6u1pje3] {
-        color: #28a745; /* Зеленый */
-    }
-
-    .atp-status-icon.pending-icon[b-oob6u1pje3] {
-        color: #0dcaf0; /* Голубой (Bootstrap info) */
-    }
-
-
-.atp-remove-step-button[b-oob6u1pje3] {
-    background: none;
-    border: none;
-    color: #ff6b6b; /* Красный для кнопки удаления */
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 0 5px;
-    line-height: 1;
+.error-icon[b-oob6u1pje3] {
+    color: #ff7f7f;
 }
 
-    .atp-remove-step-button:hover[b-oob6u1pje3] {
-        color: #e03131;
-    }
+.correct-icon[b-oob6u1pje3] {
+    color: #28a745;
+}
+
+.pending-icon[b-oob6u1pje3] {
+    color: #ffc107;
+}
+
+.atp-input-error-message[b-oob6u1pje3] {
+    font-size: 0.8em;
+    /* color: #dc3545; /* text-danger уже должен это делать */
+    margin-left: 5px; /* Или display: block; для отображения под инпутом */
+    width: 100%; /* Если display: block */
+    text-align: left;
+}
+
+.natp-validation-summary[b-oob6u1pje3] {
+    color: #856404; /* Цвет текста для warning */
+    background-color: #fff3cd; /* Фон для warning */
+    border-color: #ffeeba;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    text-align: left;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* _content/SKAT_Interface/Components/Pages/AlgorithmEditorPage.razor.rz.scp.css */
 /* wwwroot/css/AlgorithmEditorPage.css */
 

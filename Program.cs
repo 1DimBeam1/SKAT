@@ -25,6 +25,7 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<SessionService>();
+builder.Services.AddScoped<AlgorithmApiService>();
 
 builder.Services.AddServerSideBlazor()
     .AddCircuitOptions(options => { options.DetailedErrors = true; });
@@ -34,6 +35,15 @@ builder.Services.AddHttpClient("EvaluationApiClient", client =>
     // Базовый URL вашего сервиса оценивания
     // Это значение лучше вынести в appsettings.json
     client.BaseAddress = new Uri(builder.Configuration["EvaluationService:BaseUrl"]);
+    // Можно добавить заголовки по умолчанию, если нужны (например, Content-Type)
+    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+});
+
+builder.Services.AddHttpClient("ApiSettings", client =>
+{
+    // Базовый URL вашего сервиса оценивания
+    // Это значение лучше вынести в appsettings.json
+    client.BaseAddress = new Uri(builder.Configuration["ApiSettings:InterpretatorServiceUrl"]);
     // Можно добавить заголовки по умолчанию, если нужны (например, Content-Type)
     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 });

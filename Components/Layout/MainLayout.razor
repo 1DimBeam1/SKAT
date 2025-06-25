@@ -10,25 +10,7 @@
     }
 
     <main>
-        @if (IsActualTestPageActive)
-        {
-            <div class="top-row-custom-header px-3">
-                <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="sessions">
-                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Главная страница
-                    </NavLink>
-                </div>
-            </div>
-        }
-        else
-        {
-            @* Если у вас была верхняя панель (top-row) отдельно от NavMenu, она может быть здесь *@
-            @* Например, <div class="top-row px-4"> ... </div> *@
-            @* Но если top-row является частью NavMenu (как в стандартном шаблоне), *@
-            @* то он скроется вместе с NavMenu, и этот блок else не нужен. *@
-        }
-
-        <article class="content @(IsActualTestPageActive ? "px-0 py-0" : "px-4")">
+        <article class="content @(IsActualTestPageActive ? "px-0 py-0" : "px-0")">
             @Body
         </article>
 
