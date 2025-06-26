@@ -41,7 +41,7 @@
 
     <div class="task-mgmt-column">
         <div class="task-mgmt-header">
-            Список тестов (заданий)
+            Список тестовых заданий
             <button class="btn btn-add-new" @onclick="NavigateToAddTask">Добавить тест</button>
         </div>
         <div class="task-mgmt-search-bar">
@@ -59,6 +59,7 @@
                     <div class="task-mgmt-list-item">
                         <span class="icon-delete" title="Удалить" @onclick="() => ConfirmDeleteTask(task.Id, task.Name)">❌</span>
                         <span class="item-name">@task.Name</span>
+                        <span class="difficulty-tag">Сложность = @task.Difficult</span>
                         <span class="icon-edit" title="Редактировать" @onclick="() => EditTask(task.Id)">✏️</span>
                     </div>
                 }
@@ -137,7 +138,7 @@
         var testsFromApi = await AlgorithmService.GetTestsListAsync();
         if (testsFromApi != null)
         {
-            AllTasks = testsFromApi.Select(t => new TaskViewModel { Id = t.TestId, Name = t.TestName ?? "Без имени" }).ToList();
+            AllTasks = testsFromApi.Select(t => new TaskViewModel { Id = t.TestId, Name = t.TestName ?? "Без имени", Difficult = t.Difficult}).ToList();
         }
         else
         {
@@ -246,5 +247,6 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
+        public float Difficult { get; set; } = 0.5f;
     }
 }

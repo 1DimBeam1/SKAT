@@ -107,7 +107,7 @@
             <div class="algo-param-group">
                 <label>
                     Шаги отслеживания переменных:
-                    <span class="help-tooltip" title="Укажите номер строки кода, в которой необходимо отслеживать шаг алгоритма. Соответствующие ему переменные и описание.">❔</span>
+                    <span class="help-tooltip" title="Укажите номер строки кода, в которой необходимо отслеживать шаг алгоритма и переменные для отслеживания. Описание должно иметь вид - Описание_шага: номер_шага_на_картинке ">❔</span>
                 </label>
                 @foreach (var stepModel in TrackingSteps)
                 {
@@ -118,7 +118,7 @@
                         </div>
                         <div class="form-group">
                             <label for="@($"desc_{stepModel.Id}")">Описание шага:</label>
-                            <input type="text" id="@($"desc_{stepModel.Id}")" @bind="stepModel.Description" placeholder="Например, после инкремента i" />
+                            <input type="text" id="@($"desc_{stepModel.Id}")" @bind="stepModel.Description" placeholder="Например: Ключ для вставки и счетчик: 3" />
                         </div>
                         <div class="form-group">
                             <label for="@($"line_{stepModel.Id}")">Строка кода для отслеживания:</label>
@@ -126,7 +126,7 @@
                         </div>
                         <div class="form-group">
                             <label for="@($"vars_{stepModel.Id}")">Переменные (через запятую):</label>
-                            <input type="text" id="@($"vars_{stepModel.Id}")" @bind="stepModel.VariablesToTrackRaw" placeholder="например: i, j, arr[i]" />
+                            <input type="text" id="@($"vars_{stepModel.Id}")" @bind="stepModel.VariablesToTrackRaw" placeholder="Например: i, j, arr" />
                         </div>
                     </div>
                 }
@@ -153,11 +153,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="@($"input_var_{setup.Id}")">Имя переменной:</label>
-                                <input type="text" id="@($"input_var_{setup.Id}")" @bind="setup.VariableName" placeholder="например: arr" />
+                                <input type="text" id="@($"input_var_{setup.Id}")" @bind="setup.VariableName" placeholder="Например: arr" />
                             </div>
                             <div class="form-group">
                                 <label for="@($"input_desc_{setup.Id}")">Описание (опционально):</label>
-                                <input type="text" id="@($"input_desc_{setup.Id}")" @bind="setup.Description" placeholder="например: массив чисел" />
+                                <input type="text" id="@($"input_desc_{setup.Id}")" @bind="setup.Description" placeholder="Например: Массив чисел" />
                             </div>
                         </div>
                     }
@@ -540,21 +540,18 @@
             string resultMessage;
             ClientCreateAlgorithmResponseDto? createdResponse = null;
 
-            var validDefaultInputSetups = DefaultInputSetups
-                .Where(s => !string.IsNullOrWhiteSpace(s.VariableName) && s.LineNumberInCode > 0)
-                .ToList();
 
             if (AlgorithmId.HasValue)
             {
                 success = await AlgorithmService.UpdateAlgorithmAsync(
                     AlgorithmId.Value, algorithmName, currentCodeContent,
-                    validDefaultInputSetups, TrackingSteps, selectedImageFile);
+                    DefaultInputSetups, TrackingSteps, selectedImageFile);
                 resultMessage = success ? "Алгоритм успешно обновлен!" : "Ошибка при обновлении алгоритма.";
             }
             else
             {
                 createdResponse = await AlgorithmService.CreateAlgorithmAsync(
-                    algorithmName, currentCodeContent, validDefaultInputSetups, TrackingSteps, selectedImageFile);
+                    algorithmName, currentCodeContent, DefaultInputSetups, TrackingSteps, selectedImageFile);
                 success = createdResponse != null && createdResponse.AlgoId > 0;
                 resultMessage = success ? $"Алгоритм '{algorithmName}' успешно создан!" : "Ошибка при создании алгоритма.";
             }

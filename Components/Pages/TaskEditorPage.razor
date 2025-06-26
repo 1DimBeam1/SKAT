@@ -1,14 +1,38 @@
 ﻿@page "/task-editor"
-@page "/task-editor/{TaskId:int}" // Для редактирования
+@page "/task-editor/{TaskId:int}"
 @inject NavigationManager NavigationManager
+@inject AlgorithmApiService AlgorithmService
 @rendermode InteractiveServer
+
+@using SKAT_Interface.Services
 
 <PageTitle>Редактор Задания</PageTitle>
 
 <AutoGenerationOptionsModal IsVisible="showAutoGenerateModal"
-                            InputVariablesForGeneration="GetInputVariableNames()"
-                            OnClose="CloseAutoGenerateModal"
-                            OnGenerate="HandleAutoGeneration" />
+InputVariablesForGeneration="GetInputVariableNames()"
+OnClose="CloseAutoGenerateModal"
+OnGenerate="HandleAutoGeneration" />
+
+@if (showMessageModal)
+{
+    <div class="modal-overlay" @onclick="CloseMessageModal">
+        <div class="modal-content" @onclick:stopPropagation="true">
+            <h4>@messageModalTitle</h4>
+            <p>@messageModalContent</p>
+            <div class="modal-actions">
+                @if (isConfirmation)
+                {
+                    <button class="modal-btn btn-secondary" @onclick="CloseMessageModal">Отмена</button>
+                    <button class="modal-btn btn-primary" @onclick="ConfirmAction">Подтвердить</button>
+                }
+                else
+                {
+                    <button class="modal-btn btn-primary" @onclick="CloseMessageModal">OK</button>
+                }
+            </div>
+        </div>
+    </div>
+}
 
 <div class="task-editor-container">
     <div class="task-editor-header-controls">
@@ -16,100 +40,285 @@
     </div>
 
     <div class="task-editor-main-content">
-        <!-- Левая Колонка -->
+        <!-- Левая колонка -->
         <div class="task-editor-left-column">
             <div class="column-header">Задание</div>
-
             <div class="form-section">
                 <label for="taskText">Текст задания:</label>
                 <textarea id="taskText" @bind="taskDescription" rows="8"></textarea>
             </div>
-
-            <div class="form-section algorithm-section">
-                <label for="algorithmNameInput">Алгоритм:</label>
-                <input type="text" id="algorithmNameInput" @bind="selectedAlgorithmName" placeholder="Название выбранного алгоритма" />
-                <button class="btn-select-algorithm" @onclick="SelectAlgorithm">Выбрать</button>
+            <div class="algorithm-section">
+                <label for="algorithmSelect">Алгоритм:</label>
+                <div class="select-wrapper">
+                    <select id="algorithmSelect" @bind="selectedAlgorithmId">
+                        <option value="0">Выберите алгоритм</option>
+                        @foreach (var algo in algorithms)
+                        {
+                            <option value="@algo.AlgoId">@algo.AlgorithmName</option>
+                        }
+                    </select>
+                </div>
             </div>
         </div>
 
-        <!-- Правая Колонка -->
+        <!-- Правая колонка -->
         <div class="task-editor-right-column">
             <div class="column-header">Параметры</div>
-
             <div class="form-section">
-                <label for="inputValuesTask">
-                    Входные значения:
-                    <span class="help-tooltip" title="Формат: 'ИмяПеременной = значение1,значение2,...;
-ИмяДругойПеременной = текст'.
-Пример: 'Arr = 1,2,4,6,8,7,5,0,9,3;
-Message = Hello'">❔</span>
-                </label>
-                <textarea id="inputValuesTask" @bind="inputData" rows="5"></textarea>
+                <label>Входные значения:</label>
+                @if (selectedAlgorithmId > 0 && inputVariables.Any())
+                {
+                    foreach (var variable in inputVariables)
+                    {
+                        <div class="input-variable">
+                            <label for="@($"var_{variable.VarName}")">@variable.VarName (@variable.VarType):</label>
+                            <input type="text" id="@($"var_{variable.VarName}")" @bind="variable.VarValue" placeholder="Например: 1,2,3" />
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Выберите алгоритм, чтобы увидеть переменные.</p>
+                }
             </div>
-
             <div class="form-section">
                 <label for="taskTitle">Название задания:</label>
                 <input type="text" id="taskTitle" @bind="taskName" />
             </div>
-
             <div class="action-buttons-group">
-                <button class="btn-action btn-auto-generate" @onclick="OpenAutoGenerateModal">Автоматическая генерация</button>
+                @if (TaskId.HasValue)
+                {
+                    <button class="btn-action btn-auto-generate" @onclick="OpenAutoGenerateModal">Автоматическая генерация</button>
+                }
                 <div class="stacked-buttons">
-                    <button class="btn-action btn-create-task" @onclick="HandleCreateTask">Сохранить задание</button>
+                    <button class="btn-action btn-create-task" @onclick="ConfirmSaveTask">Сохранить задание</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
 @code {
-    [Parameter] public int? TaskId { get; set; } // Для редактирования
+    [Parameter] public int? TaskId { get; set; }
 
-    private string taskDescription = "Необходимо отсортировать данные применив сортировку вставками.\nНа каждом шаге введите значение отслеживаемых переменных.";
-    private string selectedAlgorithmName = "Сортировка вставками"; // В будущем ID выбранного алгоритма
-    private string inputData = "Arr = 1,2,4,6,8,7,5,0,9,3";
-    private string taskName = "Задание по сортировке вставками";
+    private string taskDescription = "";
+    private string taskName = "";
+    private List<AlgorithmListItemClientDto> algorithms = new();
+    private List<InputVariable> inputVariables = new();
+    private List<InputVariable> originalInputVariables = new(); // Исходные переменные теста
+    private int? originalAlgorithmId; // Исходный алгоритм теста
 
-    private bool showSaveConfirmation = false;
-    private string saveConfirmationMessage = "";
-    private bool isSaveSuccessful = false;
+    private int _selectedAlgorithmId = 0;
+    private int selectedAlgorithmId
+    {
+        get => _selectedAlgorithmId;
+        set
+        {
+            if (_selectedAlgorithmId != value)
+            {
+                _selectedAlgorithmId = value;
+                _ = OnAlgorithmChanged(); // Асинхронный вызов
+            }
+        }
+    }
+
+    private bool showMessageModal = false;
+    private string messageModalTitle = "";
+    private string messageModalContent = "";
+    private bool isConfirmation = false;
+    private Func<Task>? confirmationAction;
 
     private bool showAutoGenerateModal = false;
-    private bool wasActionAutoGeneration = false; // Флаг для различения действий
+
+    // Модель для входных переменных
+    private class InputVariable
+    {
+        public string VarName { get; set; } = "";
+        public string VarType { get; set; } = "";
+        public string VarValue { get; set; } = "";
+        public int LineNumber { get; set; } = 0; // Номер строки из editor_bundle
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var algoList = await AlgorithmService.GetAlgorithmsListAsync();
+        if (algoList != null)
+        {
+            algorithms = algoList.ToList();
+        }
+    }
 
     protected override async Task OnParametersSetAsync()
     {
         if (TaskId.HasValue)
         {
-            // Логика загрузки данных задания по TaskId из БД
-            Console.WriteLine($"Загрузка данных для задания ID: {TaskId.Value}");
-            // var taskData = await TaskService.GetTaskByIdAsync(TaskId.Value);
-            // taskName = taskData.Name;
-            // ...
-            taskName = $"Редактируемое задание {TaskId.Value}";
+            var testDetails = await AlgorithmService.GetTestDetailsAsync(TaskId.Value);
+            if (testDetails != null)
+            {
+                taskDescription = testDetails.Test.Description ?? "";
+                taskName = testDetails.Test.TestName ?? "";
+                selectedAlgorithmId = testDetails.Test.AlgoId;
+                originalAlgorithmId = testDetails.Test.AlgoId;
+
+                originalInputVariables = testDetails.InputTestData.Select(itd => new InputVariable
+                    {
+                        VarName = itd.VarName,
+                        VarType = itd.VarType,
+                        VarValue = itd.VarValue,
+                        LineNumber = itd.LineNumber
+                    }).ToList();
+
+                inputVariables = originalInputVariables.Select(v => new InputVariable
+                    {
+                        VarName = v.VarName,
+                        VarType = v.VarType,
+                        VarValue = v.VarValue,
+                        LineNumber = v.LineNumber
+                    }).ToList();
+            }
         }
         else
         {
-            taskDescription = "Необходимо отсортировать данные применив сортировку вставками.\nНа каждом шаге введите значение отслеживаемых переменных.";
-            selectedAlgorithmName = "Сортировка вставками";
-            inputData = "Arr = 1,2,4,6,8,7,5,0,9,3";
-            taskName = "Новое задание по сортировке вставками";
+            taskDescription = "";
+            taskName = "";
+            selectedAlgorithmId = 0;
+            originalAlgorithmId = null;
+            inputVariables.Clear();
+            originalInputVariables.Clear();
         }
     }
 
-    private void SelectAlgorithm()
+    private async Task OnAlgorithmChanged()
     {
-        Console.WriteLine("Нажата кнопка 'Выбрать алгоритм'");
-        // Здесь будет логика выбора алгоритма, например, открытие модального окна со списком алгоритмов
-        // или переход на TaskManagementEditorPage для выбора
-        // Пока что просто выводим сообщение
-        // В будущем может устанавливать selectedAlgorithmId и selectedAlgorithmName
+        if (selectedAlgorithmId > 0)
+        {
+            var bundle = await AlgorithmService.GetAlgorithmEditorBundleAsync(selectedAlgorithmId);
+            if (bundle != null)
+            {
+                var step0Vars = bundle.AllConfiguredSteps
+                    .Where(s => s.StepNumber == 0)
+                    .ToList();
+
+                inputVariables = step0Vars.Select(s => new InputVariable
+                    {
+                        VarName = s.Variables.FirstOrDefault() ?? "",
+                        VarType = s.VarType ?? "Неизвестно",
+                        VarValue = "",
+                        LineNumber = s.LineNumber
+                    }).ToList();
+
+                if (TaskId.HasValue && selectedAlgorithmId == originalAlgorithmId)
+                {
+                    foreach (var originalVar in originalInputVariables)
+                    {
+                        var variable = inputVariables.FirstOrDefault(v => v.VarName == originalVar.VarName);
+                        if (variable != null)
+                        {
+                            variable.VarValue = originalVar.VarValue;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                inputVariables.Clear();
+            }
+        }
+        else
+        {
+            inputVariables.Clear();
+        }
+        StateHasChanged();
     }
 
+    private void ConfirmSaveTask()
+    {
+        if (string.IsNullOrWhiteSpace(taskName) || string.IsNullOrWhiteSpace(taskDescription) || selectedAlgorithmId <= 0)
+        {
+            ShowMessageModal("Ошибка", "Все поля (название, описание, алгоритм) должны быть заполнены.", false);
+            return;
+        }
+
+        if (inputVariables.Any(v => string.IsNullOrWhiteSpace(v.VarValue)))
+        {
+            ShowMessageModal("Ошибка", "Все поля значений переменных должны быть заполнены.", false);
+            return;
+        }
+
+        ShowMessageModal("Подтверждение", "Вы уверены, что хотите сохранить задание?", false);//true, HandleSaveTask); пока замокаю сохранение, оно не доделано
+    }
+
+    private async Task HandleSaveTask()
+    {
+        var test = new TestDto
+            {
+                TestId = TaskId ?? 0,
+                AlgoId = selectedAlgorithmId,
+                Description = taskDescription,
+                TestName = taskName
+            };
+
+        var inputData = inputVariables.Select(v => new InputTestDataDto
+            {
+                TestId = TaskId ?? 0,
+                VarName = v.VarName,
+                VarValue = v.VarValue,
+                VarType = v.VarType,
+                LineNumber = v.LineNumber
+            }).ToList();
+
+        bool success;
+        if (TaskId.HasValue)
+        {
+            success = await AlgorithmService.UpdateTestAsync(TaskId.Value, test, inputData);
+        }
+        else
+        {
+            var createdTest = await AlgorithmService.CreateTestAsync(test, inputData);
+            success = createdTest != null;
+            if (success) TaskId = createdTest?.TestId;
+        }
+
+        if (success)
+        {
+            ShowMessageModal("Успех", "Задание успешно сохранено!", false);
+            if (!TaskId.HasValue) NavigateBack();
+        }
+        else
+        {
+            ShowMessageModal("Ошибка", "Ошибка при сохранении задания.", false);
+        }
+    }
+
+    private void ShowMessageModal(string title, string content, bool isConfirmationModal, Func<Task>? action = null)
+    {
+        messageModalTitle = title;
+        messageModalContent = content;
+        isConfirmation = isConfirmationModal;
+        confirmationAction = action;
+        showMessageModal = true;
+    }
+
+    private void CloseMessageModal()
+    {
+        showMessageModal = false;
+    }
+
+    private async Task ConfirmAction()
+    {
+        if (confirmationAction != null)
+        {
+            await confirmationAction();
+        }
+        CloseMessageModal();
+    }
+
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/task-management-editor");
+    }
     private void OpenAutoGenerateModal()
     {
-        Console.WriteLine("Нажата кнопка 'Автоматическая генерация'");
         showAutoGenerateModal = true;
     }
 
@@ -120,100 +329,11 @@ Message = Hello'">❔</span>
 
     private void HandleAutoGeneration(AutoGenerationOptionsModal.AutoGenerationConfig config)
     {
-        Console.WriteLine($"Получены опции генерации для {config.NumberOfTasksToGenerate} заданий");
-        foreach (var varConfig in config.VariableConfigs)
-        {
-            Console.WriteLine($"Для переменной '{varConfig.VariableName}': тип генерации - {varConfig.Type}, фикс. значение - '{varConfig.FixedValue}', мин. - {varConfig.MinValue}, макс. - {varConfig.MaxValue}");
-        }
-
-        // Если вы хотите модифицировать текущее задание на основе первой переменной (для примера):
-        if (config.VariableConfigs.Any())
-        {
-            var firstVarConfig = config.VariableConfigs.First();
-            // Примечание: Эта логика изменения текущего taskDescription/inputData может быть не нужна,
-            // если автогенерация должна создавать новые задания "в фоне".
-            // Я оставляю ее для примера, но вы можете удалить/изменить.
-            // taskDescription = $"Авто-сгенерировано (для '{firstVarConfig.VariableName}' тип: {firstVarConfig.Type}, {config.NumberOfTasksToGenerate} шт.).\n" + taskDescription;
-            // inputData = $"// Сгенерировано для '{firstVarConfig.VariableName}': {firstVarConfig.Type}\n" + inputData;
-        }
-
-
-        // Здесь будет ваша основная логика генерации НОВЫХ заданий на основе 'config'
-        // Например, цикл от 1 до config.NumberOfTasksToGenerate,
-        // в котором вы создаете новые объекты заданий и их входные данные.
-
-
-        // Показать сообщение об успехе генерации (можно через то же модальное окно SaveConfirmation)
-        saveConfirmationMessage = "Задания успешно сгенерированы.";
-        isSaveSuccessful = true; // Предполагаем успех
-        wasActionAutoGeneration = true; // Устанавливаем флаг
-        showSaveConfirmation = true; // Показываем сообщение
+        ShowMessageModal("Информация", "Автогенерация пока не реализована.", false);
     }
 
     private List<string> GetInputVariableNames()
     {
-        // Эта функция должна парсить 'inputData' или получать имена переменных другим способом
-        // В будущем, это будет список переменных, связанных с выбранным алгоритмом/заданием
-        // Для примера, если inputData = "Arr = 1,2,3; Count = 5;"
-        // то мы хотим получить {"Arr", "Count"}
-        // Пока что, для упрощения, вернем жестко закодированный список
-        // на основе вашего примера "Arr = 1,2,4,6,8,7,5,0,9,3"
-
-        // Простой парсер для примера:
-        var names = new List<string>();
-        if (!string.IsNullOrWhiteSpace(inputData))
-        {
-            var parts = inputData.Split(';');
-            foreach (var part in parts)
-            {
-                if (string.IsNullOrWhiteSpace(part)) continue;
-                var sides = part.Split('=');
-                if (sides.Length > 0 && !string.IsNullOrWhiteSpace(sides[0]))
-                {
-                    names.Add(sides[0].Trim());
-                }
-            }
-        }
-        if (!names.Any()) names.Add("Arr"); // Если ничего не нашли, добавим "Arr" по умолчанию
-        return names.Distinct().ToList(); // Убедимся, что имена уникальны
-    }
-
-    private void HandleCreateTask()
-    {
-        Console.WriteLine($"Создание/Обновление задания: {taskName}");
-        // Логика сохранения задания в БД
-        // await TaskService.SaveAsync(new Task { ... });
-
-        bool success = true; // Предположим, сохранение успешно
-        if (success)
-        {
-            saveConfirmationMessage = $"Задание '{taskName}' успешно сохранено!";
-            isSaveSuccessful = true;
-        }
-        else
-        {
-            saveConfirmationMessage = $"Ошибка при сохранении задания '{taskName}'.";
-            isSaveSuccessful = false;
-        }
-        wasActionAutoGeneration = false; // Устанавливаем флаг
-        showSaveConfirmation = true;
-    }
-
-    private void CloseSaveConfirmationModal()
-    {
-        showSaveConfirmation = false;
-        if (isSaveSuccessful && !wasActionAutoGeneration) // Если это было сохранение задания, а не сообщение от автогенерации
-        {
-            // Решаем, нужно ли переходить назад. Возможно, только если это было не сообщение от автогенерации.
-            // Для простоты, пока будем переходить назад всегда после успешного сохранения.
-            // string lastAction = ... // Можно добавить флаг, чтобы понимать, какое действие вызвало модалку
-            NavigateBack();
-        }
-        wasActionAutoGeneration = false; // Сбрасываем флаг
-    }
-
-    private void NavigateBack()
-    {
-        NavigationManager.NavigateTo("/task-management-editor");
+        return inputVariables.Select(v => v.VarName).ToList();
     }
 }

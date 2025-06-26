@@ -158,6 +158,63 @@ namespace SKAT_Interface.Services
         public int AlgoId { get; set; }
     }
 
+    public class TestDto
+    {
+        [JsonPropertyName("algoId")]
+        public int AlgoId { get; set; }
+
+        [JsonPropertyName("testId")]
+        public int TestId { get; set; }
+
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+
+        [JsonPropertyName("testName")]
+        public string? TestName { get; set; }
+
+        [JsonPropertyName("difficult")]
+        public float Difficult { get; set; } = 0.5f;
+
+        [JsonPropertyName("solvedCount")]
+        public int SolvedCount { get; set; } = 0;
+
+        [JsonPropertyName("unsolvedCount")]
+        public int UnsolvedCount { get; set; } = 0;
+    }
+
+    public class InputTestDataDto
+    {
+        [JsonPropertyName("testId")]
+        public int TestId { get; set; }
+
+        [JsonPropertyName("varName")]
+        public string? VarName { get; set; }
+
+        [JsonPropertyName("varValue")]
+        public string? VarValue { get; set; }
+
+        [JsonPropertyName("varType")]
+        public string? VarType { get; set; }
+
+        [JsonPropertyName("lineNumber")]
+        public int LineNumber { get; set; }
+    }
+
+    public class TestDetailsDto
+    {
+        [JsonPropertyName("test")]
+        public TestDto Test { get; set; }
+
+        [JsonPropertyName("algorithm")]
+        public ClientAlgorithmModelDto Algorithm { get; set; }
+
+        [JsonPropertyName("inputTestData")]
+        public List<InputTestDataDto> InputTestData { get; set; }
+
+        [JsonPropertyName("algoSteps")]
+        public List<ClientApiAlgoStepDto> AlgoSteps { get; set; }
+    }
+
     public class AlgorithmApiService
     {
         private readonly HttpClient _httpClient;
@@ -564,14 +621,14 @@ namespace SKAT_Interface.Services
             }
         }
 
-        public async Task<List<TestViewModel>?> GetTestsListAsync()
+        public async Task<List<TestDto>?> GetTestsListAsync()
         {
             try
             {
                 var response = await _httpClient.GetAsync($"{_apiBaseUrl}/api/testmanagement/fetch-tests");
                 if (response.IsSuccessStatusCode)
                 {
-                    var tests = await response.Content.ReadFromJsonAsync<List<TestViewModel>>();
+                    var tests = await response.Content.ReadFromJsonAsync<List<TestDto>>();
                     return tests;
                 }
                 else
@@ -607,29 +664,71 @@ namespace SKAT_Interface.Services
             }
         }
 
-        // Добавляем модель TestViewModel в конец файла (или в отдельный файл моделей), если она еще не определена:
-        public class TestViewModel
+        public async Task<TestDetailsDto?> GetTestDetailsAsync(int testId)
         {
-            [JsonPropertyName("testId")]
-            public int TestId { get; set; }
+            try
+            {
+                var response = await _httpClient.GetAsync($"{_apiBaseUrl}/api/testmanagement/fetch-test-details/{testId}");
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<TestDetailsDto>();
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error getting test details for {testId}: {response.StatusCode} - {errorContent}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in GetTestDetailsAsync for {testId}: {ex.Message}");
+                return null;
+            }
+        }
 
-            [JsonPropertyName("algoId")]
-            public int AlgoId { get; set; }
+        public async Task<TestDto?> CreateTestAsync(TestDto test, List<InputTestDataDto> inputData)
+        {
+            try
+            {
+                var requestBody = new { test, inputData };
+                var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/api/testmanagement/create-test", requestBody);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<TestDto>();
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error creating test: {response.StatusCode} - {errorContent}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in CreateTestAsync: {ex.Message}");
+                return null;
+            }
+        }
 
-            [JsonPropertyName("testName")]
-            public string? TestName { get; set; }
-
-            [JsonPropertyName("description")]
-            public string? Description { get; set; }
-
-            [JsonPropertyName("difficult")]
-            public float Difficult { get; set; }
-
-            [JsonPropertyName("solvedCount")]
-            public int SolvedCount { get; set; }
-
-            [JsonPropertyName("unsolvedCount")]
-            public int UnsolvedCount { get; set; }
+        public async Task<bool> UpdateTestAsync(int testId, TestDto test, List<InputTestDataDto> inputData)
+        {
+            try
+            {
+                var requestBody = new { test, inputData };
+                var response = await _httpClient.PutAsJsonAsync($"{_apiBaseUrl}/api/testmanagement/modify-test/{testId}", requestBody);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error updating test {testId}: {response.StatusCode} - {errorContent}");
+                }
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in UpdateTestAsync for {testId}: {ex.Message}");
+                return false;
+            }
         }
 
         // Добавьте сюда другие методы для взаимодействия с вашим API по мере необходимости
