@@ -5,6 +5,7 @@ using SKAT_Interface.Services;
 using SKAT_Interface.Auth;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddScoped<AlgorithmApiService>();
 builder.Services.AddServerSideBlazor()
     .AddCircuitOptions(options => { options.DetailedErrors = true; });
 
+builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("EvaluationApiClient", client =>
 {
     // Базовый URL вашего сервиса оценивания
