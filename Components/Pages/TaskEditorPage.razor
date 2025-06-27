@@ -2,7 +2,7 @@
 @page "/task-editor/{TaskId:int}"
 @inject NavigationManager NavigationManager
 @inject AlgorithmApiService AlgorithmService
-@rendermode InteractiveServer
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @using SKAT_Interface.Services
 
@@ -108,6 +108,8 @@ OnGenerate="HandleAutoGeneration" />
     private List<InputVariable> originalInputVariables = new(); // Исходные переменные теста
     private int? originalAlgorithmId; // Исходный алгоритм теста
 
+    private bool isInitialLoading = false;
+
     private int _selectedAlgorithmId = 0;
     private int selectedAlgorithmId
     {
@@ -117,7 +119,7 @@ OnGenerate="HandleAutoGeneration" />
             if (_selectedAlgorithmId != value)
             {
                 _selectedAlgorithmId = value;
-                _ = OnAlgorithmChanged(); // Асинхронный вызов
+                _ = OnAlgorithmChanged(value); // Асинхронный вызов
             }
         }
     }
@@ -150,6 +152,10 @@ OnGenerate="HandleAutoGeneration" />
 
     protected override async Task OnParametersSetAsync()
     {
+        if (isInitialLoading) return; // Предотвращаем повторный вызов, если он уже идет
+
+        isInitialLoading = true;
+
         if (TaskId.HasValue)
         {
             var testDetails = await AlgorithmService.GetTestDetailsAsync(TaskId.Value);
@@ -157,67 +163,80 @@ OnGenerate="HandleAutoGeneration" />
             {
                 taskDescription = testDetails.Test.Description ?? "";
                 taskName = testDetails.Test.TestName ?? "";
-                selectedAlgorithmId = testDetails.Test.AlgoId;
+
                 originalAlgorithmId = testDetails.Test.AlgoId;
 
+                // Загружаем входные переменные теста
                 originalInputVariables = testDetails.InputTestData.Select(itd => new InputVariable
-                    {
-                        VarName = itd.VarName,
-                        VarType = itd.VarType,
-                        VarValue = itd.VarValue,
-                        LineNumber = itd.LineNumber
-                    }).ToList();
+                    { VarName = itd.VarName, VarType = itd.VarType, VarValue = itd.VarValue, LineNumber = itd.LineNumber })
+                    .ToList();
 
+                // Клонируем их в рабочую коллекцию
                 inputVariables = originalInputVariables.Select(v => new InputVariable
-                    {
-                        VarName = v.VarName,
-                        VarType = v.VarType,
-                        VarValue = v.VarValue,
-                        LineNumber = v.LineNumber
-                    }).ToList();
+                    { VarName = v.VarName, VarType = v.VarType, VarValue = v.VarValue, LineNumber = v.LineNumber })
+                    .ToList();
+
+                // Устанавливаем _selectedAlgorithmId НАПРЯМУЮ, чтобы не вызывать сеттер и OnAlgorithmChanged
+                _selectedAlgorithmId = testDetails.Test.AlgoId;
             }
         }
-        else
+        else // Режим создания нового задания
         {
             taskDescription = "";
             taskName = "";
-            selectedAlgorithmId = 0;
+            _selectedAlgorithmId = 0; // Устанавливаем напрямую
             originalAlgorithmId = null;
             inputVariables.Clear();
             originalInputVariables.Clear();
         }
+
+        isInitialLoading = false;
+        StateHasChanged(); // Обновляем UI после загрузки
     }
 
-    private async Task OnAlgorithmChanged()
+    private async Task OnAlgorithmChanged(int newAlgorithmId)
     {
-        if (selectedAlgorithmId > 0)
+        // Если идет первоначальная загрузка, то не делаем ничего.
+        // OnParametersSetAsync уже позаботился о загрузке правильных переменных.
+        if (isInitialLoading)
         {
-            var bundle = await AlgorithmService.GetAlgorithmEditorBundleAsync(selectedAlgorithmId);
+            return;
+        }
+
+        // Этот код теперь будет выполняться ТОЛЬКО при смене алгоритма пользователем в UI
+        if (newAlgorithmId > 0)
+        {
+            var bundle = await AlgorithmService.GetAlgorithmEditorBundleAsync(newAlgorithmId);
             if (bundle != null)
             {
                 var step0Vars = bundle.AllConfiguredSteps
                     .Where(s => s.StepNumber == 0)
+                    .SelectMany(s => s.Variables.Select(v => new { VarName = v, VarType = s.VarType, LineNumber = s.LineNumber })) // Разворачиваем переменные
                     .ToList();
 
-                inputVariables = step0Vars.Select(s => new InputVariable
+                // Создаем новый список входных переменных на основе шаблона алгоритма
+                var newVariables = step0Vars.Select(s => new InputVariable
                     {
-                        VarName = s.Variables.FirstOrDefault() ?? "",
+                        VarName = s.VarName ?? "",
                         VarType = s.VarType ?? "Неизвестно",
-                        VarValue = "",
+                        VarValue = "", // Значение по умолчанию пустое
                         LineNumber = s.LineNumber
                     }).ToList();
 
-                if (TaskId.HasValue && selectedAlgorithmId == originalAlgorithmId)
+                // Если пользователь переключился на старый алгоритм, восстановим значения, которые он вводил
+                if (TaskId.HasValue && newAlgorithmId == originalAlgorithmId)
                 {
                     foreach (var originalVar in originalInputVariables)
                     {
-                        var variable = inputVariables.FirstOrDefault(v => v.VarName == originalVar.VarName);
+                        var variable = newVariables.FirstOrDefault(v => v.VarName == originalVar.VarName);
                         if (variable != null)
                         {
                             variable.VarValue = originalVar.VarValue;
                         }
                     }
                 }
+
+                inputVariables = newVariables; // Заменяем список
             }
             else
             {
@@ -230,6 +249,7 @@ OnGenerate="HandleAutoGeneration" />
         }
         StateHasChanged();
     }
+
 
     private void ConfirmSaveTask()
     {

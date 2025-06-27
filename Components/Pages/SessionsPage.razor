@@ -1,7 +1,7 @@
 ﻿@* Components/Pages/SessionsPage.razor (или где у вас страницы) *@
 @page "/sessions" 
 @using Microsoft.EntityFrameworkCore
-@rendermode InteractiveServer
+@rendermode @(new InteractiveServerRenderMode(prerender: false))
 @inject NavigationManager NavigationManager
 @inject SKAT_Interface.Data.DbUsersContext DbContext // Внедряем ваш DbContext (замените DbOneContext на актуальное имя)
 @inject AuthenticationStateProvider AuthStateProvider // Для получения ID и роли текущего пользователя
