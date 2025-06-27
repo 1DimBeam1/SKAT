@@ -215,6 +215,18 @@ namespace SKAT_Interface.Services
         public List<ClientApiAlgoStepDto> AlgoSteps { get; set; }
     }
 
+    public class VariableUpdateDto
+    {
+        public int LineNumber { get; set; }
+        public string VariableName { get; set; }
+        public string Value { get; set; }
+    }
+
+    public class CreateTestResponseDto
+    {
+        public int TestId { get; set; }
+    }
+
     public class AlgorithmApiService
     {
         private readonly HttpClient _httpClient;
@@ -716,7 +728,7 @@ namespace SKAT_Interface.Services
             try
             {
                 var requestBody = new { test, inputData };
-                var response = await _httpClient.PutAsJsonAsync($"{_apiBaseUrl}/api/testmanagement/modify-test/{testId}", requestBody);
+                var response = await _httpClient.PutAsJsonAsync($"{_apiBaseUrl}/api/testmanagement/update-test/{testId}", requestBody);
                 if (!response.IsSuccessStatusCode)
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
@@ -728,6 +740,30 @@ namespace SKAT_Interface.Services
             {
                 Console.WriteLine($"Exception in UpdateTestAsync for {testId}: {ex.Message}");
                 return false;
+            }
+        }
+
+        public async Task<int?> CreateTestWithValuesAsync(int algoId, List<VariableUpdateDto> updates)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/api/code/update-values/{algoId}", updates);
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadFromJsonAsync<CreateTestResponseDto>();
+                    return result?.TestId;
+                }
+                else
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error creating test with values: {response.StatusCode} - {errorContent}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in CreateTestWithValuesAsync: {ex.Message}");
+                return null;
             }
         }
 

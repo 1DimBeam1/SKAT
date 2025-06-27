@@ -245,7 +245,7 @@ OnGenerate="HandleAutoGeneration" />
             return;
         }
 
-        ShowMessageModal("Подтверждение", "Вы уверены, что хотите сохранить задание?", false);//true, HandleSaveTask); пока замокаю сохранение, оно не доделано
+        ShowMessageModal("Подтверждение", "Вы уверены, что хотите сохранить задание?", true, HandleSaveTask); 
     }
 
     private async Task HandleSaveTask()
@@ -267,16 +267,34 @@ OnGenerate="HandleAutoGeneration" />
                 LineNumber = v.LineNumber
             }).ToList();
 
-        bool success;
+        bool success = false;
         if (TaskId.HasValue)
         {
             success = await AlgorithmService.UpdateTestAsync(TaskId.Value, test, inputData);
         }
         else
         {
-            var createdTest = await AlgorithmService.CreateTestAsync(test, inputData);
-            success = createdTest != null;
-            if (success) TaskId = createdTest?.TestId;
+            // Создаем список VariableUpdateDto из inputVariables
+            var updates = inputVariables.Select(v => new VariableUpdateDto
+                {
+                    LineNumber = v.LineNumber,
+                    VariableName = v.VarName,
+                    Value = v.VarValue
+                }).ToList();
+
+            // Создаем тест с помощью update-values/{codeId}
+            var createdTestId = await AlgorithmService.CreateTestWithValuesAsync(selectedAlgorithmId, updates);
+            if (createdTestId.HasValue)
+            {
+                // Обновляем поля теста (имя и описание)
+                test.TestId = createdTestId.Value;
+                foreach (var input in inputData)
+                {
+                    input.TestId = createdTestId.Value;
+                }
+
+                success = await AlgorithmService.UpdateTestAsync(createdTestId.Value, test, inputData);
+            }
         }
 
         if (success)
