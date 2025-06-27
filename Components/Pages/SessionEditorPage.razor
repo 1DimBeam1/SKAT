@@ -243,6 +243,7 @@
 
             var groupsFromDb = await DbUsersContext.Groups.OrderBy(g => g.Name).ToListAsync();
             availableGroupsForSelection = groupsFromDb
+                .Where(g => g.GroupId != 0)
                 .Select(g => new GroupViewModelForSelection { GroupId = g.GroupId, GroupName = g.Name, IsSelected = false })
                 .ToList();
         }
@@ -403,8 +404,8 @@
 
 
         List<string> sessionTypes = new List<string>();
-        if (sessionCreationModel.IsControlType) sessionTypes.Add("Control");
-        if (sessionCreationModel.IsTrainingType) sessionTypes.Add("Training");
+        if (sessionCreationModel.IsControlType) sessionTypes.Add("Контрольная");
+        if (sessionCreationModel.IsTrainingType) sessionTypes.Add("Обучающая");
         string sessionTypeString = string.Join(", ", sessionTypes);
 
         var newSession = new SKAT_Interface.Models.DbUsersModels.Session
@@ -485,7 +486,6 @@
                     // Здесь также нужно будет сохранить InclusionMode, если это поле есть в SessionTest
                 }
             }
-            await DbUsersContext.SaveChangesAsync();
             // 2. Добавляем группы
             // Сначала получаем список ID выбранных групп из локальной ViewModel коллекции
             List<int> selectedGroupIds = availableGroupsForSelection

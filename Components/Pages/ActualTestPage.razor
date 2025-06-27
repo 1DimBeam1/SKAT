@@ -63,11 +63,14 @@
                     @foreach (var instance in DisplayedStepInstances)
                     {
                         <div class="natp-step-entry @GetInstanceStatusClass(instance.Status)" @key="instance.InstanceId">
+
+                            @* Текстовая часть шага *@
                             <div class="natp-step-text-wrapper">
-                                @* Новый div-обертка *@
                                 <div class="natp-step-text">
-                                    Шаг @instance.DisplayOrder: @instance.Description
-                                    @* (@(currentTask?.AlgorithmSteps.FirstOrDefault(s => s.OriginalStepNumberInDb == instance.OriginalStepNumber)?.Title ?? $"Ориг. Шаг {instance.OriginalStepNumber}")) *@
+                                    <span class="natp-step-display-order">@instance.DisplayOrder.</span> @* Порядковый номер ввода *@
+                                    <span class="natp-step-title-prefix">Шаг</span>
+                                    <span class="natp-step-algo-number">"@instance.DisplayStepNumberFromAlgo"</span> @* Номер из описания *@
+                                    <span class="natp-step-description-inline">"@instance.Description"</span> @* Описание шага *@
                                 </div>
                                 @if (!string.IsNullOrEmpty(instance.ErrorMessageForUI))
                                 {
@@ -125,7 +128,7 @@
                     @if (!DisplayedStepInstances.Any() && currentTask != null && currentTask.AlgorithmSteps.Any(s => s.OriginalStepNumberInDb != 0))
                     {
                         <div class="natp-add-first-step-prompt">
-                            <span>Выберите тип первого шага:</span>
+                            <span>Выберите первый шаг:</span>
                             @foreach (var algoStepTemplate in currentTask.AlgorithmSteps.Where(s => s.OriginalStepNumberInDb != 0))
                             {
                                 <button class="natp-step-type-button"
@@ -143,7 +146,7 @@
                 <div class="natp-image-container">
                     @if (!string.IsNullOrEmpty(taskImageUrl))
                     {
-                        <img src="@taskImageUrl" alt="Описание алгоритма: @(currentTask?.AlgorithmName)" />
+                        <img src="@taskImageUrl" alt="Отслеживаемые переменные: @(currentTask?.AlgorithmName)" />
                     }
                     else
                     {
@@ -283,6 +286,7 @@
 
         // --- НОВОЕ СВОЙСТВО ---
         public int DisplayOrder { get; set; } // Порядковый номер отображения
+        public string DisplayStepNumberFromAlgo { get; set; } = string.Empty;
         public string? ErrorMessageForUI { get; set; }
         public bool Equals(ActiveStepInstance? other)
         {
@@ -1397,19 +1401,18 @@
                 ErrorMessageForUI = original.ErrorMessageForUI
             };
     }
-    private ActiveStepInstance CloneActiveStepInstance(ActiveStepInstance original)
+
+    private ActiveStepInstance CloneActiveStepInstance(ActiveStepInstance o) => new ActiveStepInstance(o.InstanceId)
     {
-        // Guid генерируется заново, DisplayOrder и Status сохраняются
-        return new ActiveStepInstance(original.InstanceId) // Сохраняем оригинальный ID для ключа в разметке
-            {
-                OriginalStepNumber = original.OriginalStepNumber,
-                Description = original.Description,
-                UserInputs = new List<VariableInputData>(original.UserInputs.Select(CloneVariableInputData)),
-                Status = original.Status,
-                DisplayOrder = original.DisplayOrder,
-                ErrorMessageForUI = original.ErrorMessageForUI
-            };
-    }
+            OriginalStepNumber = o.OriginalStepNumber,
+            Description = o.Description,
+            DisplayStepNumberFromAlgo = o.DisplayStepNumberFromAlgo, // <<< ДОБАВЛЯЕМ КОПИРОВАНИЕ
+            UserInputs = o.UserInputs.Select(CloneVariableInputData).ToList(),
+            Status = o.Status,
+            DisplayOrder = o.DisplayOrder,
+            ErrorMessageForUI = o.ErrorMessageForUI
+    };
+
     private async Task SaveFullSessionStateAsync()
     {
         try
@@ -1477,8 +1480,9 @@
         var newInstance = new ActiveStepInstance
             {
                 OriginalStepNumber = nextStepTemplate.OriginalStepNumberInDb,
-                Description = nextStepTemplate.ParsedDescription,
-                DisplayOrder = 1, // Нумерация после Шага 0 (если он был вводом) или с 1
+                Description = nextStepTemplate.ParsedDescription, // Записываем чистое описание
+                DisplayStepNumberFromAlgo = nextStepTemplate.DisplayStepNumber, // Записываем номер для отображения
+                DisplayOrder = DisplayedStepInstances.Any() ? DisplayedStepInstances.Max(di => di.DisplayOrder) + 1 : 1,
                 UserInputs = new List<VariableInputData>()
             };
 

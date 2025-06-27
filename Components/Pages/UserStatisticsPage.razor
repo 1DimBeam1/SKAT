@@ -36,28 +36,6 @@
             </div>
         </div>
 
-        <h4>Прогресс по темам/алгоритмам:</h4>
-        @if (userStatistics.TopicProgress.Any())
-        {
-            <ul class="topic-progress-list">
-                @foreach (var topic in userStatistics.TopicProgress)
-                {
-                    <li>
-                        <span class="topic-name">@topic.TopicName:</span>
-                        <div class="progress-bar-container">
-                            <div class="progress-bar" style="width: @topic.ProgressPercentage%;">
-                                @topic.ProgressPercentage%
-                            </div>
-                        </div>
-                    </li>
-                }
-            </ul>
-        }
-        else
-        {
-            <p><em>Нет данных о прогрессе по темам.</em></p>
-        }
-
         <h4>Последние пройденные сессии:</h4>
         @if (userStatistics.RecentSessions.Any())
         {

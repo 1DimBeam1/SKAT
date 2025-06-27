@@ -129,12 +129,13 @@
 .natp-step-entry {
     background-color: #2c3e50;
     border: 1px solid #1a1a50;
+    border-left-width: 5px; /* Сделаем левую рамку статуса чуть толще */
     border-radius: 4px;
-    padding: 8px 10px; /* Уменьшим padding */
-    display: flex; /* ИЗМЕНЕНО с grid на flex */
-    align-items: center; /* Выравниваем все элементы по центру вертикально */
-    gap: 10px; /* Отступ между элементами внутри шага */
-    min-height: 40px; /* Минимальная высота строки шага */
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
 }
     /* Стили для статусов .natp-step-entry.atp-instance-correct и т.д. остаются */
     .natp-step-entry.atp-instance-correct {
@@ -164,15 +165,37 @@
 }
 
 .natp-step-text {
-    /* grid-area: text; - больше не нужен */
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Применяется ко всему блоку, если он переполнен */
+    display: flex; /* Чтобы элементы внутри выстроились в ряд */
+    align-items: baseline; /* Выравнивание по базовой линии текста */
+    gap: 0.5em; /* Отступ между частями строки */
     font-size: 0.9em;
     color: #ddeeff;
-    white-space: nowrap; /* Текст в одну строку */
-    overflow: hidden; /* Обрезать лишнее */
-    text-overflow: ellipsis; /* Многоточие */
-    margin-right: 5px; /* Небольшой отступ от иконки ошибки */
+}
+/* Стили для отдельных частей текста */
+.natp-step-display-order {
+    font-weight: bold;
+    color: #a0b0ff; /* Другой цвет для порядкового номера */
 }
 
+.natp-step-title-prefix {
+    /* Можно не стилизовать или задать font-style: italic; */
+}
+
+.natp-step-algo-number {
+    font-weight: bold;
+    color: white; /* Выделяем номер шага */
+}
+
+.natp-step-description-inline {
+    color: #c0d0ff; /* Более тусклый цвет для описания */
+    /* text-overflow и overflow будут работать на родительском .natp-step-text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .natp-step-error-indicator { /* Стили для иконки ошибки остаются */
     color: #ff7f7f;
     font-weight: bold;

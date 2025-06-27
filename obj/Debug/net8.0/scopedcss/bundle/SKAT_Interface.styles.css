@@ -510,12 +510,13 @@ main {
 .natp-step-entry[b-oob6u1pje3] {
     background-color: #2c3e50;
     border: 1px solid #1a1a50;
+    border-left-width: 5px; /* Сделаем левую рамку статуса чуть толще */
     border-radius: 4px;
-    padding: 8px 10px; /* Уменьшим padding */
-    display: flex; /* ИЗМЕНЕНО с grid на flex */
-    align-items: center; /* Выравниваем все элементы по центру вертикально */
-    gap: 10px; /* Отступ между элементами внутри шага */
-    min-height: 40px; /* Минимальная высота строки шага */
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
 }
     /* Стили для статусов .natp-step-entry.atp-instance-correct и т.д. остаются */
     .natp-step-entry.atp-instance-correct[b-oob6u1pje3] {
@@ -545,15 +546,37 @@ main {
 }
 
 .natp-step-text[b-oob6u1pje3] {
-    /* grid-area: text; - больше не нужен */
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Применяется ко всему блоку, если он переполнен */
+    display: flex; /* Чтобы элементы внутри выстроились в ряд */
+    align-items: baseline; /* Выравнивание по базовой линии текста */
+    gap: 0.5em; /* Отступ между частями строки */
     font-size: 0.9em;
     color: #ddeeff;
-    white-space: nowrap; /* Текст в одну строку */
-    overflow: hidden; /* Обрезать лишнее */
-    text-overflow: ellipsis; /* Многоточие */
-    margin-right: 5px; /* Небольшой отступ от иконки ошибки */
+}
+/* Стили для отдельных частей текста */
+.natp-step-display-order[b-oob6u1pje3] {
+    font-weight: bold;
+    color: #a0b0ff; /* Другой цвет для порядкового номера */
 }
 
+.natp-step-title-prefix[b-oob6u1pje3] {
+    /* Можно не стилизовать или задать font-style: italic; */
+}
+
+.natp-step-algo-number[b-oob6u1pje3] {
+    font-weight: bold;
+    color: white; /* Выделяем номер шага */
+}
+
+.natp-step-description-inline[b-oob6u1pje3] {
+    color: #c0d0ff; /* Более тусклый цвет для описания */
+    /* text-overflow и overflow будут работать на родительском .natp-step-text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .natp-step-error-indicator[b-oob6u1pje3] { /* Стили для иконки ошибки остаются */
     color: #ff7f7f;
     font-weight: bold;
@@ -2132,6 +2155,73 @@ main {
         background-color: #138496;
         border-color: #117a8b;
     }
+.test-filter[b-pdsotmoszz] {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+    .test-filter label[b-pdsotmoszz] {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .test-filter select[b-pdsotmoszz], .test-filter input[type="text"][b-pdsotmoszz] {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+        min-width: 150px;
+    }
+
+    .test-filter input[type="text"][b-pdsotmoszz] {
+        flex-grow: 1;
+    }
+
+/* Стили для таблицы */
+.stats-table .text-muted[b-pdsotmoszz] {
+    color: #6c757d;
+    font-size: 0.85em;
+}
+
+.stats-table .text-success[b-pdsotmoszz] {
+    color: #155724;
+    font-weight: bold;
+}
+
+.stats-table .text-danger[b-pdsotmoszz] {
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* Стили для инлайнового прогресс-бара */
+.progress-bar-container-inline[b-pdsotmoszz] {
+    width: 100%;
+    min-width: 100px; /* Чтобы было видно даже при 0% */
+    background-color: rgba(220, 53, 69, 0.2); /* Легкий красный фон (неудачные попытки) */
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+    position: relative; /* Для позиционирования текста */
+}
+
+.progress-bar-inline[b-pdsotmoszz] {
+    background-color: rgba(40, 167, 69, 0.7); /* Зеленый для удачных */
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    border-radius: 5px 0 0 5px;
+    transition: width 0.5s ease-in-out;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3); /* Тень для читаемости текста */
+}
 /* _content/SKAT_Interface/Components/Pages/UserSettingsPage.razor.rz.scp.css */
 /* wwwroot/css/UserSettingsPage.css */
 .settings-container[b-87fjhmug2m] {

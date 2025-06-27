@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\MVS\\SKAT_Interface\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\components\\pages\\actualtestpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:components\\pages\\actualtestpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\models\\dbusersmodels\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:models\\dbusersmodels\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\components\\pages\\actualtestpage.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:components\\pages\\actualtestpage.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\services\\algorithmapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:services\\algorithmapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\components\\pages\\sessionresultspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:components\\pages\\sessionresultspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:components\\layout\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|c:\\mvs\\skat_interface\\components\\pages\\userstatisticspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64A9C8FB-75D4-4E83-8B04-0E40C29D06F3}|SKAT_Interface.csproj|solutionrelative:components\\pages\\userstatisticspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +18,32 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAIwCkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:09:08.898Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AlgorithmApiService.cs",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Services\\AlgorithmApiService.cs",
-              "RelativeDocumentMoniker": "Services\\AlgorithmApiService.cs",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Services\\AlgorithmApiService.cs",
-              "RelativeToolTip": "Services\\AlgorithmApiService.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAYwDUAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:07:55.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SessionResultsPage.razor",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\SessionResultsPage.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\SessionResultsPage.razor",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\SessionResultsPage.razor",
-              "RelativeToolTip": "Components\\Pages\\SessionResultsPage.razor",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAACAAAABWAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserStatisticsPage.razor",
+              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\UserStatisticsPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\UserStatisticsPage.razor",
+              "ToolTip": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\UserStatisticsPage.razor",
+              "RelativeToolTip": "Components\\Pages\\UserStatisticsPage.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACQAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T14:55:53.278Z",
+              "WhenOpened": "2025-06-27T13:17:16.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ActualTestPage.razor",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\ActualTestPage.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\ActualTestPage.razor",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\ActualTestPage.razor",
-              "RelativeToolTip": "Components\\Pages\\ActualTestPage.razor",
-              "ViewState": "AgIAADQAAAAAAAAAAAAIwEYAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T14:49:12.282Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-25T14:42:28.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainLayout.razor.css",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Components\\Layout\\MainLayout.razor.css",
-              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor.css",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Components\\Layout\\MainLayout.razor.css",
-              "RelativeToolTip": "Components\\Layout\\MainLayout.razor.css",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-25T14:02:55.57Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ActualTestPage.razor.css",
-              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\ActualTestPage.razor.css",
-              "RelativeDocumentMoniker": "Components\\Pages\\ActualTestPage.razor.css",
-              "ToolTip": "C:\\MVS\\SKAT_Interface\\Components\\Pages\\ActualTestPage.razor.css",
-              "RelativeToolTip": "Components\\Pages\\ActualTestPage.razor.css",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAkwK8AAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-06-25T12:23:20.894Z",
+              "Title": "Session.cs",
+              "DocumentMoniker": "C:\\MVS\\SKAT_Interface\\Models\\DbUsersModels\\Session.cs",
+              "RelativeDocumentMoniker": "Models\\DbUsersModels\\Session.cs",
+              "ToolTip": "C:\\MVS\\SKAT_Interface\\Models\\DbUsersModels\\Session.cs",
+              "RelativeToolTip": "Models\\DbUsersModels\\Session.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T11:40:31.361Z",
               "EditorCaption": ""
             }
           ]

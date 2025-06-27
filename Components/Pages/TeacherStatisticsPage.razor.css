@@ -92,3 +92,70 @@
         background-color: #138496;
         border-color: #117a8b;
     }
+.test-filter {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+    .test-filter label {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .test-filter select, .test-filter input[type="text"] {
+        padding: 8px 12px;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+        min-width: 150px;
+    }
+
+    .test-filter input[type="text"] {
+        flex-grow: 1;
+    }
+
+/* Стили для таблицы */
+.stats-table .text-muted {
+    color: #6c757d;
+    font-size: 0.85em;
+}
+
+.stats-table .text-success {
+    color: #155724;
+    font-weight: bold;
+}
+
+.stats-table .text-danger {
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* Стили для инлайнового прогресс-бара */
+.progress-bar-container-inline {
+    width: 100%;
+    min-width: 100px; /* Чтобы было видно даже при 0% */
+    background-color: rgba(220, 53, 69, 0.2); /* Легкий красный фон (неудачные попытки) */
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+    position: relative; /* Для позиционирования текста */
+}
+
+.progress-bar-inline {
+    background-color: rgba(40, 167, 69, 0.7); /* Зеленый для удачных */
+    height: 100%;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    border-radius: 5px 0 0 5px;
+    transition: width 0.5s ease-in-out;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3); /* Тень для читаемости текста */
+}
