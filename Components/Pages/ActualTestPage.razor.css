@@ -102,6 +102,36 @@
     border-right: 2px solid #1a1a50;
 }
 
+.natp-initial-state-table {
+    border-collapse: collapse;
+    margin-top: 5px; /* Отступ от "Имя_массива =" */
+    margin-bottom: 10px;
+    background-color: rgba(0,0,0,0.1); /* Легкий фон для таблицы */
+}
+
+    .natp-initial-state-table td {
+        border: 1px solid #5577bb; /* Синяя рамка ячеек */
+        padding: 4px 8px;
+        text-align: center;
+        min-width: 30px; /* Минимальная ширина ячейки */
+        color: #ddeeff; /* Светлый текст */
+    }
+
+/* Для обычных переменных, обернутых в div */
+.natp-initial-state-display div {
+    margin-bottom: 4px; /* Небольшой отступ между переменными */
+}
+
+.natp-initial-state-display {
+    margin-top: 10px;
+    font-family: Consolas, Monaco, monospace; /* Моноширинный шрифт для кода */
+    white-space: pre-wrap; /* Сохраняем переносы строк и пробелы */
+}
+    /* Заголовок "Начальные значения" теперь внутри, поэтому стилизуем его здесь */
+    .natp-initial-state-display strong {
+        color: #a0b0ff;
+    }
+
 .natp-task-description-header {
     margin-bottom: 15px;
     padding-bottom: 10px;

@@ -1191,7 +1191,10 @@
         {
             return "Ваше решение избыточно, перепроверьте решение.";
         }
-
+        if (lowerApiMessage.Contains("No matching value in substitute-values for") || lowerApiMessage.Contains("Неверный номер шага"))
+        {
+            return "Не тот шаг алгоритма, перепроверьте решение.";
+        }
         // Если ни одно из известных сообщений не подошло, возвращаем оригинальное (или более общее)
         Console.WriteLine($"Нераспознанное сообщение об ошибке API: '{apiMessage}' для Step: {errorDetails.Step}, Seq: {errorDetails.Sequence}, Var: {errorDetails.VariableName}");
         return "Обнаружена ошибка в этом шаге. Детали: " + apiMessage; // Или просто "Перепроверьте этот шаг."

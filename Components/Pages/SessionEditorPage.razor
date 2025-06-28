@@ -62,7 +62,7 @@
                                     <InputCheckbox @bind-Value="testConfig.IsIncluded" class="nse-custom-checkbox" id={`test-cb-${testConfig.TestId}`} />
                                     <label for={`test-cb-${testConfig.TestId}`} class="nse-test-name">@testConfig.TestName</label>
 
-                                    <div class="nse-test-inclusion-options">
+@*                                     <div class="nse-test-inclusion-options">
                                         <InputRadioGroup @bind-Value="testConfig.InclusionMode">
                                             <div class="nse-radio-inline">
                                                 <InputRadio Value="TestInclusionMode.Reserve" id={`mode-reserve-${testConfig.TestId}`} />
@@ -73,7 +73,7 @@
                                                 <label for={`mode-garant-${testConfig.TestId}`}>Гарант</label>
                                             </div>
                                         </InputRadioGroup>
-                                    </div>
+                                    </div> *@
                                 </div>
                             }
                         }

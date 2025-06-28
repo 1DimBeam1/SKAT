@@ -162,11 +162,11 @@
             availableTestModes.Clear();
             if (!string.IsNullOrEmpty(session.SessionType))
             {
-                if (session.SessionType.Contains("Контрольная", StringComparison.OrdinalIgnoreCase))
+                if (session.SessionType.Contains("Обучающая", StringComparison.OrdinalIgnoreCase))
                 {
                     availableTestModes.Add(TestMode.Training);
                 }
-                if (session.SessionType.Contains("Обучающая", StringComparison.OrdinalIgnoreCase))
+                if (session.SessionType.Contains("Контрольная", StringComparison.OrdinalIgnoreCase))
                 {
                     availableTestModes.Add(TestMode.Control);
                 }
