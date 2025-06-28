@@ -475,4 +475,36 @@
     border-radius: .25rem;
     text-align: left;
 }
+
+.atp-2d-array-input-cells {
+    /* Контейнер для таблицы */
+    border: 1px solid #5577bb;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+    .atp-2d-array-input-cells table {
+        border-collapse: collapse; /* Убираем двойные рамки между ячейками */
+    }
+
+    .atp-2d-array-input-cells td {
+        padding: 2px; /* Небольшой отступ внутри ячейки таблицы */
+        border: none; /* Убираем рамки у самой ячейки таблицы */
+    }
+
+/* Стили для .atp-array-cell теперь применяются и к ячейкам 2D массива */
+.atp-array-cell {
+    width: 40px; /* Уменьшим для компактности, подберите значение */
+    height: 28px; /* Явная высота для выравнивания */
+    padding: 4px;
+    text-align: center;
+    background-color: #cccccc;
+    border: 1px solid #aaaaaa;
+    border-radius: 3px;
+    color: #333;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    box-sizing: border-box; /* Важно, чтобы padding не увеличивал размер */
+}
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/

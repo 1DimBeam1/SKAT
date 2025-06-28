@@ -95,7 +95,34 @@
                                                 }
                                             </div>
                                         }
-                                        else if (userInput.IsArray && userInput.IsTwoDimensional) { /* ... */ }
+                                        else if (userInput.IsArray && userInput.IsTwoDimensional)
+                                        {
+                                            <div class="atp-2d-array-input-cells">
+                                                @if (userInput.TwoDArrayCellValues != null)
+                                                {
+                                                    <table>
+                                                        <tbody>
+                                                            @for (int r = 0; r < userInput.ArrayRows; r++)
+                                                            {
+                                                                var rowIndex = r; // Захват переменной для лямбды
+                                                                <tr>
+                                                                    @for (int c = 0; c < userInput.ArrayCols; c++)
+                                                                    {
+                                                                        var colIndex = c; // Захват переменной для лямбды
+                                                                        <td>
+                                                                            <input type="text" class="atp-array-cell"
+                                                                                   placeholder="@($"[{rowIndex},{colIndex}]")"
+                                                                                   value="@userInput.TwoDArrayCellValues[rowIndex][colIndex]"
+                                                                                   @oninput="@(async (ChangeEventArgs e) => { userInput.TwoDArrayCellValues[rowIndex][colIndex] = e.Value?.ToString(); await HandleInputChange(); })" />
+                                                                        </td>
+                                                                    }
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                }
+                                            </div>
+                                        }
                                         else
                                         {
                                             <input type="text" class="atp-single-value-input"
@@ -1044,9 +1071,27 @@
         {
             foreach (var userInput in instance.UserInputs)
             {
-                string valueToSubmit = userInput.IsArray ?
-                    string.Join(",", userInput.ArrayCellValues.Select(cell => cell ?? "")) :
-                    (userInput.CurrentValue ?? "");
+                string valueToSubmit;
+                if (userInput.IsArray)
+                {
+                    if (userInput.IsTwoDimensional)
+                    {
+                        // Сериализуем 2D массив в строку: "1,2,3;4,5,6"
+                        valueToSubmit = string.Join(";",
+                            userInput.TwoDArrayCellValues.Select(row =>
+                                string.Join(",", row.Select(cell => cell ?? ""))
+                            )
+                        );
+                    }
+                    else // Одномерный
+                    {
+                        valueToSubmit = string.Join(",", userInput.ArrayCellValues.Select(cell => cell ?? ""));
+                    }
+                }
+                else
+                {
+                    valueToSubmit = userInput.CurrentValue ?? "";
+                }
 
                 testAttempt.Variables.Add(new VariableSubmissionDto
                     {
@@ -1233,12 +1278,33 @@
                     {
                         foreach (var userInput in instance.UserInputs)
                         {
+                            string valueToSubmit;
+                            if (userInput.IsArray)
+                            {
+                                if (userInput.IsTwoDimensional)
+                                {
+                                    // Сериализуем 2D массив в строку: "1,2,3;4,5,6"
+                                    valueToSubmit = string.Join(";",
+                                        userInput.TwoDArrayCellValues.Select(row =>
+                                            string.Join(",", row.Select(cell => cell ?? ""))
+                                        )
+                                    );
+                                }
+                                else // Одномерный
+                                {
+                                    valueToSubmit = string.Join(",", userInput.ArrayCellValues.Select(cell => cell ?? ""));
+                                }
+                            }
+                            else
+                            {
+                                valueToSubmit = userInput.CurrentValue ?? "";
+                            }
                             attempt.Variables.Add(new VariableSubmissionDto
                                 {
                                     Sequence = instance.DisplayOrder,
                                     Step = instance.OriginalStepNumber,
                                     VariableName = userInput.Name,
-                                    VariableValue = userInput.IsArray ? string.Join(",", userInput.ArrayCellValues.Select(c => c ?? "")) : (userInput.CurrentValue ?? "")
+                                    VariableValue = valueToSubmit
                                 });
                         }
                     }

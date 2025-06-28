@@ -2,7 +2,7 @@
 @page "/task-editor/{TaskId:int}"
 @inject NavigationManager NavigationManager
 @inject AlgorithmApiService AlgorithmService
-@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@rendermode InteractiveServer
 
 @using SKAT_Interface.Services
 
@@ -23,7 +23,14 @@ OnGenerate="HandleAutoGeneration" />
                 @if (isConfirmation)
                 {
                     <button class="modal-btn btn-secondary" @onclick="CloseMessageModal">Отмена</button>
-                    <button class="modal-btn btn-primary" @onclick="ConfirmAction">Подтвердить</button>
+                    @if (!isDeletionModal)
+                    {
+                        <button class="modal-btn btn-primary" @onclick="ConfirmAction">Подтвердить</button>
+                    }
+                    else
+                    {
+                        <button class="modal-btn btn-danger" @onclick="ConfirmAction">Удалить</button>
+                    }
                 }
                 else
                 {
@@ -37,6 +44,10 @@ OnGenerate="HandleAutoGeneration" />
 <div class="task-editor-container">
     <div class="task-editor-header-controls">
         <button class="btn-back" @onclick="NavigateBack">← Назад</button>
+        @if (TaskId.HasValue)
+        {
+            <button class="btn-delete" @onclick="ConfirmDeleteTest">Удалить тест</button>
+        }
     </div>
 
     <div class="task-editor-main-content">
@@ -107,7 +118,6 @@ OnGenerate="HandleAutoGeneration" />
     private List<InputVariable> inputVariables = new();
     private List<InputVariable> originalInputVariables = new(); // Исходные переменные теста
     private int? originalAlgorithmId; // Исходный алгоритм теста
-
     private bool isInitialLoading = false;
 
     private int _selectedAlgorithmId = 0;
@@ -131,6 +141,7 @@ OnGenerate="HandleAutoGeneration" />
     private Func<Task>? confirmationAction;
 
     private bool showAutoGenerateModal = false;
+    private bool isDeletionModal = false;
 
     // Модель для входных переменных
     private class InputVariable
@@ -290,7 +301,40 @@ OnGenerate="HandleAutoGeneration" />
         bool success = false;
         if (TaskId.HasValue)
         {
-            success = await AlgorithmService.UpdateTestAsync(TaskId.Value, test, inputData);
+            // Проверяем, изменился ли алгоритм
+            bool algorithmChanged = selectedAlgorithmId != originalAlgorithmId;
+
+            // Проверяем, изменились ли переменные или их значения
+            bool variablesChanged = !AreVariablesEqual(originalInputVariables, inputVariables);
+
+            if (!algorithmChanged && !variablesChanged)
+            {
+                // Обновляем только название и описание
+                success = await AlgorithmService.CreateHelperAsync(TaskId.Value, test);
+            }
+            else
+            {
+                // Удаляем старый тест
+                await AlgorithmService.DeleteTestAsync(TaskId.Value);
+                // Создаем новый тест
+                var updates = inputVariables.Select(v => new VariableUpdateDto
+                    {
+                        LineNumber = v.LineNumber,
+                        VariableName = v.VarName,
+                        Value = v.VarValue
+                    }).ToList();
+
+                var createdTestId = await AlgorithmService.CreateTestWithValuesAsync(selectedAlgorithmId, updates);
+                if (createdTestId.HasValue)
+                {
+                    test.TestId = createdTestId.Value;
+                    success = await AlgorithmService.CreateHelperAsync(createdTestId.Value, test);
+                    if (success)
+                    {
+                        success = await AlgorithmService.ModifyTestAsync(selectedAlgorithmId, createdTestId.Value);
+                    }
+                }
+            }
         }
         else
         {
@@ -306,14 +350,14 @@ OnGenerate="HandleAutoGeneration" />
             var createdTestId = await AlgorithmService.CreateTestWithValuesAsync(selectedAlgorithmId, updates);
             if (createdTestId.HasValue)
             {
-                // Обновляем поля теста (имя и описание)
+                // Обновляем поля теста (имя и описание) и модификация
                 test.TestId = createdTestId.Value;
-                foreach (var input in inputData)
+                success = await AlgorithmService.CreateHelperAsync(createdTestId.Value, test);
+                if (success)
                 {
-                    input.TestId = createdTestId.Value;
-                }
+                    success = await AlgorithmService.ModifyTestAsync(selectedAlgorithmId, createdTestId.Value);
+                };
 
-                success = await AlgorithmService.UpdateTestAsync(createdTestId.Value, test, inputData);
             }
         }
 
@@ -325,6 +369,43 @@ OnGenerate="HandleAutoGeneration" />
         else
         {
             ShowMessageModal("Ошибка", "Ошибка при сохранении задания.", false);
+        }
+    }
+
+    private bool AreVariablesEqual(List<InputVariable> original, List<InputVariable> current)
+    {
+        if (original.Count != current.Count) return false;
+        for (int i = 0; i < original.Count; i++)
+        {
+            if (original[i].VarName != current[i].VarName ||
+                original[i].VarType != current[i].VarType ||
+                original[i].VarValue != current[i].VarValue ||
+                original[i].LineNumber != current[i].LineNumber)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void ConfirmDeleteTest()
+    {
+        isDeletionModal = true;
+        ShowMessageModal("Подтверждение", "Вы уверены, что хотите удалить задание?", true, HandleDeleteTask);
+    }
+
+    private async Task HandleDeleteTask()
+    {
+        isDeletionModal = false;
+        var success = await AlgorithmService.DeleteTestAsync(TaskId.Value);
+        if (success)
+        {
+            ShowMessageModal("Успех", "Тест успешно удален.", false);
+            NavigateBack();
+        }
+        else
+        {
+            ShowMessageModal("Ошибка", "Ошибка при удалении теста.", false);
         }
     }
 
@@ -340,6 +421,7 @@ OnGenerate="HandleAutoGeneration" />
     private void CloseMessageModal()
     {
         showMessageModal = false;
+        isDeletionModal = false;
     }
 
     private async Task ConfirmAction()
