@@ -767,6 +767,45 @@ namespace SKAT_Interface.Services
             }
         }
 
+        public async Task<bool> CreateHelperAsync(int testId, TestDto test)
+        {
+            try
+            {
+                var response = await _httpClient.PutAsJsonAsync($"{_apiBaseUrl}/api/testmanagement/create-helper/{testId}", test);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error updating test with create-helper {testId}: {response.StatusCode} - {errorContent}");
+                }
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in CreateHelperAsync for testId {testId}: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> ModifyTestAsync(int codeId, int testId)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsync($"{_apiBaseUrl}/api/code/modify-test/{codeId}/{testId}", null);
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine($"Error modifying test {testId} for codeId {codeId}: {response.StatusCode} - {errorContent}");
+                }
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in ModifyTestAsync for codeId {codeId}, testId {testId}: {ex.Message}");
+                return false;
+            }
+        }
+
+
         // Добавьте сюда другие методы для взаимодействия с вашим API по мере необходимости
         // Например, для загрузки алгоритма, получения картинки и т.д.
     }

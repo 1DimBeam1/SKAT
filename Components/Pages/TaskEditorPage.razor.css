@@ -3,25 +3,28 @@
     display: block;
 }
 
+* {
+    box-sizing: border-box; /* Глобально включаем border-box */
+}
+
 .task-editor-container {
     display: flex;
-    flex-direction: column; /* Важно: элементы внутри будут располагаться вертикально */
+    flex-direction: column;
     height: calc(100vh - 3.5rem);
     background-color: #2c5da3;
     color: white;
     font-family: sans-serif;
-    overflow: hidden; /* Предотвращаем двойные скроллы */
+    overflow: hidden;
 }
 
-.task-editor-header-controls { /* Контейнер для кнопки "Назад" */
+.task-editor-header-controls {
     background-color: #0d0d29;
-    padding: 8px 15px; /* Сделаем паддинг как у AlgorithmEditorPage для единообразия */
+    padding: 8px 15px;
     display: flex;
-    flex-shrink: 0; /* Не сжимать эту панель */
-    /* border-bottom: 2px solid #1a1a50; /* Можно оставить или убрать, если заголовки колонок имеют свой border */
+    flex-shrink: 0;
 }
 
-.btn-back { /* Стили для кнопки "Назад" */
+.btn-back {
     background-color: #4a5a6a;
     color: white;
     border: none;
@@ -36,10 +39,25 @@
         background-color: #5a6a7a;
     }
 
-.task-editor-main-content { /* Новый контейнер для двух колонок */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+
+.task-editor-main-content {
     display: flex;
-    flex-grow: 1; /* Занимает все оставшееся пространство */
-    overflow: hidden; /* Позволяет колонкам скроллиться независимо, если нужно */
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 .task-editor-left-column,
@@ -48,7 +66,6 @@
     flex-direction: column;
     padding: 0;
     box-sizing: border-box;
-    /* overflow-y: auto; */ /* Раскомментируйте, если хотите индивидуальный скролл для каждой колонки */
 }
 
 .task-editor-left-column {
@@ -68,12 +85,11 @@
     text-align: center;
     border-bottom: 1px solid #1a1a50;
     font-size: 1.1em;
-    flex-shrink: 0; /* Заголовок не должен сжиматься */
+    flex-shrink: 0;
 }
 
 .form-section {
     padding: 20px 25px;
-    /* overflow-y: auto; */ /* Если секция может быть очень длинной, а колонка нет */
 }
 
     .form-section label {
@@ -102,7 +118,6 @@
         line-height: 1.5;
     }
 
-
 .btn-select-algorithm {
     background-color: #1a1a50;
     color: white;
@@ -125,7 +140,7 @@
     margin-top: auto;
     gap: 15px;
     align-items: flex-end;
-    flex-shrink: 0; /* Группа кнопок не должна сжиматься */
+    flex-shrink: 0;
 }
 
 .btn-action {
@@ -207,7 +222,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1050; /* Выше других элементов, если есть перекрытия */
+    z-index: 1050;
 }
 
 .modal-content {
@@ -267,21 +282,21 @@
     }
 
 .btn-primary {
-    background-color: #28a745; /* Зеленый фон */
-    color: white; /* Белый текст */
-    border-color: #28a745; /* Зеленая рамка */
-    padding: 8px 16px; /* Отступы для красоты */
-    border-radius: 4px; /* Скругленные углы */
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 
     .btn-primary:hover {
-        background-color: #218838; /* Темнее при наведении */
+        background-color: #218838;
         border-color: #1e7e34;
     }
 
 .select-wrapper {
     position: relative;
-    flex-grow: 1;
+    width: 100%; /* Убрали calc, ширина адаптируется к родителю */
 }
 
     .select-wrapper select {
